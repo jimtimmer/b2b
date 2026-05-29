@@ -30,11 +30,11 @@ function laadSidebar() {
   const huidigePagina = window.location.pathname.split('/').pop() || 'index.html';
 
   const navItems = [
-    { href: 'index.html',      icoon: '🏠', label: 'Home' },
-    { href: 'agenda.html',     icoon: '📅', label: 'Agenda' },
+    { href: 'index.html',        icoon: '🏠', label: 'Home' },
+    { href: 'agenda.html',       icoon: '📅', label: 'Agenda' },
     { href: 'wie-zijn-wij.html', icoon: '👥', label: 'Wie zijn wij' },
-    { href: 'nieuws.html',     icoon: '📰', label: 'Nieuws' },
-    { href: 'contact.html',    icoon: '✉️', label: 'Contact' },
+    { href: 'nieuws.html',       icoon: '📰', label: 'Nieuws' },
+    { href: 'contact.html',      icoon: '✉️', label: 'Contact' },
   ];
 
   const navHTML = navItems.map(item => {
@@ -50,21 +50,22 @@ function laadSidebar() {
   }).join('');
 
   const sidebarHTML = `
-    <a href="index.html" class="sidebar-logo">
-      <div class="logo-icoon">
-        <svg width="34" height="34" viewBox="0 0 34 34" fill="none" xmlns="http://www.w3.org/2000/svg">
-          <!-- Kruis -->
-          <rect x="15" y="4" width="4" height="26" rx="2" fill="#C4622D"/>
-          <rect x="6" y="11" width="22" height="4" rx="2" fill="#C4622D"/>
-          <!-- Cirkel eromheen -->
-          <circle cx="17" cy="17" r="15.5" stroke="rgba(253,250,245,0.2)" stroke-width="1.5" fill="none"/>
-        </svg>
-        <div>
-          <div class="logo-naam">Back<span>2</span>Basics</div>
+    <div class="sidebar-logo-rij">
+      <a href="index.html" class="sidebar-logo">
+        <div class="logo-icoon">
+          <svg width="34" height="34" viewBox="0 0 34 34" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <rect x="15" y="4" width="4" height="26" rx="2" fill="#C4622D"/>
+            <rect x="6" y="11" width="22" height="4" rx="2" fill="#C4622D"/>
+            <circle cx="17" cy="17" r="15.5" stroke="rgba(253,250,245,0.2)" stroke-width="1.5" fill="none"/>
+          </svg>
+          <div>
+            <div class="logo-naam">Back<span>2</span>Basics</div>
+          </div>
         </div>
-      </div>
-      <div class="logo-ondertitel">Gemeente &mdash; Beverwijk</div>
-    </a>
+        <div class="logo-ondertitel">Gemeente &mdash; Beverwijk</div>
+      </a>
+      <button class="sidebar-sluit" id="sidebar-sluit" aria-label="Menu sluiten">✕</button>
+    </div>
     <nav class="sidebar-nav">
       <ul>${navHTML}</ul>
     </nav>
@@ -79,11 +80,11 @@ function laadSidebar() {
 
   // Paginatitel instellen
   const paginaTitels = {
-    'index.html': 'Dashboard',
-    'agenda.html': 'Agenda',
+    'index.html':        'Dashboard',
+    'agenda.html':       'Agenda',
     'wie-zijn-wij.html': 'Wie zijn wij',
-    'nieuws.html': 'Nieuws',
-    'contact.html': 'Contact',
+    'nieuws.html':       'Nieuws',
+    'contact.html':      'Contact',
   };
 
   const titelEl = document.getElementById('pagina-titel');
@@ -96,6 +97,66 @@ function laadSidebar() {
     const weekdagen = ['zondag','maandag','dinsdag','woensdag','donderdag','vrijdag','zaterdag'];
     datumEl.textContent = `${weekdagen[nu.getDay()]} ${nu.getDate()} ${MAANDEN_LANG[nu.getMonth()]} ${nu.getFullYear()}`;
   }
+
+  // Hamburger menu logica
+  voegHamburgerToe();
+}
+
+function voegHamburgerToe() {
+  // Maak hamburger knop aan
+  const knop = document.createElement('button');
+  knop.className = 'hamburger-knop';
+  knop.id = 'hamburger-knop';
+  knop.setAttribute('aria-label', 'Menu openen');
+  knop.innerHTML = '<span></span><span></span><span></span>';
+  document.body.appendChild(knop);
+
+  // Maak overlay aan
+  const overlay = document.createElement('div');
+  overlay.className = 'menu-overlay';
+  overlay.id = 'menu-overlay';
+  document.body.appendChild(overlay);
+
+  const sidebar = document.getElementById('sidebar');
+
+  function menuOpen() {
+    sidebar.classList.add('open');
+    knop.classList.add('open');
+    overlay.classList.add('zichtbaar');
+    document.body.style.overflow = 'hidden';
+  }
+
+  function menuSluit() {
+    sidebar.classList.remove('open');
+    knop.classList.remove('open');
+    overlay.classList.remove('zichtbaar');
+    document.body.style.overflow = '';
+  }
+
+  // Hamburger knop toggle
+  knop.addEventListener('click', () => {
+    sidebar.classList.contains('open') ? menuSluit() : menuOpen();
+  });
+
+  // Overlay klik sluit menu
+  overlay.addEventListener('click', menuSluit);
+
+  // Sluit-knop in sidebar
+  document.addEventListener('click', (e) => {
+    if (e.target.id === 'sidebar-sluit') menuSluit();
+  });
+
+  // Navigatielinks sluiten menu op mobiel
+  document.querySelectorAll('.sidebar-nav a').forEach(link => {
+    link.addEventListener('click', () => {
+      if (window.innerWidth <= 768) menuSluit();
+    });
+  });
+
+  // ESC toets sluit menu
+  document.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape') menuSluit();
+  });
 }
 
 // --- Data ophalen ---
