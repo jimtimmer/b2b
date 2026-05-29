@@ -30,11 +30,11 @@ function laadSidebar() {
   const huidigePagina = window.location.pathname.split('/').pop() || 'index.html';
 
   const navItems = [
-    { href: 'index.html',        icoon: '🏠', label: 'Home' },
-    { href: 'agenda.html',       icoon: '📅', label: 'Agenda' },
-    { href: 'wie-zijn-wij.html', icoon: '👥', label: 'Wie zijn wij' },
-    { href: 'nieuws.html',       icoon: '📰', label: 'Nieuws' },
-    { href: 'contact.html',      icoon: '✉️', label: 'Contact' },
+    { href: 'index.html',        icoon: 'house',     label: 'Home' },
+    { href: 'agenda.html',       icoon: 'calendar',  label: 'Agenda' },
+    { href: 'wie-zijn-wij.html', icoon: 'users',     label: 'Wie zijn wij' },
+    { href: 'nieuws.html',       icoon: 'newspaper', label: 'Nieuws' },
+    { href: 'contact.html',      icoon: 'mail',      label: 'Contact' },
   ];
 
   const navHTML = navItems.map(item => {
@@ -42,7 +42,7 @@ function laadSidebar() {
     return `
       <li>
         <a href="${item.href}" class="${actief}">
-          <span class="nav-icoon">${item.icoon}</span>
+          <i data-lucide="${item.icoon}" class="nav-icoon"></i>
           ${item.label}
         </a>
       </li>
@@ -64,7 +64,7 @@ function laadSidebar() {
         </div>
         <div class="logo-ondertitel">Gemeente &mdash; Beverwijk</div>
       </a>
-      <button class="sidebar-sluit" id="sidebar-sluit" aria-label="Menu sluiten">✕</button>
+      <button class="sidebar-sluit" id="sidebar-sluit" aria-label="Menu sluiten"><i data-lucide="x"></i></button>
     </div>
     <nav class="sidebar-nav">
       <ul>${navHTML}</ul>
@@ -76,7 +76,10 @@ function laadSidebar() {
   `;
 
   const sidebar = document.getElementById('sidebar');
-  if (sidebar) sidebar.innerHTML = sidebarHTML;
+  if (sidebar) {
+    sidebar.innerHTML = sidebarHTML;
+    lucide.createIcons();
+  }
 
   // Paginatitel instellen
   const paginaTitels = {
@@ -210,12 +213,13 @@ function laadEerstvolgendeDienst(agenda) {
       <h3>${escapeHTML(komend.titel)}</h3>
       <p class="dienst-thema">"${escapeHTML(komend.thema)}"</p>
       <div class="dienst-meta">
-        <div class="dienst-meta-item">🎤 <span>Spreker: <strong>${escapeHTML(komend.spreker)}</strong></span></div>
-        <div class="dienst-meta-item">🕙 <span><strong>${komend.tijd} uur</strong></span></div>
-        <div class="dienst-meta-item">📍 <span>${escapeHTML(komend.locatie)}</span></div>
+        <div class="dienst-meta-item"><i data-lucide="mic"></i><span>Spreker: <strong>${escapeHTML(komend.spreker)}</strong></span></div>
+        <div class="dienst-meta-item"><i data-lucide="clock"></i><span><strong>${komend.tijd} uur</strong></span></div>
+        <div class="dienst-meta-item"><i data-lucide="map-pin"></i><span>${escapeHTML(komend.locatie)}</span></div>
       </div>
     </div>
   `;
+  lucide.createIcons();
 }
 
 function laadAgendaLijst(agenda) {
@@ -318,9 +322,9 @@ async function laadAgendaPagina() {
               <h3>${escapeHTML(item.titel)}</h3>
               <p class="thema">"${escapeHTML(item.thema)}"</p>
               <div class="meta-rij">
-                <span>🎤 Spreker: <strong>${escapeHTML(item.spreker)}</strong></span>
-                <span>🕙 <strong>${item.tijd} uur</strong></span>
-                <span>📍 ${escapeHTML(item.locatie)}</span>
+                <span><i data-lucide="mic"></i> Spreker: <strong>${escapeHTML(item.spreker)}</strong></span>
+                <span><i data-lucide="clock"></i> <strong>${item.tijd} uur</strong></span>
+                <span><i data-lucide="map-pin"></i> ${escapeHTML(item.locatie)}</span>
               </div>
             </div>
           </div>
@@ -329,6 +333,7 @@ async function laadAgendaPagina() {
     });
 
     container.innerHTML = html;
+    lucide.createIcons();
 
   } catch (err) {
     container.innerHTML = '<p class="laad-tekst">Fout bij laden agenda.</p>';
