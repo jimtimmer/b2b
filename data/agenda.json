@@ -4,17 +4,17 @@
     "datum": "2026-05-31",
     "tijd": "10:00",
     "titel": "Zondagsdienst",
-    "spreker": "Pastor Jan de Vries",
+    "spreker": "Kenneth Johannes",
     "thema": "Terug naar de basis van geloof",
     "locatie": "Hoofdzaal"
   },
   {
     "id": 2,
-    "datum": "2026-06-14",
-    "tijd": "10:00",
-    "titel": "Zondagsdienst",
-    "spreker": "Gastspreker Maria Smit",
-    "thema": "Gebed als fundament",
+    "datum": "2026-07-03",
+    "tijd": "19:00",
+    "titel": "Bidstond",
+    "spreker": "Br. uit de gemeente",
+    "thema": "Gebed voor Israël",
     "locatie": "Hoofdzaal"
   },
   {
@@ -22,25 +22,25 @@
     "datum": "2026-06-21",
     "tijd": "10:00",
     "titel": "Zondagsdienst",
-    "spreker": "Pastor Jan de Vries",
+    "spreker": "Johan Schep",
     "thema": "Gemeenschap & verbinding",
     "locatie": "Hoofdzaal"
   },
   {
     "id": 4,
-    "datum": "2026-06-28",
-    "tijd": "10:00",
-    "titel": "Zondagsdienst",
-    "spreker": "Ds. Peter van der Berg",
+    "datum": "2026-07-25",
+    "tijd": "19:30",
+    "titel": "Bijbelstudie",
+    "spreker": "Dirk-Jan Janssen",
     "thema": "De kracht van eenvoud",
     "locatie": "Hoofdzaal"
   },
   {
     "id": 5,
-    "datum": "2026-07-05",
+    "datum": "2026-07-28",
     "tijd": "10:00",
     "titel": "Zondagsdienst",
-    "spreker": "Pastor Jan de Vries",
+    "spreker": "Theo Niemeijer",
     "thema": "Rust vinden in het lawaai",
     "locatie": "Hoofdzaal"
   }
