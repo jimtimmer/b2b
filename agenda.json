@@ -1,0 +1,47 @@
+[
+  {
+    "id": 1,
+    "datum": "2026-06-07",
+    "tijd": "10:00",
+    "titel": "Zondagsdienst",
+    "spreker": "Pastor Jan de Vries",
+    "thema": "Terug naar de basis van geloof",
+    "locatie": "Hoofdzaal"
+  },
+  {
+    "id": 2,
+    "datum": "2026-06-14",
+    "tijd": "10:00",
+    "titel": "Zondagsdienst",
+    "spreker": "Gastspreker Maria Smit",
+    "thema": "Gebed als fundament",
+    "locatie": "Hoofdzaal"
+  },
+  {
+    "id": 3,
+    "datum": "2026-06-21",
+    "tijd": "10:00",
+    "titel": "Zondagsdienst",
+    "spreker": "Pastor Jan de Vries",
+    "thema": "Gemeenschap & verbinding",
+    "locatie": "Hoofdzaal"
+  },
+  {
+    "id": 4,
+    "datum": "2026-06-28",
+    "tijd": "10:00",
+    "titel": "Zondagsdienst",
+    "spreker": "Ds. Peter van der Berg",
+    "thema": "De kracht van eenvoud",
+    "locatie": "Hoofdzaal"
+  },
+  {
+    "id": 5,
+    "datum": "2026-07-05",
+    "tijd": "10:00",
+    "titel": "Zondagsdienst",
+    "spreker": "Pastor Jan de Vries",
+    "thema": "Rust vinden in het lawaai",
+    "locatie": "Hoofdzaal"
+  }
+]

@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Back2Basics — Gemeente Beverwijk</title>
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+  <!-- SIDEBAR -->
+  <aside id="sidebar"></aside>
+
+  <!-- HOOFDINHOUD -->
+  <main id="inhoud">
+
+    <header class="pagina-header">
+      <h1 id="pagina-titel">Dashboard</h1>
+      <span class="header-datum" id="header-datum"></span>
+    </header>
+
+    <div class="pagina-inhoud">
+
+      <!-- Hero -->
+      <section class="hero fade-in fade-in-1">
+        <div class="hero-inhoud">
+          <span class="hero-label">Welkom bij onze gemeente</span>
+          <h2>Geloof in zijn <em>eenvoudigste</em> vorm</h2>
+          <p>Back2Basics is een plek waar iedereen welkom is — om te ontdekken, te vragen en samen te groeien in geloof. Elke zondag om 10:00 uur.</p>
+        </div>
+      </section>
+
+      <!-- Eerstvolgende dienst -->
+      <div class="fade-in fade-in-2" style="margin-bottom: 1.5rem;">
+        <div class="kaart dienst-uitgelicht">
+          <div class="kaart-header">
+            <h3>📌 Eerstvolgende dienst</h3>
+            <span class="kaart-label">Deze week</span>
+          </div>
+          <div class="kaart-body" id="eerstvolgende-dienst">
+            <p class="laad-tekst">Laden...</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Dashboard grid -->
+      <div class="dashboard-grid">
+
+        <!-- Agenda -->
+        <div class="kaart fade-in fade-in-3">
+          <div class="kaart-header">
+            <h3>📅 Komende diensten</h3>
+            <a href="agenda.html" class="kaart-label" style="text-decoration:none;color:var(--kleur-accent)">Alles →</a>
+          </div>
+          <div class="kaart-body" id="agenda-lijst">
+            <p class="laad-tekst">Laden...</p>
+          </div>
+        </div>
+
+        <!-- Nieuws -->
+        <div class="kaart fade-in fade-in-4">
+          <div class="kaart-header">
+            <h3>📰 Laatste nieuws</h3>
+            <a href="nieuws.html" class="kaart-label" style="text-decoration:none;color:var(--kleur-accent)">Alles →</a>
+          </div>
+          <div class="kaart-body" id="nieuws-lijst">
+            <p class="laad-tekst">Laden...</p>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </main>
+
+  <script src="js/main.js"></script>
+</body>
+</html>

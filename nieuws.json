@@ -1,0 +1,29 @@
+[
+  {
+    "id": 1,
+    "datum": "2026-05-20",
+    "titel": "Welkom bij Back2Basics!",
+    "samenvatting": "We zijn verheugd om onze nieuwe gemeente officieel voor te stellen aan de wereld. Back2Basics is een plek waar iedereen welkom is.",
+    "tekst": "We zijn verheugd om onze nieuwe gemeente officieel voor te stellen aan de wereld. Back2Basics is ontstaan vanuit een verlangen naar echte verbinding, eerlijk geloof en een gemeenschap die er voor elkaar is. Iedereen is welkom — jong en oud, gelovig en zoekend. We kijken uit naar een mooie reis samen!",
+    "auteur": "Pastor Jan de Vries",
+    "afbeelding": ""
+  },
+  {
+    "id": 2,
+    "datum": "2026-05-28",
+    "titel": "Eerste samenkomst was geweldig!",
+    "samenvatting": "Afgelopen zondag kwamen meer dan 80 mensen samen voor onze allereerste dienst. Een onvergetelijke ochtend vol muziek, gebed en verbinding.",
+    "tekst": "Afgelopen zondag kwamen meer dan 80 mensen samen voor onze allereerste dienst. Een onvergetelijke ochtend vol muziek, gebed en verbinding. We zijn dankbaar voor iedereen die er bij was. De sfeer was warm, de muziek raakte harten en de boodschap landde. Tot volgende week!",
+    "auteur": "Redactie Back2Basics",
+    "afbeelding": ""
+  },
+  {
+    "id": 3,
+    "datum": "2026-06-01",
+    "titel": "Zomerkamp aankondiging — schrijf je in!",
+    "samenvatting": "Van 18 t/m 20 juli organiseren we een zomerkamp voor jongeren van 13-25 jaar. Avontuur, geloof en vriendschap staan centraal.",
+    "tekst": "Van 18 t/m 20 juli organiseren we een zomerkamp voor jongeren van 13-25 jaar. Avontuur, geloof en vriendschap staan centraal. Het kamp vindt plaats op een prachtige locatie in de Veluwe. Kosten: €65 per persoon (inclusief eten en accommodatie). Inschrijven kan via het contactformulier. Vol = vol, dus wees er snel bij!",
+    "auteur": "Jeugdleider Sarah Bakker",
+    "afbeelding": ""
+  }
+]
