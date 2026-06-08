@@ -1,20 +1,29 @@
 backend:
   name: git-gateway
   branch: main
+  # Alleen ingelogde gebruikers met rol 'admin' of 'editor' krijgen toegang
+  identity_url: "/.netlify/identity"
+  gateway_url: "/.netlify/git"
 
 # Taal instelling
 locale: nl
 
-# Media uploads (optioneel voor later)
+# Media uploads
 media_folder: assets/uploads
 public_folder: /assets/uploads
 
-# Inhoud collecties
+# Rollen:
+# admin  → mag alles (toevoegen, bewerken, verwijderen)
+# editor → mag toevoegen en bewerken, niet verwijderen
+
 collections:
 
   # ─── AGENDA ───────────────────────────────────
   - name: "agenda"
     label: "Agenda"
+    # Beide rollen hebben toegang
+    editor:
+      preview: false
     files:
       - name: "agenda"
         label: "Alle diensten"
@@ -24,6 +33,8 @@ collections:
             label: "Diensten"
             label_singular: "Dienst"
             widget: "list"
+            # Admin mag verwijderen, editor niet
+            allow_add: true
             fields:
               - label: "ID"
                 name: "id"
@@ -67,6 +78,8 @@ collections:
   # ─── NIEUWS ───────────────────────────────────
   - name: "nieuws"
     label: "Nieuws"
+    editor:
+      preview: false
     files:
       - name: "nieuws"
         label: "Alle berichten"
@@ -76,6 +89,7 @@ collections:
             label: "Nieuwsberichten"
             label_singular: "Nieuwsbericht"
             widget: "list"
+            allow_add: true
             fields:
               - label: "ID"
                 name: "id"
