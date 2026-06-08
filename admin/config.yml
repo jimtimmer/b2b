@@ -1,0 +1,108 @@
+backend:
+  name: git-gateway
+  branch: main
+
+# Taal instelling
+locale: nl
+
+# Media uploads (optioneel voor later)
+media_folder: assets/uploads
+public_folder: /assets/uploads
+
+# Inhoud collecties
+collections:
+
+  # ─── AGENDA ───────────────────────────────────
+  - name: "agenda"
+    label: "Agenda"
+    files:
+      - name: "agenda"
+        label: "Alle diensten"
+        file: "data/agenda.json"
+        fields:
+          - name: "diensten"
+            label: "Diensten"
+            label_singular: "Dienst"
+            widget: "list"
+            fields:
+              - label: "ID"
+                name: "id"
+                widget: "number"
+                hint: "Uniek nummer, elke dienst een hoger getal"
+
+              - label: "Datum"
+                name: "datum"
+                widget: "datetime"
+                format: "YYYY-MM-DD"
+                date_format: "DD-MM-YYYY"
+                time_format: false
+                hint: "Datum van de dienst"
+
+              - label: "Tijd"
+                name: "tijd"
+                widget: "string"
+                default: "10:00"
+                hint: "Bijv. 10:00"
+
+              - label: "Titel"
+                name: "titel"
+                widget: "string"
+                default: "Zondagsdienst"
+
+              - label: "Spreker"
+                name: "spreker"
+                widget: "string"
+                hint: "Volledige naam van de spreker"
+
+              - label: "Thema"
+                name: "thema"
+                widget: "string"
+                hint: "Korte omschrijving van het onderwerp"
+
+              - label: "Locatie"
+                name: "locatie"
+                widget: "string"
+                default: "Hoofdzaal"
+
+  # ─── NIEUWS ───────────────────────────────────
+  - name: "nieuws"
+    label: "Nieuws"
+    files:
+      - name: "nieuws"
+        label: "Alle berichten"
+        file: "data/nieuws.json"
+        fields:
+          - name: "berichten"
+            label: "Nieuwsberichten"
+            label_singular: "Nieuwsbericht"
+            widget: "list"
+            fields:
+              - label: "ID"
+                name: "id"
+                widget: "number"
+                hint: "Uniek nummer"
+
+              - label: "Datum"
+                name: "datum"
+                widget: "datetime"
+                format: "YYYY-MM-DD"
+                date_format: "DD-MM-YYYY"
+                time_format: false
+
+              - label: "Titel"
+                name: "titel"
+                widget: "string"
+
+              - label: "Samenvatting"
+                name: "samenvatting"
+                widget: "text"
+                hint: "Korte samenvatting — zichtbaar op de homepage"
+
+              - label: "Volledige tekst"
+                name: "tekst"
+                widget: "text"
+                hint: "Volledig bericht — zichtbaar op de nieuwspagina"
+
+              - label: "Auteur"
+                name: "auteur"
+                widget: "string"

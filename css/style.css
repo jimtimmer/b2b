@@ -146,12 +146,10 @@ body {
 }
 
 .sidebar-nav li a .nav-icoon {
-  width: 18px;
-  height: 18px;
-  flex-shrink: 0;
+  width: 20px;
+  text-align: center;
+  font-size: 1rem;
   opacity: 0.8;
-  stroke: currentColor;
-  fill: none;
 }
 
 /* Sidebar footer */
@@ -163,44 +161,6 @@ body {
   font-family: var(--font-body);
   text-align: center;
   line-height: 1.5;
-}
-
-/* Lucide icon algemeen */
-.sidebar-sluit svg {
-  width: 20px;
-  height: 20px;
-  stroke: currentColor;
-  fill: none;
-  display: block;
-}
-
-.kaart-header h3 svg {
-  width: 16px;
-  height: 16px;
-  stroke: currentColor;
-  fill: none;
-  vertical-align: middle;
-  margin-right: 0.3rem;
-  opacity: 0.75;
-}
-
-.dienst-meta-item svg {
-  width: 14px;
-  height: 14px;
-  stroke: currentColor;
-  fill: none;
-  flex-shrink: 0;
-  opacity: 0.7;
-}
-
-.meta-rij span svg {
-  width: 13px;
-  height: 13px;
-  stroke: currentColor;
-  fill: none;
-  vertical-align: middle;
-  margin-right: 0.2rem;
-  opacity: 0.7;
 }
 
 /* =============================================
@@ -729,7 +689,7 @@ body {
   display: grid;
   grid-template-columns: 1fr 1fr;
   gap: 1.5rem;
-  margin-top: 0;
+  margin-top: 2rem;
 }
 
 .waarde-kaart {
@@ -741,14 +701,8 @@ body {
 }
 
 .waarde-icoon {
+  font-size: 1.8rem;
   margin-bottom: 0.75rem;
-}
-
-.waarde-icoon svg {
-  width: 28px;
-  height: 28px;
-  stroke: var(--kleur-accent);
-  fill: none;
 }
 
 .waarde-kaart h3 {
@@ -814,15 +768,9 @@ body {
 }
 
 .contact-rij .icoon {
+  font-size: 1.1rem;
+  margin-top: 0.1rem;
   flex-shrink: 0;
-  margin-top: 0.15rem;
-}
-
-.contact-rij .icoon svg {
-  width: 18px;
-  height: 18px;
-  stroke: var(--kleur-accent);
-  fill: none;
 }
 
 .contact-rij .detail strong {
@@ -924,174 +872,6 @@ body {
   display: none;
 }
 
-/* Knop icoon */
-.knop-primair svg {
-  width: 16px;
-  height: 16px;
-  stroke: currentColor;
-  fill: none;
-  flex-shrink: 0;
-}
-
-/* =============================================
-   WIE ZIJN WIJ — Foto banner
-   ============================================= */
-
-.foto-banner {
-  border-radius: var(--radius);
-  overflow: hidden;
-  margin-bottom: 2rem;
-  height: 300px;
-  position: relative;
-}
-
-.foto-banner img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  display: block;
-}
-
-.foto-banner-overlay {
-  position: absolute;
-  inset: 0;
-  background: linear-gradient(to bottom, rgba(44,31,20,0.1) 0%, rgba(44,31,20,0.65) 100%);
-  display: flex;
-  align-items: flex-end;
-  padding: 2rem 2.5rem;
-}
-
-.foto-banner-tekst {
-  color: white;
-}
-
-.foto-banner-tekst h2 {
-  font-family: var(--font-display);
-  font-size: 1.9rem;
-  font-weight: 700;
-  margin-bottom: 0.35rem;
-  line-height: 1.2;
-}
-
-.foto-banner-tekst p {
-  font-size: 1rem;
-  opacity: 0.82;
-}
-
-/* Citaat blok */
-.citaat-blok {
-  background: var(--kleur-sidebar);
-  border-radius: var(--radius);
-  padding: 2.5rem;
-  text-align: center;
-  color: var(--kleur-wit);
-  margin-bottom: 2.5rem;
-}
-
-.citaat-blok blockquote {
-  font-family: var(--font-display);
-  font-size: 1.35rem;
-  font-style: italic;
-  line-height: 1.65;
-  margin-bottom: 1rem;
-  color: rgba(253,250,245,0.92);
-}
-
-.citaat-blok cite {
-  font-size: 0.82rem;
-  color: rgba(253,250,245,0.5);
-  text-transform: uppercase;
-  letter-spacing: 0.1em;
-}
-
-/* Sectie labels & koppen */
-.sectie-label {
-  display: block;
-  font-size: 0.76rem;
-  text-transform: uppercase;
-  letter-spacing: 0.14em;
-  color: var(--kleur-accent);
-  margin-bottom: 0.35rem;
-  font-family: var(--font-body);
-}
-
-.sectie-kop {
-  font-family: var(--font-display);
-  font-size: 1.5rem;
-  font-weight: 700;
-  color: var(--kleur-tekst);
-  margin-bottom: 0;
-}
-
-/* Team grid */
-.team-grid {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 1.5rem;
-}
-
-.team-kaart {
-  background: var(--kleur-kaart);
-  border-radius: var(--radius);
-  border: 1px solid var(--kleur-lijn);
-  padding: 2rem 1.5rem;
-  box-shadow: var(--schaduw);
-  text-align: center;
-  transition: all 0.2s ease;
-}
-
-.team-kaart:hover {
-  box-shadow: var(--schaduw-hover);
-  transform: translateY(-2px);
-}
-
-.team-foto {
-  width: 88px;
-  height: 88px;
-  border-radius: 50%;
-  object-fit: cover;
-  margin: 0 auto 1rem;
-  display: block;
-  border: 3px solid var(--kleur-lijn);
-}
-
-.team-naam {
-  font-family: var(--font-display);
-  font-size: 1.05rem;
-  font-weight: 600;
-  margin-bottom: 0.2rem;
-  color: var(--kleur-tekst);
-}
-
-.team-rol {
-  font-size: 0.76rem;
-  text-transform: uppercase;
-  letter-spacing: 0.1em;
-  color: var(--kleur-accent);
-  margin-bottom: 0.85rem;
-}
-
-.team-bio {
-  font-size: 0.92rem;
-  color: var(--kleur-tekst-zacht);
-  line-height: 1.65;
-}
-
-/* Contact locatiefoto */
-.contact-locatie-foto {
-  margin-top: 1.75rem;
-  border-radius: 8px;
-  overflow: hidden;
-  height: 170px;
-}
-
-.contact-locatie-foto img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  display: block;
-}
-
 /* Lege staat */
 .leeg-staat {
   text-align: center;
@@ -1123,7 +903,6 @@ body {
 .fade-in-2 { animation-delay: 0.15s; opacity: 0; }
 .fade-in-3 { animation-delay: 0.25s; opacity: 0; }
 .fade-in-4 { animation-delay: 0.35s; opacity: 0; }
-.fade-in-5 { animation-delay: 0.45s; opacity: 0; }
 
 /* =============================================
    LAAD-INDICATOR
@@ -1224,10 +1003,6 @@ body {
   .contact-grid {
     grid-template-columns: 1fr;
   }
-
-  .team-grid {
-    grid-template-columns: 1fr 1fr;
-  }
 }
 
 /* =============================================
@@ -1271,10 +1046,6 @@ body {
     padding-right: 4rem; /* ruimte voor hamburger knop */
   }
 
-  .header-datum {
-    display: none;
-  }
-
   .pagina-inhoud {
     padding: 1.5rem 1.25rem;
   }
@@ -1295,26 +1066,6 @@ body {
   /* Sluit-knop bovenin sidebar */
   .sidebar-sluit {
     display: flex !important;
-  }
-
-  .team-grid {
-    grid-template-columns: 1fr;
-  }
-
-  .foto-banner {
-    height: 220px;
-  }
-
-  .foto-banner-tekst h2 {
-    font-size: 1.45rem;
-  }
-
-  .citaat-blok {
-    padding: 1.75rem 1.25rem;
-  }
-
-  .citaat-blok blockquote {
-    font-size: 1.1rem;
   }
 }
 
@@ -1340,10 +1091,6 @@ body {
 
   .dienst-dag {
     font-size: 1.8rem;
-  }
-
-  .dienst-info {
-    padding: 1.25rem 1.5rem;
   }
 }
 

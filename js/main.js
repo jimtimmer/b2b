@@ -30,11 +30,11 @@ function laadSidebar() {
   const huidigePagina = window.location.pathname.split('/').pop() || 'index.html';
 
   const navItems = [
-    { href: 'index.html',        icoon: 'house',     label: 'Home' },
-    { href: 'agenda.html',       icoon: 'calendar',  label: 'Agenda' },
-    { href: 'wie-zijn-wij.html', icoon: 'users',     label: 'Wie zijn wij' },
-    { href: 'nieuws.html',       icoon: 'newspaper', label: 'Nieuws' },
-    { href: 'contact.html',      icoon: 'mail',      label: 'Contact' },
+    { href: 'index.html',        icoon: '🏠', label: 'Home' },
+    { href: 'agenda.html',       icoon: '📅', label: 'Agenda' },
+    { href: 'wie-zijn-wij.html', icoon: '👥', label: 'Wie zijn wij' },
+    { href: 'nieuws.html',       icoon: '📰', label: 'Nieuws' },
+    { href: 'contact.html',      icoon: '✉️', label: 'Contact' },
   ];
 
   const navHTML = navItems.map(item => {
@@ -42,7 +42,7 @@ function laadSidebar() {
     return `
       <li>
         <a href="${item.href}" class="${actief}">
-          <i data-lucide="${item.icoon}" class="nav-icoon"></i>
+          <span class="nav-icoon">${item.icoon}</span>
           ${item.label}
         </a>
       </li>
@@ -64,7 +64,7 @@ function laadSidebar() {
         </div>
         <div class="logo-ondertitel">Gemeente &mdash; Beverwijk</div>
       </a>
-      <button class="sidebar-sluit" id="sidebar-sluit" aria-label="Menu sluiten"><i data-lucide="x"></i></button>
+      <button class="sidebar-sluit" id="sidebar-sluit" aria-label="Menu sluiten">✕</button>
     </div>
     <nav class="sidebar-nav">
       <ul>${navHTML}</ul>
@@ -76,10 +76,7 @@ function laadSidebar() {
   `;
 
   const sidebar = document.getElementById('sidebar');
-  if (sidebar) {
-    sidebar.innerHTML = sidebarHTML;
-    lucide.createIcons();
-  }
+  if (sidebar) sidebar.innerHTML = sidebarHTML;
 
   // Paginatitel instellen
   const paginaTitels = {
@@ -192,17 +189,16 @@ function laadEerstvolgendeDienst(agenda) {
   const container = document.getElementById('eerstvolgende-dienst');
   if (!container) return;
 
-  const vandaag = new Date();
-  vandaag.setHours(0,0,0,0);
+  const vandaag2 = new Date();
+  vandaag2.setHours(0,0,0,0);
+  const komend2 = agenda.diensten.find(item => new Date(item.datum + 'T00:00:00') >= vandaag2);
 
-  const komend = agenda.find(item => new Date(item.datum + 'T00:00:00') >= vandaag);
-
-  if (!komend) {
+  if (!komend2) {
     container.innerHTML = '<p class="laad-tekst">Geen komende diensten gevonden.</p>';
     return;
   }
 
-  const d = formatDatum(komend.datum);
+  const d = formatDatum(komend2.datum);
 
   container.innerHTML = `
     <div class="dienst-datum-blok">
@@ -210,16 +206,15 @@ function laadEerstvolgendeDienst(agenda) {
       <div class="dienst-maand">${d.maand}</div>
     </div>
     <div class="dienst-info">
-      <h3>${escapeHTML(komend.titel)}</h3>
-      <p class="dienst-thema">"${escapeHTML(komend.thema)}"</p>
+      <h3>${escapeHTML(komend2.titel)}</h3>
+      <p class="dienst-thema">"${escapeHTML(komend2.thema)}"</p>
       <div class="dienst-meta">
-        <div class="dienst-meta-item"><i data-lucide="mic"></i><span>Spreker: <strong>${escapeHTML(komend.spreker)}</strong></span></div>
-        <div class="dienst-meta-item"><i data-lucide="clock"></i><span><strong>${komend.tijd} uur</strong></span></div>
-        <div class="dienst-meta-item"><i data-lucide="map-pin"></i><span>${escapeHTML(komend.locatie)}</span></div>
+        <div class="dienst-meta-item">🎤 <span>Spreker: <strong>${escapeHTML(komend2.spreker)}</strong></span></div>
+        <div class="dienst-meta-item">🕙 <span><strong>${komend2.tijd} uur</strong></span></div>
+        <div class="dienst-meta-item">📍 <span>${escapeHTML(komend2.locatie)}</span></div>
       </div>
     </div>
   `;
-  lucide.createIcons();
 }
 
 function laadAgendaLijst(agenda) {
@@ -229,7 +224,7 @@ function laadAgendaLijst(agenda) {
   const vandaag = new Date();
   vandaag.setHours(0,0,0,0);
 
-  const komend = agenda
+  const komend = agenda.diensten
     .filter(item => new Date(item.datum + 'T00:00:00') >= vandaag)
     .slice(0, 5);
 
@@ -260,7 +255,7 @@ function laadNieuwsLijst(nieuws) {
   const container = document.getElementById('nieuws-lijst');
   if (!container) return;
 
-  const recent = [...nieuws]
+  const recent = [...nieuws.berichten]
     .sort((a, b) => new Date(b.datum) - new Date(a.datum))
     .slice(0, 3);
 
@@ -290,7 +285,7 @@ async function laadAgendaPagina() {
     const vandaag = new Date();
     vandaag.setHours(0,0,0,0);
 
-    const gesorteerd = [...agenda].sort((a, b) => new Date(a.datum) - new Date(b.datum));
+    const gesorteerd = [...agenda.diensten].sort((a, b) => new Date(a.datum) - new Date(b.datum));
 
     // Groepeer per maand
     const perMaand = {};
@@ -322,9 +317,9 @@ async function laadAgendaPagina() {
               <h3>${escapeHTML(item.titel)}</h3>
               <p class="thema">"${escapeHTML(item.thema)}"</p>
               <div class="meta-rij">
-                <span><i data-lucide="mic"></i> Spreker: <strong>${escapeHTML(item.spreker)}</strong></span>
-                <span><i data-lucide="clock"></i> <strong>${item.tijd} uur</strong></span>
-                <span><i data-lucide="map-pin"></i> ${escapeHTML(item.locatie)}</span>
+                <span>🎤 Spreker: <strong>${escapeHTML(item.spreker)}</strong></span>
+                <span>🕙 <strong>${item.tijd} uur</strong></span>
+                <span>📍 ${escapeHTML(item.locatie)}</span>
               </div>
             </div>
           </div>
@@ -333,7 +328,6 @@ async function laadAgendaPagina() {
     });
 
     container.innerHTML = html;
-    lucide.createIcons();
 
   } catch (err) {
     container.innerHTML = '<p class="laad-tekst">Fout bij laden agenda.</p>';
@@ -352,7 +346,7 @@ async function laadNieuwsPagina() {
   try {
     const nieuws = await haalData('data/nieuws.json');
 
-    const gesorteerd = [...nieuws].sort((a, b) => new Date(b.datum) - new Date(a.datum));
+    const gesorteerd = [...nieuws.berichten].sort((a, b) => new Date(b.datum) - new Date(a.datum));
 
     container.innerHTML = gesorteerd.map(item => {
       const d = formatDatum(item.datum);

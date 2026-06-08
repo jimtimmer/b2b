@@ -19,30 +19,28 @@
 
     <div class="pagina-inhoud">
 
-      <section class="hero fade-in fade-in-1">
-        <div class="hero-inhoud">
-          <span class="hero-label">We horen graag van je</span>
-          <h2>Neem <em>contact</em> op</h2>
-          <p>Heb je een vraag, wil je meer weten of wil je gewoon een keer langskomen? Stuur ons een bericht of kom op zondag langs.</p>
-        </div>
-      </section>
+      <div class="fade-in fade-in-1">
+        <h2 class="sectie-titel">Neem contact op</h2>
+        <p class="sectie-ondertitel">Vragen, aanmeldingen of gewoon even hallo zeggen — we horen graag van je!</p>
+        <div class="sectie-divider"></div>
+      </div>
 
       <div class="contact-grid fade-in fade-in-2">
 
-        <!-- Contactgegevens -->
+        <!-- Contact info -->
         <div class="contact-info">
           <h3>Onze gegevens</h3>
 
           <div class="contact-rij">
-            <div class="icoon"><i data-lucide="map-pin"></i></div>
+            <span class="icoon">📍</span>
             <div class="detail">
               <strong>Adres</strong>
-              <span>Breestraat 42, 1942 LK Beverwijk</span>
+              <span>Voorstraat 12<br>1942 AB Beverwijk</span>
             </div>
           </div>
 
           <div class="contact-rij">
-            <div class="icoon"><i data-lucide="clock"></i></div>
+            <span class="icoon">🕙</span>
             <div class="detail">
               <strong>Zondagsdienst</strong>
               <span>Elke zondag om 10:00 uur</span>
@@ -50,41 +48,33 @@
           </div>
 
           <div class="contact-rij">
-            <div class="icoon"><i data-lucide="phone"></i></div>
-            <div class="detail">
-              <strong>Telefoon</strong>
-              <span>0251 – 123 456</span>
-            </div>
-          </div>
-
-          <div class="contact-rij">
-            <div class="icoon"><i data-lucide="mail"></i></div>
+            <span class="icoon">✉️</span>
             <div class="detail">
               <strong>E-mail</strong>
-              <span>info@back2basics-beverwijk.nl</span>
+              <span>info@back2basics.nl</span>
             </div>
           </div>
 
           <div class="contact-rij">
-            <div class="icoon"><i data-lucide="instagram"></i></div>
+            <span class="icoon">📱</span>
             <div class="detail">
-              <strong>Instagram</strong>
-              <span>@back2basics_beverwijk</span>
+              <strong>Telefoon</strong>
+              <span>06 - 12 34 56 78</span>
             </div>
           </div>
 
-          <!-- Locatiefoto -->
-          <div class="contact-locatie-foto">
-            <img
-              src="https://images.unsplash.com/photo-1438032005730-c779502df39b?auto=format&fit=crop&w=800&q=80"
-              alt="Locatie Back2Basics"
-            >
+          <div class="contact-rij">
+            <span class="icoon">👤</span>
+            <div class="detail">
+              <strong>Pastor</strong>
+              <span>Jan de Vries</span>
+            </div>
           </div>
         </div>
 
         <!-- Contactformulier -->
         <div class="contact-formulier">
-          <h3>Stuur ons een bericht</h3>
+          <h3>Stuur een bericht</h3>
 
           <form id="contact-form">
             <div class="veld-groep">
@@ -101,24 +91,22 @@
             </div>
             <div class="veld-groep">
               <label for="bericht">Bericht</label>
-              <textarea id="bericht" name="bericht" placeholder="Schrijf hier je bericht..." required></textarea>
+              <textarea id="bericht" name="bericht" placeholder="Typ hier je bericht..." required></textarea>
             </div>
             <button type="submit" class="knop-primair">
-              <i data-lucide="send"></i>
-              Verstuur bericht
+              ✉️ Verstuur bericht
             </button>
             <div class="melding" id="form-melding">
-              Je bericht is verstuurd! We nemen zo snel mogelijk contact met je op.
+              ✅ Bedankt voor je bericht! We nemen zo snel mogelijk contact met je op.
             </div>
           </form>
         </div>
 
       </div>
-
     </div>
   </main>
 
-  <script src="https://unpkg.com/lucide@latest/dist/umd/lucide.min.js"></script>
+  <script src="https://identity.netlify.com/v1/netlify-identity-widget.js"></script>
   <script src="js/main.js"></script>
 </body>
 </html>
