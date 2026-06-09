@@ -30,11 +30,11 @@ function laadSidebar() {
   const huidigePagina = window.location.pathname.split('/').pop() || 'index.html';
 
   const navItems = [
-    { href: 'index.html',        icoon: '🏠', label: 'Home' },
-    { href: 'agenda.html',       icoon: '📅', label: 'Agenda' },
-    { href: 'wie-zijn-wij.html', icoon: '👥', label: 'Wie zijn wij' },
-    { href: 'nieuws.html',       icoon: '📰', label: 'Nieuws' },
-    { href: 'contact.html',      icoon: '✉️', label: 'Contact' },
+    { href: 'index.html',        icoon: '<i class="ph ph-house"></i>', label: 'Home' },
+    { href: 'agenda.html',       icoon: '<i class="ph ph-calendar"></i>', label: 'Agenda' },
+    { href: 'wie-zijn-wij.html', icoon: '<i class="ph ph-users"></i>', label: 'Wie zijn wij' },
+    { href: 'nieuws.html',       icoon: '<i class="ph ph-newspaper"></i>', label: 'Nieuws' },
+    { href: 'contact.html',      icoon: '<i class="ph ph-envelope"></i>', label: 'Contact' },
   ];
 
   const navHTML = navItems.map(item => {
@@ -209,9 +209,9 @@ function laadEerstvolgendeDienst(agenda) {
       <h3>${escapeHTML(komend2.titel)}</h3>
       <p class="dienst-thema">"${escapeHTML(komend2.thema)}"</p>
       <div class="dienst-meta">
-        <div class="dienst-meta-item">🎤 <span>Spreker: <strong>${escapeHTML(komend2.spreker)}</strong></span></div>
-        <div class="dienst-meta-item">🕙 <span><strong>${komend2.tijd} uur</strong></span></div>
-        <div class="dienst-meta-item">📍 <span>${escapeHTML(komend2.locatie)}</span></div>
+        <div class="dienst-meta-item"><i class="ph ph-microphone"></i> <span>Spreker: <strong>${escapeHTML(komend2.spreker)}</strong></span></div>
+        <div class="dienst-meta-item"><i class="ph ph-clock"></i> <span><strong>${komend2.tijd} uur</strong></span></div>
+        <div class="dienst-meta-item"><i class="ph ph-map-pin"></i> <span>${escapeHTML(komend2.locatie)}</span></div>
       </div>
     </div>
   `;
@@ -317,9 +317,9 @@ async function laadAgendaPagina() {
               <h3>${escapeHTML(item.titel)}</h3>
               <p class="thema">"${escapeHTML(item.thema)}"</p>
               <div class="meta-rij">
-                <span>🎤 Spreker: <strong>${escapeHTML(item.spreker)}</strong></span>
-                <span>🕙 <strong>${item.tijd} uur</strong></span>
-                <span>📍 ${escapeHTML(item.locatie)}</span>
+                <span><i class="ph ph-microphone"></i> Spreker: <strong>${escapeHTML(item.spreker)}</strong></span>
+                <span><i class="ph ph-clock"></i> <strong>${item.tijd} uur</strong></span>
+                <span><i class="ph ph-map-pin"></i> ${escapeHTML(item.locatie)}</span>
               </div>
             </div>
           </div>
