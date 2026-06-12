@@ -1,5 +1,5 @@
 /* =============================================
-   BACK2BASICS — Hoofdstijlblad
+   ECCLESIA — Hoofdstijlblad
    ============================================= */
 
 @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&family=Crimson+Pro:ital,wght@0,300;0,400;0,600;1,300;1,400&display=swap');
@@ -207,70 +207,148 @@ body {
 }
 
 /* =============================================
-   HERO SECTIE (Homepage)
+   BANNER HERO (Homepage)
    ============================================= */
 
-.hero {
-  background: linear-gradient(135deg, #2C1F14 0%, #4A3020 40%, #6B4423 100%);
-  border-radius: var(--radius);
-  padding: 3.5rem;
-  margin-bottom: 2.5rem;
+.banner-hero {
   position: relative;
+  margin: -2.5rem -2.5rem 0;
+  height: 440px;
+  background-image: url('https://images.unsplash.com/photo-1511795409834-ef04bbd61622?auto=format&fit=crop&w=1400&h=460&q=80');
+  background-size: cover;
+  background-position: center 35%;
   overflow: hidden;
-  min-height: 240px;
-  display: flex;
-  align-items: center;
 }
 
-.hero::before {
-  content: '';
+.banner-overlay {
   position: absolute;
   inset: 0;
-  background-image: 
-    radial-gradient(ellipse at 80% 50%, rgba(196, 98, 45, 0.25) 0%, transparent 60%),
-    url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='0.02'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
-  opacity: 0.6;
-}
-
-.hero-inhoud {
-  position: relative;
-  z-index: 1;
+  background: linear-gradient(
+    to top,
+    rgba(44, 31, 20, 0.92) 0%,
+    rgba(44, 31, 20, 0.55) 45%,
+    rgba(44, 31, 20, 0.18) 100%
+  );
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  padding: 3rem 3.5rem;
 }
 
 .hero-label {
   display: inline-block;
-  background: rgba(196, 98, 45, 0.3);
+  background: rgba(196, 98, 45, 0.35);
   color: var(--kleur-accent-zacht);
   font-size: 0.75rem;
   letter-spacing: 0.15em;
   text-transform: uppercase;
   padding: 0.3rem 0.9rem;
   border-radius: 20px;
-  border: 1px solid rgba(196, 98, 45, 0.4);
+  border: 1px solid rgba(196, 98, 45, 0.45);
   margin-bottom: 1rem;
   font-family: var(--font-body);
+  width: fit-content;
 }
 
-.hero h2 {
+.banner-overlay h2 {
   font-family: var(--font-display);
-  font-size: 2.4rem;
+  font-size: 2.8rem;
   font-weight: 700;
-  color: var(--kleur-wit);
+  color: white;
   line-height: 1.2;
-  margin-bottom: 1rem;
-  max-width: 520px;
+  margin-bottom: 0.8rem;
+  max-width: 580px;
+  text-shadow: 0 2px 12px rgba(0,0,0,0.4);
 }
 
-.hero h2 em {
+.banner-overlay h2 em {
   color: var(--kleur-accent-zacht);
   font-style: italic;
 }
 
-.hero p {
-  color: rgba(253, 250, 245, 0.65);
+.banner-overlay p {
+  color: rgba(255, 255, 255, 0.75);
   font-size: 1.05rem;
-  max-width: 480px;
+  max-width: 500px;
   line-height: 1.6;
+  text-shadow: 0 1px 6px rgba(0,0,0,0.4);
+}
+
+/* =============================================
+   BEELD BLOKKEN (Homepage)
+   ============================================= */
+
+.beeld-blokken {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  height: 260px;
+  margin: 0 -2.5rem 2.5rem;
+  overflow: hidden;
+}
+
+.beeld-blok {
+  position: relative;
+  background-size: cover;
+  background-position: center;
+  text-decoration: none;
+  overflow: hidden;
+}
+
+.beeld-blok-overlay {
+  position: absolute;
+  inset: 0;
+  background: rgba(44, 31, 20, 0.48);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 0.85rem;
+  transition: background 0.3s ease;
+}
+
+.beeld-blok:hover .beeld-blok-overlay {
+  background: rgba(196, 98, 45, 0.62);
+}
+
+.beeld-blok-inhoud {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.85rem;
+  transition: transform 0.3s ease;
+}
+
+.beeld-blok:hover .beeld-blok-inhoud {
+  transform: translateY(-5px);
+}
+
+.beeld-blok-icoon {
+  width: 62px;
+  height: 62px;
+  border: 2px solid rgba(255, 255, 255, 0.85);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  font-size: 1.6rem;
+  background: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(4px);
+  transition: transform 0.3s ease, background 0.3s ease;
+}
+
+.beeld-blok:hover .beeld-blok-icoon {
+  transform: scale(1.1);
+  background: rgba(255, 255, 255, 0.2);
+}
+
+.beeld-blok-label {
+  color: white;
+  font-family: var(--font-display);
+  font-size: 1.05rem;
+  font-weight: 600;
+  letter-spacing: 0.04em;
+  text-shadow: 0 2px 8px rgba(0,0,0,0.5);
 }
 
 /* =============================================
@@ -903,6 +981,7 @@ body {
 .fade-in-2 { animation-delay: 0.15s; opacity: 0; }
 .fade-in-3 { animation-delay: 0.25s; opacity: 0; }
 .fade-in-4 { animation-delay: 0.35s; opacity: 0; }
+.fade-in-5 { animation-delay: 0.45s; opacity: 0; }
 
 /* =============================================
    LAAD-INDICATOR
@@ -1050,12 +1129,27 @@ body {
     padding: 1.5rem 1.25rem;
   }
 
-  .hero {
+  .banner-hero {
+    margin: -1.5rem -1.25rem 0;
+    height: 320px;
+  }
+
+  .banner-overlay {
     padding: 2rem 1.5rem;
   }
 
-  .hero h2 {
-    font-size: 1.7rem;
+  .banner-overlay h2 {
+    font-size: 1.9rem;
+  }
+
+  .beeld-blokken {
+    grid-template-columns: 1fr 1fr;
+    height: auto;
+    margin: 0 -1.25rem 1.5rem;
+  }
+
+  .beeld-blok {
+    height: 180px;
   }
 
   /* Sidebar logo groter op mobiel */
@@ -1074,8 +1168,30 @@ body {
    ============================================= */
 
 @media (max-width: 480px) {
-  .hero h2 {
-    font-size: 1.45rem;
+  .banner-hero {
+    height: 260px;
+  }
+
+  .banner-overlay h2 {
+    font-size: 1.5rem;
+  }
+
+  .beeld-blokken {
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .beeld-blok {
+    height: 150px;
+  }
+
+  .beeld-blok-icoon {
+    width: 48px;
+    height: 48px;
+    font-size: 1.25rem;
+  }
+
+  .beeld-blok-label {
+    font-size: 0.9rem;
   }
 
   .dienst-uitgelicht .kaart-body {
