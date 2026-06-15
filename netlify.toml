@@ -1,0 +1,15 @@
+[build]
+  publish = "."
+
+# Stuur .html URLs door naar schone URLs
+[[redirects]]
+  from = "/index.html"
+  to = "/"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/:page.html"
+  to = "/:page"
+  status = 301
+  force = true

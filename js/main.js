@@ -1,5 +1,5 @@
 // =============================================
-//  BACK2BASICS — Hoofd JavaScript
+//  ECCLESIA — Hoofd JavaScript
 // =============================================
 
 // --- Hulpfuncties ---
@@ -27,18 +27,18 @@ function escapeHTML(str) {
 // --- Sidebar injectie & navigatie ---
 
 function laadSidebar() {
-  const huidigePagina = window.location.pathname.split('/').pop() || 'index.html';
+  const huidigPad = window.location.pathname.replace(/\.html$/, '').replace(/\/$/, '') || '/';
 
   const navItems = [
-    { href: 'index.html',        icoon: '<i class="ph ph-house"></i>', label: 'Home' },
-    { href: 'agenda.html',       icoon: '<i class="ph ph-calendar"></i>', label: 'Agenda' },
-    { href: 'wie-zijn-wij.html', icoon: '<i class="ph ph-users"></i>', label: 'Wie zijn wij' },
-    { href: 'nieuws.html',       icoon: '<i class="ph ph-newspaper"></i>', label: 'Nieuws' },
-    { href: 'contact.html',      icoon: '<i class="ph ph-envelope"></i>', label: 'Contact' },
+    { href: '/',              icoon: '<i class="ph ph-house"></i>',     label: 'Home' },
+    { href: '/agenda',        icoon: '<i class="ph ph-calendar"></i>',  label: 'Agenda' },
+    { href: '/wie-zijn-wij',  icoon: '<i class="ph ph-users"></i>',     label: 'Wie zijn wij' },
+    { href: '/nieuws',        icoon: '<i class="ph ph-newspaper"></i>', label: 'Nieuws' },
+    { href: '/contact',       icoon: '<i class="ph ph-envelope"></i>',  label: 'Contact' },
   ];
 
   const navHTML = navItems.map(item => {
-    const actief = huidigePagina === item.href ? 'actief' : '';
+    const actief = huidigPad === item.href ? 'actief' : '';
     return `
       <li>
         <a href="${item.href}" class="${actief}">
@@ -51,7 +51,7 @@ function laadSidebar() {
 
   const sidebarHTML = `
     <div class="sidebar-logo-rij">
-      <a href="index.html" class="sidebar-logo">
+      <a href="/" class="sidebar-logo">
         <div class="logo-icoon">
           <svg width="34" height="34" viewBox="0 0 34 34" fill="none" xmlns="http://www.w3.org/2000/svg">
             <circle cx="17" cy="17" r="15.5" stroke="rgba(253,250,245,0.2)" stroke-width="1.5" fill="none"/>
@@ -85,15 +85,15 @@ function laadSidebar() {
 
   // Paginatitel instellen
   const paginaTitels = {
-    'index.html':        'Dashboard',
-    'agenda.html':       'Agenda',
-    'wie-zijn-wij.html': 'Wie zijn wij',
-    'nieuws.html':       'Nieuws',
-    'contact.html':      'Contact',
+    '/':             'Home',
+    '/agenda':       'Agenda',
+    '/wie-zijn-wij': 'Wie zijn wij',
+    '/nieuws':       'Nieuws',
+    '/contact':      'Contact',
   };
 
   const titelEl = document.getElementById('pagina-titel');
-  if (titelEl) titelEl.textContent = paginaTitels[huidigePagina] || 'Ecclesia';
+  if (titelEl) titelEl.textContent = paginaTitels[huidigPad] || 'Ecclesia';
 
   // Datum in header
   const datumEl = document.getElementById('header-datum');
