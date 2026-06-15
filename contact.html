@@ -14,17 +14,20 @@
 
   <main id="inhoud">
 
-<div class="pagina-inhoud">
+    <div class="pagina-inhoud">
 
-      <div class="fade-in fade-in-1">
-        <h2 class="sectie-titel">Neem contact op</h2>
-        <p class="sectie-ondertitel">Vragen, aanmeldingen of gewoon even hallo zeggen — we horen graag van je!</p>
-        <div class="sectie-divider"></div>
-      </div>
+      <!-- Contact banner -->
+      <section class="contact-banner fade-in fade-in-1">
+        <div class="contact-banner-overlay">
+          <h2>Kom in contact</h2>
+          <p>We horen graag van je — of je nu een vraag hebt, mee wil doen of gewoon eens langs wil komen.</p>
+        </div>
+      </section>
 
+      <!-- Contact grid -->
       <div class="contact-grid fade-in fade-in-2">
 
-        <!-- Contact info -->
+        <!-- Onze gegevens -->
         <div class="contact-info">
           <h3>Onze gegevens</h3>
 
@@ -48,7 +51,7 @@
             <span class="icoon"><i class="ph ph-envelope"></i></span>
             <div class="detail">
               <strong>E-mail</strong>
-              <span>info@back2basics.nl</span>
+              <span>info@eg-ecclesia.nl</span>
             </div>
           </div>
 
@@ -60,43 +63,16 @@
             </div>
           </div>
 
-          <div class="contact-rij">
-            <span class="icoon"><i class="ph ph-user"></i></span>
-            <div class="detail">
-              <strong>Pastor</strong>
-              <span>Jan de Vries</span>
-            </div>
-          </div>
         </div>
 
-        <!-- Contactformulier -->
-        <div class="contact-formulier">
-          <h3>Stuur een bericht</h3>
-
-          <form id="contact-form">
-            <div class="veld-groep">
-              <label for="naam">Naam</label>
-              <input type="text" id="naam" name="naam" placeholder="Jouw naam" required>
-            </div>
-            <div class="veld-groep">
-              <label for="email">E-mailadres</label>
-              <input type="email" id="email" name="email" placeholder="jouw@email.nl" required>
-            </div>
-            <div class="veld-groep">
-              <label for="onderwerp">Onderwerp</label>
-              <input type="text" id="onderwerp" name="onderwerp" placeholder="Waar gaat je bericht over?">
-            </div>
-            <div class="veld-groep">
-              <label for="bericht">Bericht</label>
-              <textarea id="bericht" name="bericht" placeholder="Typ hier je bericht..." required></textarea>
-            </div>
-            <button type="submit" class="knop-primair">
-              <i class="ph ph-paper-plane-tilt"></i> Verstuur bericht
-            </button>
-            <div class="melding" id="form-melding">
-              ✅ Bedankt voor je bericht! We nemen zo snel mogelijk contact met je op.
-            </div>
-          </form>
+        <!-- Mail ons -->
+        <div class="contact-formulier mail-ons">
+          <h3>Stuur ons een mail</h3>
+          <p>Heb je een vraag, wil je je aanmelden of wil je gewoon even hallo zeggen? Stuur ons een e-mail — jij kiest hoe je dat doet, wij zorgen voor een snelle reactie.</p>
+          <a href="mailto:info@eg-ecclesia.nl" class="mail-knop">
+            <i class="ph ph-envelope"></i>
+            info@eg-ecclesia.nl
+          </a>
         </div>
 
       </div>
