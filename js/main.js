@@ -84,6 +84,15 @@ function laadSidebar() {
   const sidebar = document.getElementById('sidebar');
   if (sidebar) sidebar.innerHTML = sidebarHTML;
 
+  // Aanbouw banner bovenaan pagina-inhoud
+  const inhoud = document.getElementById('inhoud');
+  if (inhoud && !document.querySelector('.aanbouw-banner')) {
+    const banner = document.createElement('div');
+    banner.className = 'aanbouw-banner';
+    banner.innerHTML = '<i class="ph ph-warning"></i> <span><strong>Website in aanbouw</strong> &mdash; Teksten zijn tijdelijke placeholders en worden binnenkort aangevuld.</span>';
+    inhoud.insertBefore(banner, inhoud.firstChild);
+  }
+
   // Paginatitel instellen
   const paginaTitels = {
     '/':             'Home',

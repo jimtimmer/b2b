@@ -1124,16 +1124,9 @@ body {
   transform-origin: center;
 }
 
-/* Kruis animatie als menu open is */
-.hamburger-knop.open span:nth-child(1) {
-  transform: translateY(7px) rotate(45deg);
-}
-.hamburger-knop.open span:nth-child(2) {
-  opacity: 0;
-  transform: scaleX(0);
-}
-.hamburger-knop.open span:nth-child(3) {
-  transform: translateY(-7px) rotate(-45deg);
+/* Hamburger verbergen als menu open is (sidebar heeft eigen sluit-knop) */
+.hamburger-knop.open {
+  display: none;
 }
 
 /* Overlay achtergrond */
@@ -1298,10 +1291,14 @@ body {
     flex-direction: column;
   }
 
+  .dienst-info {
+    padding: 1.25rem 1.5rem;
+  }
+
   .dienst-datum-blok {
     flex-direction: row;
     gap: 0.75rem;
-    padding: 1rem 1.5rem;
+    padding: 0.85rem 1.5rem;
     min-width: unset;
   }
 
@@ -1331,6 +1328,39 @@ body {
   display: flex;
   align-items: flex-start;
   justify-content: space-between;
+}
+
+/* =============================================
+   AANBOUW BANNER
+   ============================================= */
+
+.aanbouw-banner {
+  background: #FFFBEB;
+  border-bottom: 2px solid var(--kleur-accent);
+  padding: 0.65rem 2.5rem;
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+  font-size: 0.85rem;
+  color: var(--kleur-tekst);
+  font-family: var(--lettertype-body);
+  position: sticky;
+  top: 0;
+  z-index: 50;
+  margin-bottom: 0;
+}
+
+.aanbouw-banner i {
+  color: var(--kleur-accent);
+  font-size: 1rem;
+  flex-shrink: 0;
+}
+
+@media (max-width: 768px) {
+  .aanbouw-banner {
+    padding: 0.6rem 4.5rem 0.6rem 1.25rem;
+    font-size: 0.8rem;
+  }
 }
 
 /* =============================================
