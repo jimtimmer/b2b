@@ -1,12 +1,10 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32">
-  <rect width="32" height="32" rx="7" fill="#2C1B0E"/>
-  <!-- Vlam (Heilige Geest / de roeping) -->
-  <path d="M16 4 C13.5 8.5 10 11 11.5 15.5 C12.5 18.5 14 20 16 20 C18 20 19.5 18.5 20.5 15.5 C22 11 18.5 8.5 16 4Z" fill="#C4622D"/>
-  <path d="M16 8 C15 11 13.5 13 14 15 C14.5 16.5 15 17.5 16 17.5 C17 17.5 17.5 16.5 18 15 C18.5 13 17 11 16 8Z" fill="#E8874D"/>
-  <!-- Vergadering (5 mensen in boog = ecclesia) -->
-  <circle cx="5" cy="27" r="2" fill="#C4622D" opacity="0.65"/>
-  <circle cx="10" cy="24" r="2" fill="#C4622D" opacity="0.82"/>
-  <circle cx="16" cy="23" r="2.5" fill="#C4622D"/>
-  <circle cx="22" cy="24" r="2" fill="#C4622D" opacity="0.82"/>
-  <circle cx="27" cy="27" r="2" fill="#C4622D" opacity="0.65"/>
+  <rect width="32" height="32" rx="7" fill="#1B3A6B"/>
+  <path d="M16 4 C13.5 8.5 10 11 11.5 15.5 C12.5 18.5 14 20 16 20 C18 20 19.5 18.5 20.5 15.5 C22 11 18.5 8.5 16 4Z" fill="#C9A227"/>
+  <path d="M16 8 C15 11 13.5 13 14 15 C14.5 16.5 15 17.5 16 17.5 C17 17.5 17.5 16.5 18 15 C18.5 13 17 11 16 8Z" fill="#E2C05A"/>
+  <circle cx="5" cy="27" r="2" fill="#C9A227" opacity="0.65"/>
+  <circle cx="10" cy="24" r="2" fill="#C9A227" opacity="0.82"/>
+  <circle cx="16" cy="23" r="2.5" fill="#C9A227"/>
+  <circle cx="22" cy="24" r="2" fill="#C9A227" opacity="0.82"/>
+  <circle cx="27" cy="27" r="2" fill="#C9A227" opacity="0.65"/>
 </svg>

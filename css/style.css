@@ -6,23 +6,23 @@
 
 /* CSS Variabelen */
 :root {
-  --kleur-achtergrond: #F7F2EA;
-  --kleur-sidebar:     #2C1F14;
-  --kleur-sidebar-hover: #3D2B1F;
-  --kleur-accent:      #C4622D;
-  --kleur-accent-zacht: #E8A882;
-  --kleur-tekst:       #2A1F15;
-  --kleur-tekst-zacht: #7A6355;
-  --kleur-wit:         #FDFAF5;
-  --kleur-lijn:        #E2D9CC;
+  --kleur-achtergrond: #F4F7FB;
+  --kleur-sidebar:     #1B3A6B;
+  --kleur-sidebar-hover: #243F7A;
+  --kleur-accent:      #C9A227;
+  --kleur-accent-zacht: #E2C05A;
+  --kleur-tekst:       #1A2B45;
+  --kleur-tekst-zacht: #5A6A84;
+  --kleur-wit:         #FDFEFF;
+  --kleur-lijn:        #D8E3EF;
   --kleur-kaart:       #FFFFFF;
-  --kleur-groen:       #5C7A4E;
+  --kleur-groen:       #2D7A4F;
 
   --sidebar-breedte: 240px;
   --font-display: 'Playfair Display', Georgia, serif;
   --font-body: 'Crimson Pro', Georgia, serif;
-  --schaduw: 0 2px 12px rgba(44, 31, 20, 0.08);
-  --schaduw-hover: 0 6px 24px rgba(44, 31, 20, 0.14);
+  --schaduw: 0 2px 12px rgba(27, 58, 107, 0.08);
+  --schaduw-hover: 0 6px 24px rgba(27, 58, 107, 0.16);
   --radius: 10px;
 }
 
@@ -140,7 +140,7 @@ body {
 
 .sidebar-nav li a.actief {
   color: var(--kleur-wit);
-  background-color: rgba(196, 98, 45, 0.15);
+  background-color: rgba(201, 162, 39, 0.12);
   border-left-color: var(--kleur-accent);
   font-weight: 600;
 }
@@ -225,9 +225,9 @@ body {
   inset: 0;
   background: linear-gradient(
     to top,
-    rgba(44, 31, 20, 0.92) 0%,
-    rgba(44, 31, 20, 0.55) 45%,
-    rgba(44, 31, 20, 0.18) 100%
+    rgba(27, 58, 107, 0.92) 0%,
+    rgba(27, 58, 107, 0.55) 45%,
+    rgba(27, 58, 107, 0.18) 100%
   );
   display: flex;
   flex-direction: column;
@@ -237,14 +237,14 @@ body {
 
 .hero-label {
   display: inline-block;
-  background: rgba(196, 98, 45, 0.35);
+  background: rgba(201, 162, 39, 0.25);
   color: var(--kleur-accent-zacht);
   font-size: 0.75rem;
   letter-spacing: 0.15em;
   text-transform: uppercase;
   padding: 0.3rem 0.9rem;
   border-radius: 20px;
-  border: 1px solid rgba(196, 98, 45, 0.45);
+  border: 1px solid rgba(201, 162, 39, 0.45);
   margin-bottom: 1rem;
   font-family: var(--font-body);
   width: fit-content;
@@ -297,7 +297,7 @@ body {
 .beeld-blok-overlay {
   position: absolute;
   inset: 0;
-  background: rgba(44, 31, 20, 0.48);
+  background: rgba(27, 58, 107, 0.50);
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -307,7 +307,7 @@ body {
 }
 
 .beeld-blok:hover .beeld-blok-overlay {
-  background: rgba(196, 98, 45, 0.62);
+  background: rgba(27, 58, 107, 0.70);
 }
 
 .beeld-blok-inhoud {
@@ -833,9 +833,9 @@ body {
   inset: 0;
   background: linear-gradient(
     to top,
-    rgba(44, 31, 20, 0.88) 0%,
-    rgba(44, 31, 20, 0.45) 50%,
-    rgba(44, 31, 20, 0.15) 100%
+    rgba(27, 58, 107, 0.88) 0%,
+    rgba(27, 58, 107, 0.45) 50%,
+    rgba(27, 58, 107, 0.15) 100%
   );
   display: flex;
   flex-direction: column;
@@ -1141,7 +1141,7 @@ body {
   display: none;
   position: fixed;
   inset: 0;
-  background: rgba(44, 31, 20, 0.5);
+  background: rgba(27, 58, 107, 0.55);
   z-index: 99;
   opacity: 0;
   transition: opacity 0.3s ease;
@@ -1230,7 +1230,7 @@ body {
   }
 
   .banner-hero {
-    margin: -1.5rem -1.25rem 0;
+    margin: -1.5rem -1.25rem 2rem;
     height: 320px;
   }
 
@@ -1331,4 +1331,93 @@ body {
   display: flex;
   align-items: flex-start;
   justify-content: space-between;
+}
+
+/* =============================================
+   ANBI PAGINA
+   ============================================= */
+
+.anbi-sectie {
+  margin-bottom: 2.5rem;
+}
+
+.anbi-sectie h2 {
+  font-family: var(--lettertype-display);
+  font-size: 1.4rem;
+  color: var(--kleur-tekst);
+  border-bottom: 2px solid var(--kleur-lijn);
+  padding-bottom: 0.5rem;
+  margin-bottom: 1.25rem;
+}
+
+.anbi-tabel {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 0.95rem;
+}
+
+.anbi-tabel th,
+.anbi-tabel td {
+  padding: 0.75rem 1rem;
+  text-align: left;
+  border-bottom: 1px solid var(--kleur-lijn);
+  vertical-align: top;
+}
+
+.anbi-tabel th {
+  width: 38%;
+  color: var(--kleur-tekst-zacht);
+  font-weight: 600;
+  font-size: 0.88rem;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  background: var(--kleur-achtergrond);
+}
+
+.anbi-tabel td {
+  color: var(--kleur-tekst);
+}
+
+.anbi-tabel tr:last-child th,
+.anbi-tabel tr:last-child td {
+  border-bottom: none;
+}
+
+.anbi-tekst-blok {
+  color: var(--kleur-tekst-zacht);
+  line-height: 1.7;
+  font-style: italic;
+}
+
+.anbi-placeholder {
+  color: #aab4c4;
+  letter-spacing: 0.08em;
+}
+
+@media (max-width: 600px) {
+  .anbi-tabel th,
+  .anbi-tabel td {
+    display: block;
+    width: 100%;
+    padding: 0.5rem 0.75rem;
+  }
+
+  .anbi-tabel th {
+    padding-bottom: 0.25rem;
+    border-bottom: none;
+  }
+
+  .anbi-tabel td {
+    padding-top: 0.25rem;
+  }
+
+  .anbi-tabel tr {
+    display: block;
+    border-bottom: 1px solid var(--kleur-lijn);
+    margin-bottom: 0.5rem;
+  }
+
+  .anbi-tabel tr:last-child {
+    border-bottom: none;
+  }
 }

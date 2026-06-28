@@ -2,47 +2,92 @@
   "diensten": [
     {
       "id": 1,
-      "datum": "2026-05-31",
+      "datum": "2026-06-28",
       "tijd": "10:00",
       "titel": "Zondagsdienst",
-      "spreker": "Pastor Jan de Vries",
-      "thema": "Terug naar de basis van geloof",
+      "spreker": "Ds. Maarten van Dijk",
+      "thema": "Rust vinden in het lawaai",
       "locatie": "Hoofdzaal"
     },
     {
       "id": 2,
-      "datum": "2026-06-07",
+      "datum": "2026-07-05",
       "tijd": "10:00",
       "titel": "Zondagsdienst",
-      "spreker": "Gastspreker Maria Smit",
-      "thema": "Gebed als fundament",
+      "spreker": "Pastor Leonie Brouwer",
+      "thema": "Hoop als anker voor de ziel",
       "locatie": "Hoofdzaal"
     },
     {
       "id": 3,
-      "datum": "2026-06-14",
+      "datum": "2026-07-12",
       "tijd": "10:00",
       "titel": "Zondagsdienst",
-      "spreker": "Pastor Jan de Vries",
-      "thema": "Gemeenschap & verbinding",
+      "spreker": "Gastspreker — volgt binnenkort",
+      "thema": "—",
       "locatie": "Hoofdzaal"
     },
     {
       "id": 4,
-      "datum": "2026-06-21",
+      "datum": "2026-07-19",
       "tijd": "10:00",
-      "titel": "Zondagsdienst",
-      "spreker": "Ds. Peter van der Berg",
-      "thema": "De kracht van eenvoud",
+      "titel": "Zomerdienst",
+      "spreker": "Ds. Maarten van Dijk",
+      "thema": "Geloof in de stilte van de zomer",
       "locatie": "Hoofdzaal"
     },
     {
       "id": 5,
-      "datum": "2026-06-28",
+      "datum": "2026-07-26",
       "tijd": "10:00",
       "titel": "Zondagsdienst",
-      "spreker": "Pastor Jan de Vries",
-      "thema": "Rust vinden in het lawaai",
+      "spreker": "Gastspreker — volgt binnenkort",
+      "thema": "—",
+      "locatie": "Hoofdzaal"
+    },
+    {
+      "id": 6,
+      "datum": "2026-08-02",
+      "tijd": "10:00",
+      "titel": "Zondagsdienst",
+      "spreker": "Pastor Leonie Brouwer",
+      "thema": "Samen op weg — gemeenschap in de praktijk",
+      "locatie": "Hoofdzaal"
+    },
+    {
+      "id": 7,
+      "datum": "2026-08-09",
+      "tijd": "10:00",
+      "titel": "Zondagsdienst",
+      "spreker": "Gastspreker — volgt binnenkort",
+      "thema": "—",
+      "locatie": "Hoofdzaal"
+    },
+    {
+      "id": 8,
+      "datum": "2026-08-16",
+      "tijd": "10:00",
+      "titel": "Zondagsdienst",
+      "spreker": "Ds. Maarten van Dijk",
+      "thema": "Geroepen om te dienen",
+      "locatie": "Hoofdzaal"
+    },
+    {
+      "id": 9,
+      "datum": "2026-08-23",
+      "tijd": "10:00",
+      "titel": "Zondagsdienst",
+      "spreker": "Gastspreker — volgt binnenkort",
+      "thema": "—",
+      "locatie": "Hoofdzaal"
+    },
+    {
+      "id": 10,
+      "datum": "2026-08-30",
+      "tijd": "10:00",
+      "titel": "Zondagsdienst",
+      "spreker": "Pastor Leonie Brouwer",
+      "thema": "Nieuw seizoen, nieuwe kansen",
       "locatie": "Hoofdzaal"
     }
   ]
