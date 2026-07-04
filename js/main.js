@@ -68,7 +68,7 @@ function laadSidebar() {
             <div class="logo-naam">Ecclesia</div>
           </div>
         </div>
-        <div class="logo-ondertitel">Gemeente &mdash; Beverwijk</div>
+        <div class="logo-ondertitel">Gemeente &mdash; ....</div>
       </a>
       <button class="sidebar-sluit" id="sidebar-sluit" aria-label="Menu sluiten">✕</button>
     </div>
@@ -76,7 +76,7 @@ function laadSidebar() {
       <ul>${navHTML}</ul>
     </nav>
     <div class="sidebar-footer">
-      &copy; ${new Date().getFullYear()} Ecclesia<br>
+      &copy; ${new Date().getFullYear()} Evangelische Gemeente Ecclesia<br>
       Alle zijn welkom
     </div>
   `;
