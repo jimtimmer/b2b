@@ -64,11 +64,7 @@ function laadSidebar() {
             <circle cx="22.5" cy="25.5" r="2" fill="#C9A227" opacity="0.82"/>
             <circle cx="28" cy="28" r="2" fill="#C9A227" opacity="0.65"/>
           </svg>
-          <div>
-            <div class="logo-naam">Ecclesia</div>
-          </div>
         </div>
-        <div class="logo-ondertitel">Gemeente &mdash; ....</div>
       </a>
       <button class="sidebar-sluit" id="sidebar-sluit" aria-label="Menu sluiten">✕</button>
     </div>
@@ -302,6 +298,8 @@ async function laadAgendaPagina() {
 
     const gesorteerd = [...agenda.diensten].sort((a, b) => new Date(a.datum) - new Date(b.datum));
 
+    const huidigeSleutel = `${vandaag.getFullYear()}-${vandaag.getMonth()}`;
+
     // Groepeer per maand
     const perMaand = {};
     gesorteerd.forEach(item => {
@@ -310,15 +308,23 @@ async function laadAgendaPagina() {
       if (!perMaand[sleutel]) {
         perMaand[sleutel] = {
           label: `${MAANDEN_LANG[d.getMonth()]} ${d.getFullYear()}`,
+          verleden: sleutel < huidigeSleutel,
           items: []
         };
       }
       perMaand[sleutel].items.push(item);
     });
 
+    // Huidige/toekomstige maanden bovenaan (open), afgelopen maanden onderaan (dichtgeklapt)
+    const alleMaanden = Object.values(perMaand);
+    const huidigEnToekomst = alleMaanden.filter(m => !m.verleden);
+    const afgelopen = alleMaanden.filter(m => m.verleden).reverse();
+    const volgorde = [...huidigEnToekomst, ...afgelopen];
+
     let html = '';
-    Object.values(perMaand).forEach(maand => {
-      html += `<div class="agenda-maand-titel">${maand.label}</div>`;
+    volgorde.forEach(maand => {
+      html += `<details class="agenda-maand-groep" ${maand.verleden ? '' : 'open'}>`;
+      html += `<summary class="agenda-maand-titel">${maand.label}</summary>`;
       maand.items.forEach(item => {
         const d = formatDatum(item.datum);
         const verleden = new Date(item.datum + 'T00:00:00') < vandaag;
@@ -340,6 +346,7 @@ async function laadAgendaPagina() {
           </div>
         `;
       });
+      html += `</details>`;
     });
 
     container.innerHTML = html;

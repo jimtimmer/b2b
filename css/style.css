@@ -596,17 +596,43 @@ body {
    ============================================= */
 
 /* Agenda volledige pagina */
+.agenda-volledig .agenda-maand-groep {
+  margin-top: 2rem;
+}
+
+.agenda-volledig .agenda-maand-groep:first-child {
+  margin-top: 0;
+}
+
 .agenda-volledig .agenda-maand-titel {
   font-family: var(--font-display);
-  font-size: 1.1rem;
   font-weight: 600;
   color: var(--kleur-tekst-zacht);
   letter-spacing: 0.08em;
   text-transform: uppercase;
   font-size: 0.82rem;
-  margin: 2rem 0 0.75rem;
+  margin-bottom: 0.75rem;
   padding-bottom: 0.5rem;
   border-bottom: 1px solid var(--kleur-lijn);
+  cursor: pointer;
+  list-style: none;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.agenda-volledig .agenda-maand-titel::-webkit-details-marker {
+  display: none;
+}
+
+.agenda-volledig .agenda-maand-titel::before {
+  content: '\25B8';
+  font-size: 0.7rem;
+  transition: transform 0.15s ease;
+}
+
+.agenda-volledig details[open] > .agenda-maand-titel::before {
+  transform: rotate(90deg);
 }
 
 .agenda-volledig .agenda-kaart {
