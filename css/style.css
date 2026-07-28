@@ -2,7 +2,7 @@
    ECCLESIA — Hoofdstijlblad
    ============================================= */
 
-@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&family=Crimson+Pro:ital,wght@0,300;0,400;0,600;1,300;1,400&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700&family=Inter:wght@400;500;600&display=swap');
 
 /* CSS Variabelen */
 :root {
@@ -12,15 +12,15 @@
   --kleur-accent:      #C9A227;
   --kleur-accent-zacht: #E2C05A;
   --kleur-tekst:       #1A2B45;
-  --kleur-tekst-zacht: #5A6A84;
+  --kleur-tekst-zacht: #6B7280;
   --kleur-wit:         #FDFEFF;
   --kleur-lijn:        #D8E3EF;
   --kleur-kaart:       #FFFFFF;
   --kleur-groen:       #2D7A4F;
 
   --sidebar-breedte: 240px;
-  --font-display: 'Playfair Display', Georgia, serif;
-  --font-body: 'Crimson Pro', Georgia, serif;
+  --font-display: 'Outfit', sans-serif;
+  --font-body: 'Inter', sans-serif;
   --schaduw: 0 2px 12px rgba(27, 58, 107, 0.08);
   --schaduw-hover: 0 6px 24px rgba(27, 58, 107, 0.16);
   --radius: 10px;
@@ -41,7 +41,7 @@ body {
   font-family: var(--font-body);
   font-size: 18px;
   line-height: 1.7;
-  color: var(--kleur-tekst);
+  color: var(--kleur-tekst-zacht);
   background-color: var(--kleur-achtergrond);
   display: flex;
   min-height: 100vh;
@@ -54,7 +54,8 @@ body {
 #sidebar {
   width: var(--sidebar-breedte);
   min-height: 100vh;
-  background-color: var(--kleur-sidebar);
+  background-color: var(--kleur-wit);
+  border-right: 1px solid var(--kleur-lijn);
   position: fixed;
   top: 0;
   left: 0;
@@ -68,7 +69,7 @@ body {
 /* Logo gebied */
 .sidebar-logo {
   padding: 2rem 1.5rem 1.5rem;
-  border-bottom: 1px solid rgba(255,255,255,0.08);
+  border-bottom: 1px solid var(--kleur-lijn);
   text-decoration: none;
   display: block;
 }
@@ -88,7 +89,7 @@ body {
   font-family: var(--font-display);
   font-size: 1.25rem;
   font-weight: 700;
-  color: var(--kleur-wit);
+  color: var(--kleur-sidebar);
   letter-spacing: 0.02em;
   line-height: 1.2;
 }
@@ -100,7 +101,7 @@ body {
 .logo-ondertitel {
   font-family: var(--font-body);
   font-size: 0.78rem;
-  color: rgba(253, 250, 245, 0.45);
+  color: var(--kleur-tekst-zacht);
   letter-spacing: 0.12em;
   text-transform: uppercase;
   margin-top: 0.25rem;
@@ -121,7 +122,7 @@ body {
   align-items: center;
   gap: 0.85rem;
   padding: 0.75rem 1.5rem;
-  color: rgba(253, 250, 245, 0.7);
+  color: var(--kleur-sidebar);
   text-decoration: none;
   font-family: var(--font-body);
   font-size: 1rem;
@@ -133,13 +134,13 @@ body {
 }
 
 .sidebar-nav li a:hover {
-  color: var(--kleur-wit);
-  background-color: rgba(255,255,255,0.06);
+  color: var(--kleur-sidebar-hover);
+  background-color: rgba(27, 58, 107, 0.06);
   border-left-color: var(--kleur-accent-zacht);
 }
 
 .sidebar-nav li a.actief {
-  color: var(--kleur-wit);
+  color: var(--kleur-sidebar);
   background-color: rgba(201, 162, 39, 0.12);
   border-left-color: var(--kleur-accent);
   font-weight: 600;
@@ -155,9 +156,9 @@ body {
 /* Sidebar footer */
 .sidebar-footer {
   padding: 1rem 1.5rem;
-  border-top: 1px solid rgba(255,255,255,0.08);
+  border-top: 1px solid var(--kleur-lijn);
   font-size: 0.78rem;
-  color: rgba(253, 250, 245, 0.3);
+  color: var(--kleur-tekst-zacht);
   font-family: var(--font-body);
   text-align: center;
   line-height: 1.5;
@@ -214,7 +215,7 @@ body {
   position: relative;
   margin: -2.5rem -2.5rem 2.5rem;
   height: 440px;
-  background-image: url('https://images.unsplash.com/photo-1438032005730-c779502df39b?auto=format&fit=crop&w=1400&h=500&q=85');
+  background-image: url('https://images.unsplash.com/photo-1504052434569-70ad5836ab65?q=80&w=1740&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D');
   background-size: cover;
   background-position: center 35%;
   overflow: hidden;
@@ -759,7 +760,7 @@ body {
 .nieuws-kaart .volledige-tekst {
   font-size: 1rem;
   line-height: 1.75;
-  color: var(--kleur-tekst);
+  color: var(--kleur-tekst-zacht);
 }
 
 /* Wie zijn wij pagina */
@@ -808,7 +809,7 @@ body {
 .wie-intro p {
   font-size: 1.1rem;
   line-height: 1.8;
-  color: var(--kleur-tekst);
+  color: var(--kleur-tekst-zacht);
   margin-bottom: 1rem;
 }
 
@@ -1312,7 +1313,7 @@ body {
   display: none;
   background: none;
   border: none;
-  color: rgba(253,250,245,0.5);
+  color: var(--kleur-sidebar);
   cursor: pointer;
   font-size: 1.2rem;
   padding: 0.25rem;
@@ -1321,7 +1322,7 @@ body {
 }
 
 .sidebar-sluit:hover {
-  color: var(--kleur-wit);
+  color: var(--kleur-sidebar-hover);
 }
 
 .sidebar-logo-rij {
@@ -1343,7 +1344,7 @@ body {
   gap: 0.6rem;
   font-size: 0.85rem;
   color: var(--kleur-tekst);
-  font-family: var(--lettertype-body);
+  font-family: var(--font-body);
   position: sticky;
   top: 0;
   z-index: 50;
@@ -1367,87 +1368,28 @@ body {
    ANBI PAGINA
    ============================================= */
 
-.anbi-sectie {
-  margin-bottom: 2.5rem;
+.anbi-knop-lijst {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
 }
 
-.anbi-sectie h2 {
-  font-family: var(--lettertype-display);
-  font-size: 1.4rem;
-  color: var(--kleur-tekst);
-  border-bottom: 2px solid var(--kleur-lijn);
-  padding-bottom: 0.5rem;
-  margin-bottom: 1.25rem;
-}
-
-.anbi-tabel {
-  width: 100%;
-  border-collapse: collapse;
-  font-size: 0.95rem;
-}
-
-.anbi-tabel th,
-.anbi-tabel td {
-  padding: 0.75rem 1rem;
-  text-align: left;
-  border-bottom: 1px solid var(--kleur-lijn);
-  vertical-align: top;
-}
-
-.anbi-tabel th {
-  width: 38%;
-  color: var(--kleur-tekst-zacht);
-  font-weight: 600;
-  font-size: 0.88rem;
+.anbi-knop {
+  display: block;
+  background: var(--kleur-accent);
+  color: white;
+  text-align: center;
+  text-decoration: none;
+  font-weight: 700;
   text-transform: uppercase;
-  letter-spacing: 0.04em;
-  background: var(--kleur-achtergrond);
-}
-
-.anbi-tabel td {
-  color: var(--kleur-tekst);
-}
-
-.anbi-tabel tr:last-child th,
-.anbi-tabel tr:last-child td {
-  border-bottom: none;
-}
-
-.anbi-tekst-blok {
-  color: var(--kleur-tekst-zacht);
-  line-height: 1.7;
-  font-style: italic;
-}
-
-.anbi-placeholder {
-  color: #aab4c4;
   letter-spacing: 0.08em;
+  font-size: 0.95rem;
+  padding: 1.25rem 1.5rem;
+  border-radius: 6px;
+  transition: all 0.2s ease;
 }
 
-@media (max-width: 600px) {
-  .anbi-tabel th,
-  .anbi-tabel td {
-    display: block;
-    width: 100%;
-    padding: 0.5rem 0.75rem;
-  }
-
-  .anbi-tabel th {
-    padding-bottom: 0.25rem;
-    border-bottom: none;
-  }
-
-  .anbi-tabel td {
-    padding-top: 0.25rem;
-  }
-
-  .anbi-tabel tr {
-    display: block;
-    border-bottom: 1px solid var(--kleur-lijn);
-    margin-bottom: 0.5rem;
-  }
-
-  .anbi-tabel tr:last-child {
-    border-bottom: none;
-  }
+.anbi-knop:hover {
+  background: var(--kleur-accent-zacht);
+  transform: translateY(-1px);
 }

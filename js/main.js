@@ -76,8 +76,7 @@ function laadSidebar() {
       <ul>${navHTML}</ul>
     </nav>
     <div class="sidebar-footer">
-      &copy; ${new Date().getFullYear()} Evangelische Gemeente Ecclesia<br>
-      Alle zijn welkom
+      &copy; ${new Date().getFullYear()} Evangelische Gemeente Ecclesia Kennemerland
     </div>
   `;
 
