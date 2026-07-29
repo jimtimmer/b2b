@@ -53,18 +53,7 @@ function laadSidebar() {
   const sidebarHTML = `
     <div class="sidebar-logo-rij">
       <a href="/" class="sidebar-logo">
-        <div class="logo-icoon">
-          <svg width="34" height="34" viewBox="0 0 34 34" fill="none" xmlns="http://www.w3.org/2000/svg">
-            <circle cx="17" cy="17" r="15.5" stroke="rgba(253,250,245,0.2)" stroke-width="1.5" fill="none"/>
-            <path d="M17 5 C14.5 9.5 11 12 12.5 16.5 C13.5 19.5 15 21 17 21 C19 21 20.5 19.5 21.5 16.5 C23 12 19.5 9.5 17 5Z" fill="#C9A227"/>
-            <path d="M17 9 C16 12 14.5 14 15 16 C15.5 17.5 16 18.5 17 18.5 C18 18.5 18.5 17.5 19 16 C19.5 14 18 12 17 9Z" fill="#E2C05A"/>
-            <circle cx="6" cy="28" r="2" fill="#C9A227" opacity="0.65"/>
-            <circle cx="11.5" cy="25.5" r="2" fill="#C9A227" opacity="0.82"/>
-            <circle cx="17" cy="25" r="2.5" fill="#C9A227"/>
-            <circle cx="22.5" cy="25.5" r="2" fill="#C9A227" opacity="0.82"/>
-            <circle cx="28" cy="28" r="2" fill="#C9A227" opacity="0.65"/>
-          </svg>
-        </div>
+        <div class="logo-naam">Evangelische Gemeente Ecclesia</div>
       </a>
       <button class="sidebar-sluit" id="sidebar-sluit" aria-label="Menu sluiten">✕</button>
     </div>
