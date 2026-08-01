@@ -53,7 +53,14 @@ function laadSidebar() {
   const sidebarHTML = `
     <div class="sidebar-logo-rij">
       <a href="/" class="sidebar-logo">
-        <div class="logo-naam">Evangelische Gemeente Ecclesia</div>
+        <div class="logo-rij">
+          <img src="/img/eg_logo.png" alt="Evangelische Gemeente Ecclesia" class="logo-afbeelding">
+          <div class="logo-naam">
+            <span>Evangelische</span>
+            <span>Gemeente</span>
+            <span>Ecclesia</span>
+          </div>
+        </div>
       </a>
       <button class="sidebar-sluit" id="sidebar-sluit" aria-label="Menu sluiten">✕</button>
     </div>
@@ -265,7 +272,7 @@ function laadNieuwsLijst(nieuws) {
       <div class="nieuws-item">
         <h4>${escapeHTML(item.titel)}</h4>
         <p>${escapeHTML(item.samenvatting)}</p>
-        <div class="nieuws-datum">${d.dag} ${d.maandLang} ${d.jaar} &mdash; ${escapeHTML(item.auteur)}</div>
+        <div class="nieuws-datum">${d.dag} ${d.maandLang} ${d.jaar}</div>
       </div>
     `;
   }).join('');
@@ -365,7 +372,6 @@ async function laadNieuwsPagina() {
         <div class="nieuws-kaart fade-in">
           <div class="nieuws-meta">
             <span class="nieuws-datum-badge">${d.dag} ${d.maandLang} ${d.jaar}</span>
-            <span class="nieuws-auteur">door ${escapeHTML(item.auteur)}</span>
           </div>
           <h2>${escapeHTML(item.titel)}</h2>
           <p class="samenvatting">${escapeHTML(item.samenvatting)}</p>
