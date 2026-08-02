@@ -1245,6 +1245,15 @@ body {
    ============================================= */
 
 @media (max-width: 480px) {
+  .anbi-gegevens {
+    grid-template-columns: 1fr;
+    gap: 0.25rem 0;
+  }
+
+  .anbi-gegevens dd {
+    margin-bottom: 0.5rem;
+  }
+
   .banner-hero {
     height: 190px;
   }
@@ -1351,28 +1360,42 @@ body {
    ANBI PAGINA
    ============================================= */
 
-.anbi-knop-lijst {
-  display: flex;
-  flex-direction: column;
-  gap: 1rem;
-}
-
-.anbi-knop {
-  display: block;
-  background: var(--kleur-accent);
-  color: white;
-  text-align: center;
-  text-decoration: none;
-  font-weight: 700;
-  text-transform: uppercase;
-  letter-spacing: 0.08em;
+.anbi-inhoud .kaart-header h3 {
   font-size: 0.95rem;
-  padding: 1.25rem 1.5rem;
-  border-radius: 6px;
-  transition: all 0.2s ease;
 }
 
-.anbi-knop:hover {
-  background: var(--kleur-accent-zacht);
-  transform: translateY(-1px);
+.anbi-inhoud .kaart-body p {
+  font-size: 0.88rem;
+  line-height: 1.65;
 }
+
+.anbi-documenten-lijst {
+  list-style: disc;
+  padding-left: 1.25rem;
+  margin-top: 0.5rem;
+  font-size: 0.88rem;
+  line-height: 1.65;
+  color: var(--kleur-tekst-zacht);
+}
+
+.anbi-gegevens {
+  display: grid;
+  grid-template-columns: 140px 1fr;
+  gap: 0.75rem 1.5rem;
+}
+
+.anbi-gegevens dt {
+  font-size: 0.72rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  color: var(--kleur-tekst-zacht);
+}
+
+.anbi-gegevens dd {
+  margin: 0;
+  font-size: 0.88rem;
+  color: var(--kleur-tekst);
+  line-height: 1.6;
+}
+
