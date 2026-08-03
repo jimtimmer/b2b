@@ -1378,6 +1378,16 @@ body {
   color: var(--kleur-tekst-zacht);
 }
 
+.anbi-documenten-lijst a {
+  color: var(--kleur-accent);
+  font-weight: 600;
+  text-decoration: underline;
+}
+
+.anbi-documenten-lijst a:hover {
+  color: var(--kleur-accent-zacht);
+}
+
 .anbi-gegevens {
   display: grid;
   grid-template-columns: 140px 1fr;
