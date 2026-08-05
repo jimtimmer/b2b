@@ -24,6 +24,12 @@ function escapeHTML(str) {
   return div.innerHTML;
 }
 
+function formatLocatie(item) {
+  const locatie = item.locatie && item.locatie !== '-' ? item.locatie : '';
+  const adres = item.adres && item.adres !== '-' ? item.adres : '';
+  return [locatie, adres].filter(Boolean).join(', ') || '-';
+}
+
 // --- Sidebar injectie & navigatie ---
 
 function laadSidebar() {
@@ -218,7 +224,7 @@ function laadEerstvolgendeDienst(agenda) {
       <div class="dienst-meta">
         <div class="dienst-meta-item"><i class="ph ph-microphone"></i> <span>Spreker: <strong>${escapeHTML(komend2.spreker)}</strong></span></div>
         <div class="dienst-meta-item"><i class="ph ph-clock"></i> <span><strong>${komend2.tijd} uur</strong></span></div>
-        <div class="dienst-meta-item"><i class="ph ph-map-pin"></i> <span>${escapeHTML(komend2.locatie)}</span></div>
+        <div class="dienst-meta-item"><i class="ph ph-map-pin"></i> <span>${escapeHTML(formatLocatie(komend2))}</span></div>
       </div>
     </div>
   `;
@@ -336,7 +342,7 @@ async function laadAgendaPagina() {
               <div class="meta-rij">
                 <span><i class="ph ph-microphone"></i> Spreker: <strong>${escapeHTML(item.spreker)}</strong></span>
                 <span><i class="ph ph-clock"></i> <strong>${item.tijd} uur</strong></span>
-                <span><i class="ph ph-map-pin"></i> ${escapeHTML(item.locatie)}</span>
+                <span><i class="ph ph-map-pin"></i> ${escapeHTML(formatLocatie(item))}</span>
               </div>
             </div>
           </div>

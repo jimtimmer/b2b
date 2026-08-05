@@ -3,65 +3,82 @@
     {
       "id": 1,
       "datum": "2026-06-28",
-      "tijd": "10:30",
+      "tijd": "10:00",
       "titel": "Samenkomst",
       "spreker": "W. Oostwouder",
       "thema": "-",
-      "locatie": "Thuislocatie"
+      "locatie": "-",
+      "adres": "Thuislocatie"
     },
     {
       "id": 2,
       "datum": "2026-07-12",
-      "tijd": "10:30",
+      "tijd": "10:00",
       "titel": "Samenkomst",
       "spreker": "W. Oostwouder",
       "thema": "-",
-      "locatie": "Stompe toren Spaarndam"
+      "locatie": "Stompe toren Spaarnwoude",
+      "adres": "2064 KS Spaarndam"
     },
     {
       "id": 3,
       "datum": "2026-07-26",
-      "tijd": "10:30",
+      "tijd": "10:00",
       "titel": "Samenkomst",
       "spreker": "G. Meijer",
       "thema": "Hebrëen 11",
-      "locatie": "Thuislocatie"
+      "locatie": "-",
+      "adres": "Thuislocatie"
     },
     {
       "id": 4,
       "datum": "2026-08-09",
-      "tijd": "10:30",
+      "tijd": "10:00",
       "titel": "Samenkomst",
       "spreker": "Gastspreker — volgt binnenkort",
-      "thema": "—",
-      "locatie": "-"
+      "thema": "-",
+      "locatie": "Stompe toren Spaarnwoude",
+      "adres": "2064 KS Spaarndam"
     },
     {
       "id": 5,
       "datum": "2026-08-16",
-      "tijd": "10:30",
+      "tijd": "10:00",
       "titel": "Doopdienst",
       "spreker": "W. Oostwouder en D. Timmerman",
       "thema": "-",
-      "locatie": "Veerplas Haarlem"
+      "locatie": "Veerplas Haarlem",
+      "adres": "2031 CC Haarlem"
     },
     {
       "id": 6,
       "datum": "2026-08-23",
-      "tijd": "10:30",
+      "tijd": "10:00",
       "titel": "Samenkomst",
       "spreker": "Johan Schep",
-      "thema": "—",
-      "locatie": "-"
+      "thema": "-",
+      "locatie": "-",
+      "adres": "-"
     },
     {
       "id": 7,
       "datum": "2026-08-30",
-      "tijd": "10:30",
+      "tijd": "10:00",
       "titel": "Samenkomst",
       "spreker": "Robbert Speelman",
       "thema": "-",
-      "locatie": "-"
+      "locatie": "-",
+      "adres": "-"
+    },
+    {
+      "id": 8,
+      "datum": "2026-09-06",
+      "tijd": "10:00",
+      "titel": "Samenkomst",
+      "spreker": "Henk Schouten",
+      "thema": "-",
+      "locatie": "-",
+      "adres": "-"
     }
   ]
 }
