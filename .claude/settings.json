@@ -1,0 +1,23 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(sips -z 180 180 /tmp/favicon-test/square.png --out /Users/darrentimmerman/Documents/B2B/img/favicon.png)",
+      "Bash(curl -s -o /dev/null -w \"%{http_code}\\\\n\" http://localhost:8000/img/favicon.png)",
+      "Bash(git check-ignore *)",
+      "Bash(curl -s http://localhost:8000/data/agenda.json)",
+      "Bash(python3 -m json.tool)",
+      "Bash(perl -pi -e 's/\"thema\": /\"thema\\\\/schriftgedeelte\": /g unless /schriftgedeelte/' data/agenda.json)",
+      "Bash(curl -s http://localhost:8000/agenda.html)",
+      "Bash(sips --help)",
+      "Bash(mkdir -p /tmp/whatsapp-logo)",
+      "Bash(sips -p 299 299 --padColor FFFFFF /Users/darrentimmerman/Documents/B2B/img/eg_logo.png --out /tmp/whatsapp-logo/square-white.png)",
+      "Bash(sips -g hasAlpha /tmp/whatsapp-logo/square-white.png)",
+      "Read(//tmp/whatsapp-logo/**)",
+      "Read(//private/tmp/whatsapp-logo/**)",
+      "Bash(sips -p 390 390 --padColor FFFFFF /Users/darrentimmerman/Documents/B2B/img/eg_logo.png --out /tmp/whatsapp-logo/margin.png)",
+      "Bash(sips -z 512 512 /tmp/whatsapp-logo/margin.png --out /Users/darrentimmerman/Documents/B2B/img/eg-logo-whatsapp.png)",
+      "Bash(curl -s http://localhost:8000/data/nieuws.json)",
+      "Bash(python3 -c \"import json,sys; d=json.load\\(sys.stdin\\); print\\(d['berichten'][1]['tekst']\\)\")"
+    ]
+  }
+}
