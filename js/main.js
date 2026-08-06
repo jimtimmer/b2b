@@ -220,7 +220,6 @@ function laadEerstvolgendeDienst(agenda) {
     </div>
     <div class="dienst-info">
       <h3>${escapeHTML(komend2.titel)}</h3>
-      <p class="dienst-thema">"${escapeHTML(komend2.thema)}"</p>
       <div class="dienst-meta">
         <div class="dienst-meta-item"><i class="ph ph-microphone"></i> <span>Spreker: <strong>${escapeHTML(komend2.spreker)}</strong></span></div>
         <div class="dienst-meta-item"><i class="ph ph-clock"></i> <span><strong>${komend2.tijd} uur</strong></span></div>
@@ -338,7 +337,6 @@ async function laadAgendaPagina() {
             </div>
             <div class="info-zijde">
               <h3>${escapeHTML(item.titel)}</h3>
-              <p class="thema">"${escapeHTML(item.thema)}"</p>
               <div class="meta-rij">
                 <span><i class="ph ph-microphone"></i> Spreker: <strong>${escapeHTML(item.spreker)}</strong></span>
                 <span><i class="ph ph-clock"></i> <strong>${item.tijd} uur</strong></span>
