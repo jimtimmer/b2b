@@ -493,6 +493,56 @@ body {
   color: var(--kleur-tekst);
 }
 
+.locatie-uitgelicht {
+  display: flex;
+  gap: 1.25rem;
+  margin-top: 1.25rem;
+  padding-top: 1.25rem;
+  border-top: 1px solid var(--kleur-lijn);
+  flex-wrap: wrap;
+}
+
+.locatie-foto {
+  width: 180px;
+  height: 130px;
+  object-fit: cover;
+  border-radius: var(--radius);
+  flex-shrink: 0;
+}
+
+.locatie-uitgelicht-body {
+  flex: 1;
+  min-width: 200px;
+}
+
+.locatie-uitnodiging {
+  font-size: 0.95rem;
+  color: var(--kleur-tekst);
+  margin-bottom: 0.75rem;
+  line-height: 1.6;
+}
+
+.locatie-route-knop {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  font-size: 0.88rem;
+  font-weight: 600;
+  color: var(--kleur-accent);
+  text-decoration: none;
+}
+
+.locatie-route-knop:hover {
+  color: var(--kleur-accent-zacht);
+}
+
+@media (max-width: 480px) {
+  .locatie-foto {
+    width: 100%;
+    height: 160px;
+  }
+}
+
 /* Agenda lijst */
 .agenda-item {
   display: flex;

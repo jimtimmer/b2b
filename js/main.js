@@ -30,6 +30,16 @@ function formatLocatie(item) {
   return [locatie, adres].filter(Boolean).join(', ') || '-';
 }
 
+// Extra info per locatie: foto + uitnodiging + route naar de parkeerplaats.
+// Wordt automatisch getoond op de homepage zodra de eerstvolgende dienst op deze locatie is.
+const LOCATIE_INFO = {
+  'Stompe toren Spaarnwoude': {
+    foto: '/img/stompe-toren-spaarnwoude.jpg',
+    routeLink: '/img/parkeerplaats-kaart.svg',
+    uitnodiging: 'Heb je aanstaande zondag nog niets te doen? Kom gezellig langs — je bent van harte welkom! Kom je op de fiets, dan zijn we extra blij — dat scheelt een parkeerplekje voor een ander.'
+  }
+};
+
 // --- Sidebar injectie & navigatie ---
 
 function laadSidebar() {
@@ -204,6 +214,19 @@ function laadEerstvolgendeDienst(agenda) {
   }
 
   const d = formatDatum(komend2.datum);
+  const locatieInfo = LOCATIE_INFO[komend2.locatie];
+
+  const locatieBlokHTML = locatieInfo ? `
+    <div class="locatie-uitgelicht">
+      <img src="${locatieInfo.foto}" alt="${escapeHTML(komend2.locatie)}" class="locatie-foto">
+      <div class="locatie-uitgelicht-body">
+        <p class="locatie-uitnodiging">${escapeHTML(locatieInfo.uitnodiging)}</p>
+        <a href="${locatieInfo.routeLink}" target="_blank" rel="noopener" class="locatie-route-knop">
+          <i class="ph ph-map-pin"></i> Bekijk waar je kunt parkeren
+        </a>
+      </div>
+    </div>
+  ` : '';
 
   container.innerHTML = `
     <div class="dienst-datum-blok">
@@ -211,12 +234,13 @@ function laadEerstvolgendeDienst(agenda) {
       <div class="dienst-maand">${d.maand}</div>
     </div>
     <div class="dienst-info">
-      <h3>${escapeHTML(komend2.titel)}</h3>
+      ${komend2.titel !== 'Samenkomst' ? `<h3>${escapeHTML(komend2.titel)}</h3>` : ''}
       <div class="dienst-meta">
         <div class="dienst-meta-item"><i class="ph ph-microphone"></i> <span>Spreker: <strong>${escapeHTML(komend2.spreker)}</strong></span></div>
         <div class="dienst-meta-item"><i class="ph ph-clock"></i> <span><strong>${komend2.tijd} uur</strong></span></div>
         <div class="dienst-meta-item"><i class="ph ph-map-pin"></i> <span>${escapeHTML(formatLocatie(komend2))}</span></div>
       </div>
+      ${locatieBlokHTML}
     </div>
   `;
 }
@@ -291,32 +315,39 @@ async function laadAgendaPagina() {
 
     const gesorteerd = [...agenda.diensten].sort((a, b) => new Date(a.datum) - new Date(b.datum));
 
-    const huidigeSleutel = `${vandaag.getFullYear()}-${vandaag.getMonth()}`;
-
-    // Groepeer per maand
+    // Groepeer per maand (numerieke sleutel jaar*12+maand, voorkomt tekst-vergelijkingsfouten zoals "10" < "9")
     const perMaand = {};
+    const volgordeSleutels = [];
     gesorteerd.forEach(item => {
       const d = new Date(item.datum + 'T00:00:00');
-      const sleutel = `${d.getFullYear()}-${d.getMonth()}`;
+      const sleutel = d.getFullYear() * 12 + d.getMonth();
       if (!perMaand[sleutel]) {
         perMaand[sleutel] = {
           label: `${MAANDEN_LANG[d.getMonth()]} ${d.getFullYear()}`,
-          verleden: sleutel < huidigeSleutel,
+          laatsteDatum: d,
           items: []
         };
+        volgordeSleutels.push(sleutel);
+      } else if (d > perMaand[sleutel].laatsteDatum) {
+        perMaand[sleutel].laatsteDatum = d;
       }
       perMaand[sleutel].items.push(item);
     });
 
-    // Huidige/toekomstige maanden bovenaan (open), afgelopen maanden onderaan (dichtgeklapt)
-    const alleMaanden = Object.values(perMaand);
-    const huidigEnToekomst = alleMaanden.filter(m => !m.verleden);
-    const afgelopen = alleMaanden.filter(m => m.verleden).reverse();
-    const volgorde = [...huidigEnToekomst, ...afgelopen];
+    // Actieve (opengeklapte) maand: de eerste maand (chronologisch) waarvan de laatste dienst nog niet
+    // voorbij is. Zodra alle diensten in de huidige maand voorbij zijn, klapt die dicht en opent de volgende maand.
+    const sleutelsChronologisch = [...volgordeSleutels].sort((a, b) => a - b);
+    let actieveSleutel = sleutelsChronologisch.find(sleutel => perMaand[sleutel].laatsteDatum >= vandaag);
+    if (actieveSleutel === undefined) actieveSleutel = sleutelsChronologisch[sleutelsChronologisch.length - 1];
+
+    // Weergavevolgorde: nieuwste maand bovenaan, oudste (afgelopen) maanden onderaan.
+    volgordeSleutels.sort((a, b) => b - a);
 
     let html = '';
-    volgorde.forEach(maand => {
-      html += `<details class="agenda-maand-groep" ${maand.verleden ? '' : 'open'}>`;
+    volgordeSleutels.forEach(sleutel => {
+      const maand = perMaand[sleutel];
+      const open = sleutel === actieveSleutel;
+      html += `<details class="agenda-maand-groep" ${open ? 'open' : ''}>`;
       html += `<summary class="agenda-maand-titel">${maand.label}</summary>`;
       maand.items.forEach(item => {
         const d = formatDatum(item.datum);

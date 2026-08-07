@@ -71,6 +71,150 @@
       "spreker": "Henk Schouten",
       "locatie": "n.t.b.",
       "adres": "-"
+    },
+    {
+      "id": 9,
+      "datum": "2026-09-13",
+      "tijd": "10:00",
+      "titel": "Samenkomst",
+      "spreker": "Gastspreker — volgt binnenkort",
+      "locatie": "n.t.b.",
+      "adres": "-"
+    },
+    {
+      "id": 10,
+      "datum": "2026-09-20",
+      "tijd": "10:00",
+      "titel": "Samenkomst",
+      "spreker": "Gastspreker — volgt binnenkort",
+      "locatie": "n.t.b.",
+      "adres": "-"
+    },
+    {
+      "id": 11,
+      "datum": "2026-09-27",
+      "tijd": "10:00",
+      "titel": "Samenkomst",
+      "spreker": "Gastspreker — volgt binnenkort",
+      "locatie": "n.t.b.",
+      "adres": "-"
+    },
+    {
+      "id": 12,
+      "datum": "2026-10-04",
+      "tijd": "10:00",
+      "titel": "Samenkomst",
+      "spreker": "Robbert Speelman",
+      "locatie": "n.t.b.",
+      "adres": "-"
+    },
+    {
+      "id": 13,
+      "datum": "2026-10-11",
+      "tijd": "10:00",
+      "titel": "Samenkomst",
+      "spreker": "Gastspreker — volgt binnenkort",
+      "locatie": "n.t.b.",
+      "adres": "-"
+    },
+    {
+      "id": 14,
+      "datum": "2026-10-18",
+      "tijd": "10:00",
+      "titel": "Samenkomst",
+      "spreker": "Gastspreker — volgt binnenkort",
+      "locatie": "n.t.b.",
+      "adres": "-"
+    },
+    {
+      "id": 15,
+      "datum": "2026-10-25",
+      "tijd": "10:00",
+      "titel": "Samenkomst",
+      "spreker": "Henk van Zon",
+      "locatie": "n.t.b.",
+      "adres": "-"
+    },
+    {
+      "id": 16,
+      "datum": "2026-11-01",
+      "tijd": "10:00",
+      "titel": "Samenkomst",
+      "spreker": "Henk Schouten",
+      "locatie": "n.t.b.",
+      "adres": "-"
+    },
+    {
+      "id": 17,
+      "datum": "2026-11-08",
+      "tijd": "10:00",
+      "titel": "Samenkomst",
+      "spreker": "Dirk van Genderen",
+      "locatie": "n.t.b.",
+      "adres": "-"
+    },
+    {
+      "id": 18,
+      "datum": "2026-11-15",
+      "tijd": "10:00",
+      "titel": "Samenkomst",
+      "spreker": "Jelle Kop",
+      "locatie": "n.t.b.",
+      "adres": "-"
+    },
+    {
+      "id": 19,
+      "datum": "2026-11-22",
+      "tijd": "10:00",
+      "titel": "Samenkomst",
+      "spreker": "Frank Ouweneel",
+      "locatie": "n.t.b.",
+      "adres": "-"
+    },
+    {
+      "id": 20,
+      "datum": "2026-11-29",
+      "tijd": "10:00",
+      "titel": "Samenkomst",
+      "spreker": "Armand Gimbrere",
+      "locatie": "n.t.b.",
+      "adres": "-"
+    },
+    {
+      "id": 21,
+      "datum": "2026-12-06",
+      "tijd": "10:00",
+      "titel": "Samenkomst",
+      "spreker": "Gastspreker — volgt binnenkort",
+      "locatie": "n.t.b.",
+      "adres": "-"
+    },
+    {
+      "id": 22,
+      "datum": "2026-12-13",
+      "tijd": "10:00",
+      "titel": "Samenkomst",
+      "spreker": "Jelle Kop",
+      "locatie": "n.t.b.",
+      "adres": "-"
+    },
+    {
+      "id": 23,
+      "datum": "2026-12-20",
+      "tijd": "10:00",
+      "titel": "Samenkomst",
+      "spreker": "Gastspreker — volgt binnenkort",
+      "locatie": "n.t.b.",
+      "adres": "-"
+    },
+    {
+      "id": 24,
+      "datum": "2026-12-24",
+      "tijd": "17:30",
+      "titel": "Samenkomst",
+      "spreker": "Kees van Velsen",
+      "locatie": "n.t.b.",
+      "adres": "-"
     }
   ]
 }
