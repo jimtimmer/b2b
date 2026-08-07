@@ -46,9 +46,10 @@ function laadSidebar() {
 
   const navHTML = navItems.map(item => {
     const actief = huidigPad === item.href ? 'actief' : '';
+    const link = item.href === '/' ? '/' : `${item.href}/`;
     return `
       <li>
-        <a href="${item.href}" class="${actief}">
+        <a href="${link}" class="${actief}">
           <span class="nav-icoon">${item.icoon}</span>
           ${item.label}
         </a>
@@ -176,8 +177,8 @@ async function haalData(pad) {
 async function laadDashboard() {
   try {
     const [agenda, nieuws] = await Promise.all([
-      haalData('data/agenda.json'),
-      haalData('data/nieuws.json')
+      haalData('/data/agenda.json'),
+      haalData('/data/nieuws.json')
     ]);
 
     laadEerstvolgendeDienst(agenda);
@@ -283,7 +284,7 @@ async function laadAgendaPagina() {
   container.innerHTML = '<p class="laad-tekst">Agenda laden...</p>';
 
   try {
-    const agenda = await haalData('data/agenda.json');
+    const agenda = await haalData('/data/agenda.json');
 
     const vandaag = new Date();
     vandaag.setHours(0,0,0,0);
@@ -357,7 +358,7 @@ async function laadNieuwsPagina() {
   container.innerHTML = '<p class="laad-tekst">Nieuws laden...</p>';
 
   try {
-    const nieuws = await haalData('data/nieuws.json');
+    const nieuws = await haalData('/data/nieuws.json');
 
     const gesorteerd = [...nieuws.berichten].sort((a, b) => new Date(b.datum) - new Date(a.datum));
 
