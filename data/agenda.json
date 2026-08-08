@@ -38,15 +38,6 @@
     },
     {
       "id": 5,
-      "datum": "2026-08-16",
-      "tijd": "10:00",
-      "titel": "Doopdienst",
-      "spreker": "W. Oostwouder en D. Timmerman",
-      "locatie": "Veerplas Haarlem",
-      "adres": "2031 CC Haarlem"
-    },
-    {
-      "id": 6,
       "datum": "2026-08-23",
       "tijd": "10:00",
       "titel": "Samenkomst",
@@ -55,7 +46,7 @@
       "adres": "-"
     },
     {
-      "id": 7,
+      "id": 8,
       "datum": "2026-08-30",
       "tijd": "10:00",
       "titel": "Samenkomst",
@@ -64,7 +55,7 @@
       "adres": "-"
     },
     {
-      "id": 8,
+      "id": 9,
       "datum": "2026-09-06",
       "tijd": "10:00",
       "titel": "Samenkomst",
@@ -73,7 +64,7 @@
       "adres": "-"
     },
     {
-      "id": 9,
+      "id": 10,
       "datum": "2026-09-13",
       "tijd": "10:00",
       "titel": "Samenkomst",
@@ -82,7 +73,7 @@
       "adres": "-"
     },
     {
-      "id": 10,
+      "id": 11,
       "datum": "2026-09-20",
       "tijd": "10:00",
       "titel": "Samenkomst",
@@ -91,7 +82,7 @@
       "adres": "-"
     },
     {
-      "id": 11,
+      "id": 12,
       "datum": "2026-09-27",
       "tijd": "10:00",
       "titel": "Samenkomst",
@@ -100,7 +91,7 @@
       "adres": "-"
     },
     {
-      "id": 12,
+      "id": 13,
       "datum": "2026-10-04",
       "tijd": "10:00",
       "titel": "Samenkomst",
@@ -109,7 +100,7 @@
       "adres": "-"
     },
     {
-      "id": 13,
+      "id": 14,
       "datum": "2026-10-11",
       "tijd": "10:00",
       "titel": "Samenkomst",
@@ -118,7 +109,7 @@
       "adres": "-"
     },
     {
-      "id": 14,
+      "id": 15,
       "datum": "2026-10-18",
       "tijd": "10:00",
       "titel": "Samenkomst",
@@ -127,7 +118,7 @@
       "adres": "-"
     },
     {
-      "id": 15,
+      "id": 16,
       "datum": "2026-10-25",
       "tijd": "10:00",
       "titel": "Samenkomst",
@@ -136,7 +127,7 @@
       "adres": "-"
     },
     {
-      "id": 16,
+      "id": 17,
       "datum": "2026-11-01",
       "tijd": "10:00",
       "titel": "Samenkomst",
@@ -145,7 +136,7 @@
       "adres": "-"
     },
     {
-      "id": 17,
+      "id": 18,
       "datum": "2026-11-08",
       "tijd": "10:00",
       "titel": "Samenkomst",
@@ -154,7 +145,7 @@
       "adres": "-"
     },
     {
-      "id": 18,
+      "id": 19,
       "datum": "2026-11-15",
       "tijd": "10:00",
       "titel": "Samenkomst",
@@ -163,7 +154,7 @@
       "adres": "-"
     },
     {
-      "id": 19,
+      "id": 20,
       "datum": "2026-11-22",
       "tijd": "10:00",
       "titel": "Samenkomst",
@@ -172,7 +163,7 @@
       "adres": "-"
     },
     {
-      "id": 20,
+      "id": 21,
       "datum": "2026-11-29",
       "tijd": "10:00",
       "titel": "Samenkomst",
@@ -181,7 +172,7 @@
       "adres": "-"
     },
     {
-      "id": 21,
+      "id": 22,
       "datum": "2026-12-06",
       "tijd": "10:00",
       "titel": "Samenkomst",
@@ -190,7 +181,7 @@
       "adres": "-"
     },
     {
-      "id": 22,
+      "id": 23,
       "datum": "2026-12-13",
       "tijd": "10:00",
       "titel": "Samenkomst",
@@ -199,7 +190,7 @@
       "adres": "-"
     },
     {
-      "id": 23,
+      "id": 24,
       "datum": "2026-12-20",
       "tijd": "10:00",
       "titel": "Samenkomst",
@@ -208,7 +199,7 @@
       "adres": "-"
     },
     {
-      "id": 24,
+      "id": 25,
       "datum": "2026-12-24",
       "tijd": "17:30",
       "titel": "Samenkomst",
