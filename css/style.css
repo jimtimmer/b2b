@@ -1176,6 +1176,7 @@ body {
 }
 
 .menu-overlay.zichtbaar {
+  display: block;
   opacity: 1;
 }
 
@@ -1239,11 +1240,6 @@ body {
   /* Hamburger knop zichtbaar */
   .hamburger-knop {
     display: flex;
-  }
-
-  /* Overlay zichtbaar maken */
-  .menu-overlay {
-    display: block;
   }
 
   /* Paginakoptekst aanpassen */

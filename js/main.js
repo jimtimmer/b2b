@@ -36,7 +36,7 @@ const LOCATIE_INFO = {
   'Stompe toren Spaarnwoude': {
     foto: '/img/stompe-toren-spaarnwoude.jpg',
     routeLink: '/img/parkeerplaats-kaart.svg',
-    uitnodiging: 'Heb je aanstaande zondag nog niets te doen? Kom gezellig langs — je bent van harte welkom! Kom je op de fiets, dan zijn we extra blij — dat scheelt een parkeerplekje voor een ander.'
+    uitnodiging: 'Heeft u aanstaande zondag nog niets te doen? Kom gezellig langs — u bent van harte welkom! Komt u op de fiets, dan zijn we extra blij — dat scheelt een parkeerplekje voor een ander.'
   }
 };
 
@@ -222,7 +222,7 @@ function laadEerstvolgendeDienst(agenda) {
       <div class="locatie-uitgelicht-body">
         <p class="locatie-uitnodiging">${escapeHTML(locatieInfo.uitnodiging)}</p>
         <a href="${locatieInfo.routeLink}" target="_blank" rel="noopener" class="locatie-route-knop">
-          <i class="ph ph-map-pin"></i> Bekijk waar je kunt parkeren
+          <i class="ph ph-map-pin"></i> Bekijk waar u kunt parkeren
         </a>
       </div>
     </div>
