@@ -1,42 +1,6 @@
 {
   "diensten": [
     {
-      "id": 1,
-      "datum": "2026-06-28",
-      "tijd": "10:00",
-      "titel": "Samenkomst",
-      "spreker": "W. Oostwouder",
-      "locatie": "-",
-      "adres": "Thuislocatie"
-    },
-    {
-      "id": 2,
-      "datum": "2026-07-12",
-      "tijd": "10:00",
-      "titel": "Samenkomst",
-      "spreker": "W. Oostwouder",
-      "locatie": "Stompe toren Spaarnwoude",
-      "adres": "2064 KS Spaarndam"
-    },
-    {
-      "id": 3,
-      "datum": "2026-07-26",
-      "tijd": "10:00",
-      "titel": "Samenkomst",
-      "spreker": "G. Meijer",
-      "locatie": "-",
-      "adres": "Thuislocatie"
-    },
-    {
-      "id": 4,
-      "datum": "2026-08-09",
-      "tijd": "10:00",
-      "titel": "Samenkomst",
-      "spreker": "D. Timmerman",
-      "locatie": "Stompe toren Spaarnwoude",
-      "adres": "2064 KS Spaarndam"
-    },
-    {
       "id": 5,
       "datum": "2026-08-23",
       "tijd": "10:00",
