@@ -32,7 +32,8 @@ function formatLocatie(item) {
 
 function formatLocatieHTML(item) {
   const tekst = formatLocatie(item);
-  if (tekst === '-') return escapeHTML(tekst);
+  const heeftLocatie = item.locatie && item.locatie !== '-' && item.locatie !== 'n.t.b.';
+  if (!heeftLocatie) return escapeHTML(tekst);
   const url = `https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(tekst)}`;
   return `<a href="${url}" target="_blank" rel="noopener">${escapeHTML(tekst)}</a>`;
 }
