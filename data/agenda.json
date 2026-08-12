@@ -41,7 +41,7 @@
       "datum": "2026-09-20",
       "tijd": "10:00",
       "titel": "Samenkomst",
-      "spreker": "Gastspreker — volgt binnenkort",
+      "spreker": "Daan Damsteeg",
       "locatie": "n.t.b.",
       "adres": "-"
     },
@@ -168,6 +168,15 @@
       "tijd": "17:30",
       "titel": "Samenkomst",
       "spreker": "Kees van Velsen",
+      "locatie": "n.t.b.",
+      "adres": "-"
+    },
+    {
+      "id": 26,
+      "datum": "2027-01-10",
+      "tijd": "10:00",
+      "titel": "Samenkomst",
+      "spreker": "Daan Damsteeg",
       "locatie": "n.t.b.",
       "adres": "-"
     }
