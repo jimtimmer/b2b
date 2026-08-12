@@ -30,6 +30,13 @@ function formatLocatie(item) {
   return [locatie, adres].filter(Boolean).join(', ') || '-';
 }
 
+function formatLocatieHTML(item) {
+  const tekst = formatLocatie(item);
+  if (tekst === '-') return escapeHTML(tekst);
+  const url = `https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(tekst)}`;
+  return `<a href="${url}" target="_blank" rel="noopener">${escapeHTML(tekst)}</a>`;
+}
+
 // Extra info per locatie: foto + uitnodiging + route naar de parkeerplaats.
 // Wordt automatisch getoond op de homepage zodra de eerstvolgende dienst op deze locatie is.
 const LOCATIE_INFO = {
@@ -238,7 +245,7 @@ function laadEerstvolgendeDienst(agenda) {
       <div class="dienst-meta">
         <div class="dienst-meta-item"><i class="ph ph-microphone"></i> <span>Spreker: <strong>${escapeHTML(komend2.spreker)}</strong></span></div>
         <div class="dienst-meta-item"><i class="ph ph-clock"></i> <span><strong>${komend2.tijd} uur</strong></span></div>
-        <div class="dienst-meta-item"><i class="ph ph-map-pin"></i> <span>${escapeHTML(formatLocatie(komend2))}</span></div>
+        <div class="dienst-meta-item"><i class="ph ph-map-pin"></i> <span>${formatLocatieHTML(komend2)}</span></div>
       </div>
       ${locatieBlokHTML}
     </div>
@@ -363,7 +370,7 @@ async function laadAgendaPagina() {
               <div class="meta-rij">
                 <span><i class="ph ph-microphone"></i> Spreker: <strong>${escapeHTML(item.spreker)}</strong></span>
                 <span><i class="ph ph-clock"></i> <strong>${item.tijd} uur</strong></span>
-                <span><i class="ph ph-map-pin"></i> ${escapeHTML(formatLocatie(item))}</span>
+                <span><i class="ph ph-map-pin"></i> ${formatLocatieHTML(item)}</span>
               </div>
             </div>
           </div>
