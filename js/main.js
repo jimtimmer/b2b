@@ -357,7 +357,8 @@ async function laadAgendaPagina() {
       const open = sleutel === actieveSleutel;
       html += `<details class="agenda-maand-groep" ${open ? 'open' : ''}>`;
       html += `<summary class="agenda-maand-titel">${maand.label}</summary>`;
-      maand.items.forEach(item => {
+      const itemsAflopend = [...maand.items].sort((a, b) => new Date(b.datum) - new Date(a.datum));
+      itemsAflopend.forEach(item => {
         const d = formatDatum(item.datum);
         const verleden = new Date(item.datum + 'T00:00:00') < vandaag;
         html += `
