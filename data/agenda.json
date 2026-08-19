@@ -197,6 +197,33 @@
       "spreker": "Robbert Speelman",
       "locatie": "n.t.b.",
       "adres": "-"
+    },
+    {
+      "id": 29,
+      "datum": "2027-05-30",
+      "tijd": "10:00",
+      "titel": "Samenkomst",
+      "spreker": "Armand Gimbrere",
+      "locatie": "n.t.b.",
+      "adres": "-"
+    },
+    {
+      "id": 30,
+      "datum": "2027-09-12",
+      "tijd": "10:00",
+      "titel": "Samenkomst",
+      "spreker": "Armand Gimbrere",
+      "locatie": "n.t.b.",
+      "adres": "-"
+    },
+    {
+      "id": 31,
+      "datum": "2027-11-21",
+      "tijd": "10:00",
+      "titel": "Samenkomst",
+      "spreker": "Armand Gimbrere",
+      "locatie": "n.t.b.",
+      "adres": "-"
     }
   ]
 }

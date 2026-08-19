@@ -522,6 +522,13 @@ body {
   line-height: 1.6;
 }
 
+.locatie-route-rij {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+}
+
 .locatie-route-knop {
   display: inline-flex;
   align-items: center;
@@ -534,6 +541,12 @@ body {
 
 .locatie-route-knop:hover {
   color: var(--kleur-accent-zacht);
+}
+
+.locatie-route-extra {
+  font-size: 0.88rem;
+  font-weight: 600;
+  color: var(--kleur-accent);
 }
 
 @media (max-width: 480px) {
