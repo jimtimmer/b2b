@@ -60,7 +60,6 @@ function laadSidebar() {
     { href: '/wie-zijn-wij',  icoon: '<i class="ph ph-users"></i>',     label: 'Wie zijn wij' },
     { href: '/nieuws',        icoon: '<i class="ph ph-newspaper"></i>', label: 'Nieuws' },
     { href: '/contact',       icoon: '<i class="ph ph-envelope"></i>',  label: 'Contact' },
-    { href: '/anbi',          icoon: '<i class="ph ph-certificate"></i>', label: 'ANBI' },
   ];
 
   const navHTML = navItems.map(item => {
@@ -94,7 +93,9 @@ function laadSidebar() {
       <ul>${navHTML}</ul>
     </nav>
     <div class="sidebar-footer">
-      &copy; ${new Date().getFullYear()} Evangelische Gemeente Ecclesia - Kennemerland
+      <a href="/anbi/">ANBI</a>
+      <span class="sidebar-footer-scheiding">·</span>
+      <a href="/disclaimer/">Disclaimer</a>
     </div>
   `;
 
@@ -109,6 +110,7 @@ function laadSidebar() {
     '/nieuws':       'Nieuws',
     '/contact':      'Contact',
     '/anbi':         'ANBI',
+    '/disclaimer':   'Disclaimer',
   };
 
   const titelEl = document.getElementById('pagina-titel');
@@ -124,6 +126,16 @@ function laadSidebar() {
 
   // Hamburger menu logica
   voegHamburgerToe();
+}
+
+function voegPaginaFooterToe() {
+  const inhoud = document.getElementById('inhoud');
+  if (!inhoud) return;
+
+  const footer = document.createElement('div');
+  footer.className = 'pagina-footer';
+  footer.innerHTML = `&copy; ${new Date().getFullYear()} Evangelische Gemeente Ecclesia - Kennemerland`;
+  inhoud.appendChild(footer);
 }
 
 function voegHamburgerToe() {
@@ -447,6 +459,7 @@ function laadContactFormulier() {
 
 document.addEventListener('DOMContentLoaded', () => {
   laadSidebar();
+  voegPaginaFooterToe();
   laadDashboard();
   laadAgendaPagina();
   laadNieuwsPagina();

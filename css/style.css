@@ -64,6 +64,7 @@ body {
   padding: 0 0 2rem 0;
   z-index: 100;
   overflow-y: auto;
+  overflow-x: hidden;
 }
 
 /* Logo gebied */
@@ -163,6 +164,21 @@ body {
   line-height: 1.5;
 }
 
+.sidebar-footer a {
+  color: var(--kleur-tekst-zacht);
+  text-decoration: none;
+}
+
+.sidebar-footer a:hover {
+  color: var(--kleur-accent);
+  text-decoration: underline;
+}
+
+.sidebar-footer-scheiding {
+  margin: 0 0.4rem;
+  opacity: 0.6;
+}
+
 /* =============================================
    HOOFDINHOUD
    ============================================= */
@@ -209,6 +225,14 @@ body {
 .pagina-inhoud-smal {
   max-width: 900px;
   margin: 0 auto;
+}
+
+/* Paginafooter (copyright, onderaan de content op elke pagina) */
+.pagina-footer {
+  padding: 1.25rem 2.5rem;
+  font-size: 0.78rem;
+  color: var(--kleur-tekst-zacht);
+  text-align: center;
 }
 
 /* =============================================
