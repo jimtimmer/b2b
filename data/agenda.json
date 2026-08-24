@@ -68,7 +68,7 @@
       "datum": "2026-10-11",
       "tijd": "10:00",
       "titel": "Samenkomst",
-      "spreker": "Philip Spoelstra",
+      "spreker": "Gastspreker — volgt binnenkort",
       "locatie": "n.t.b.",
       "adres": "-"
     },
@@ -140,7 +140,7 @@
       "datum": "2026-12-06",
       "tijd": "10:00",
       "titel": "Samenkomst",
-      "spreker": "Gastspreker — volgt binnenkort",
+      "spreker": "Philip Spoelstra",
       "locatie": "n.t.b.",
       "adres": "-"
     },
@@ -168,6 +168,15 @@
       "tijd": "17:30",
       "titel": "Samenkomst",
       "spreker": "Kees van Velsen",
+      "locatie": "n.t.b.",
+      "adres": "-"
+    },
+    {
+      "id": 32,
+      "datum": "2026-12-27",
+      "tijd": "10:00",
+      "titel": "Samenkomst",
+      "spreker": "Darren Timmerman",
       "locatie": "n.t.b.",
       "adres": "-"
     },

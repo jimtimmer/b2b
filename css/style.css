@@ -61,7 +61,7 @@ body {
   left: 0;
   display: flex;
   flex-direction: column;
-  padding: 0 0 2rem 0;
+  padding: 0;
   z-index: 100;
   overflow-y: auto;
   overflow-x: hidden;
@@ -155,7 +155,7 @@ body {
 
 /* Sidebar footer */
 .sidebar-footer {
-  padding: 1rem 1.5rem;
+  padding: 2rem 1.5rem;
   border-top: 1px solid var(--kleur-lijn);
   font-size: 0.78rem;
   color: var(--kleur-tekst-zacht);
