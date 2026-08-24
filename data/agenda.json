@@ -208,6 +208,15 @@
       "adres": "-"
     },
     {
+      "id": 33,
+      "datum": "2027-05-09",
+      "tijd": "10:00",
+      "titel": "Samenkomst",
+      "spreker": "Jelle Kop",
+      "locatie": "n.t.b.",
+      "adres": "-"
+    },
+    {
       "id": 29,
       "datum": "2027-05-30",
       "tijd": "10:00",
@@ -222,6 +231,15 @@
       "tijd": "10:00",
       "titel": "Samenkomst",
       "spreker": "Armand Gimbrere",
+      "locatie": "n.t.b.",
+      "adres": "-"
+    },
+    {
+      "id": 34,
+      "datum": "2027-10-03",
+      "tijd": "10:00",
+      "titel": "Samenkomst",
+      "spreker": "Jelle Kop",
       "locatie": "n.t.b.",
       "adres": "-"
     },
