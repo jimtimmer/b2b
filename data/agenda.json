@@ -68,7 +68,7 @@
       "datum": "2026-10-11",
       "tijd": "10:00",
       "titel": "Samenkomst",
-      "spreker": "Wouter Slobman",
+      "spreker": "Wouter Mourits",
       "locatie": "n.t.b.",
       "adres": "-"
     },
@@ -199,11 +199,29 @@
       "adres": "-"
     },
     {
+      "id": 35,
+      "datum": "2027-01-24",
+      "tijd": "10:00",
+      "titel": "Samenkomst",
+      "spreker": "Timo Hagedijk",
+      "locatie": "n.t.b.",
+      "adres": "-"
+    },
+    {
       "id": 28,
       "datum": "2027-03-21",
       "tijd": "10:00",
       "titel": "Samenkomst",
       "spreker": "Robbert Speelman",
+      "locatie": "n.t.b.",
+      "adres": "-"
+    },
+    {
+      "id": 36,
+      "datum": "2027-04-25",
+      "tijd": "10:00",
+      "titel": "Samenkomst",
+      "spreker": "Jeep van der Schoot",
       "locatie": "n.t.b.",
       "adres": "-"
     },
