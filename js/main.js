@@ -48,6 +48,8 @@ const LOCATIE_INFO = {
     parkeerNotitie: 'U kunt ook langs de weg aan één kant parkeren'
   },
   'Gebouw Kindervreugd': {
+    routeLink: 'https://www.google.com/maps/search/?api=1&query=' + encodeURIComponent('Gebouw Kindervreugd, Godfried van Bouillonstraat 70, Haarlem'),
+    routeLabel: 'Bekijk route via Google Maps',
     uitnodiging: 'Heb je nog geen kerk voor aankomende zondag, dan ben jij van harte welkom bij EG-Ecclesia.',
     parkeerNotitie: 'Gratis parkeren in de omgeving'
   }
@@ -247,7 +249,7 @@ function laadEerstvolgendeDienst(agenda) {
         <div class="locatie-route-rij">
           ${locatieInfo.routeLink ? `
           <a href="${locatieInfo.routeLink}" target="_blank" rel="noopener" class="locatie-route-knop">
-            <i class="ph ph-map-pin"></i> Bekijk waar u kunt parkeren
+            <i class="ph ph-map-pin"></i> ${locatieInfo.routeLabel || 'Bekijk waar u kunt parkeren'}
           </a>` : ''}
           ${locatieInfo.parkeerNotitie ? `<span class="locatie-route-extra">${locatieInfo.routeLink ? '+ ' : ''}${escapeHTML(locatieInfo.parkeerNotitie)}</span>` : ''}
         </div>` : '';
