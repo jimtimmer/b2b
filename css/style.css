@@ -968,6 +968,53 @@ body {
   text-shadow: 0 1px 4px rgba(0,0,0,0.4);
 }
 
+/* Geven pagina */
+.geven-qr-link {
+  display: inline-block;
+  margin-top: 1rem;
+  border-radius: var(--radius);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+  cursor: pointer;
+}
+
+.geven-qr-link:hover,
+.geven-qr-link:focus-visible {
+  transform: translateY(-2px);
+  box-shadow: var(--schaduw-hover);
+}
+
+.geven-qr-code {
+  display: block;
+  width: 220px;
+  height: 220px;
+  border: 1px solid var(--kleur-lijn);
+  border-radius: var(--radius);
+}
+
+.geven-qr-fallback {
+  margin-top: 1rem;
+  font-size: 0.88rem;
+  color: var(--kleur-tekst-zacht);
+}
+
+.geven-qr-fallback a {
+  color: var(--kleur-accent);
+  font-weight: 600;
+  text-decoration: underline;
+}
+
+.geven-qr-fallback a:hover {
+  color: var(--kleur-accent-zacht);
+}
+
+.geven-rekening {
+  margin-top: 0.75rem;
+  font-size: 1.05rem;
+  font-weight: 600;
+  color: var(--kleur-tekst);
+  line-height: 1.6;
+}
+
 .mail-ons {
   display: flex;
   flex-direction: column;

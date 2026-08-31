@@ -44,8 +44,12 @@ const LOCATIE_INFO = {
   'Stompe toren Spaarnwoude': {
     foto: '/img/stompe-toren-spaarnwoude.jpg',
     routeLink: '/img/parkeerplaats-kaart.svg',
-    uitnodiging: 'Heeft u aanstaande zondag nog niets te doen? Kom gezellig langs — u bent van harte welkom! Komt u op de fiets, dan zijn we extra blij — dat scheelt een parkeerplekje voor een ander.',
+    uitnodiging: 'Heb je nog geen kerk voor aankomende zondag, dan ben jij van harte welkom bij EG-Ecclesia. Kom je op de fiets, dan zijn we extra blij — dat scheelt een parkeerplekje voor een ander.',
     parkeerNotitie: 'U kunt ook langs de weg aan één kant parkeren'
+  },
+  'Gebouw Kindervreugd': {
+    uitnodiging: 'Heb je nog geen kerk voor aankomende zondag, dan ben jij van harte welkom bij EG-Ecclesia.',
+    parkeerNotitie: 'Gratis parkeren in de omgeving'
   }
 };
 
@@ -59,6 +63,7 @@ function laadSidebar() {
     { href: '/agenda',        icoon: '<i class="ph ph-calendar"></i>',  label: 'Agenda' },
     { href: '/wie-zijn-wij',  icoon: '<i class="ph ph-users"></i>',     label: 'Wie zijn wij' },
     { href: '/nieuws',        icoon: '<i class="ph ph-newspaper"></i>', label: 'Nieuws' },
+    { href: '/geven',         icoon: '<i class="ph ph-hand-coins"></i>', label: 'Geven' },
     { href: '/contact',       icoon: '<i class="ph ph-envelope"></i>',  label: 'Contact' },
   ];
 
@@ -108,6 +113,7 @@ function laadSidebar() {
     '/agenda':       'Agenda',
     '/wie-zijn-wij': 'Wie zijn wij',
     '/nieuws':       'Nieuws',
+    '/geven':        'Geven',
     '/contact':      'Contact',
     '/anbi':         'ANBI',
     '/disclaimer':   'Disclaimer',
@@ -237,17 +243,21 @@ function laadEerstvolgendeDienst(agenda) {
   const d = formatDatum(komend2.datum);
   const locatieInfo = LOCATIE_INFO[komend2.locatie];
 
-  const locatieBlokHTML = locatieInfo ? `
-    <div class="locatie-uitgelicht">
-      <img src="${locatieInfo.foto}" alt="${escapeHTML(komend2.locatie)}" class="locatie-foto">
-      <div class="locatie-uitgelicht-body">
-        <p class="locatie-uitnodiging">${escapeHTML(locatieInfo.uitnodiging)}</p>
+  const locatieRouteRijHTML = (locatieInfo && (locatieInfo.routeLink || locatieInfo.parkeerNotitie)) ? `
         <div class="locatie-route-rij">
+          ${locatieInfo.routeLink ? `
           <a href="${locatieInfo.routeLink}" target="_blank" rel="noopener" class="locatie-route-knop">
             <i class="ph ph-map-pin"></i> Bekijk waar u kunt parkeren
-          </a>
-          ${locatieInfo.parkeerNotitie ? `<span class="locatie-route-extra">+ ${escapeHTML(locatieInfo.parkeerNotitie)}</span>` : ''}
-        </div>
+          </a>` : ''}
+          ${locatieInfo.parkeerNotitie ? `<span class="locatie-route-extra">${locatieInfo.routeLink ? '+ ' : ''}${escapeHTML(locatieInfo.parkeerNotitie)}</span>` : ''}
+        </div>` : '';
+
+  const locatieBlokHTML = locatieInfo ? `
+    <div class="locatie-uitgelicht">
+      ${locatieInfo.foto ? `<img src="${locatieInfo.foto}" alt="${escapeHTML(komend2.locatie)}" class="locatie-foto">` : ''}
+      <div class="locatie-uitgelicht-body">
+        <p class="locatie-uitnodiging">${escapeHTML(locatieInfo.uitnodiging)}</p>
+        ${locatieRouteRijHTML}
       </div>
     </div>
   ` : '';
