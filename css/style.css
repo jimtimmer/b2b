@@ -972,7 +972,10 @@ body {
 .geven-qr-link {
   display: inline-block;
   margin-top: 1rem;
-  border-radius: var(--radius);
+  padding: 1rem;
+  background: var(--kleur-wit);
+  border: 1px solid var(--kleur-lijn);
+  border-radius: 0;
   transition: transform 0.2s ease, box-shadow 0.2s ease;
   cursor: pointer;
 }
@@ -987,8 +990,7 @@ body {
   display: block;
   width: 220px;
   height: 220px;
-  border: 1px solid var(--kleur-lijn);
-  border-radius: var(--radius);
+  border-radius: 0;
 }
 
 .geven-qr-fallback {
