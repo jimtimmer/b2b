@@ -181,6 +181,15 @@
       "adres": "-"
     },
     {
+      "id": 37,
+      "datum": "2027-01-03",
+      "tijd": "10:00",
+      "titel": "Samenkomst",
+      "spreker": "Johan Schep",
+      "locatie": "n.t.b.",
+      "adres": "-"
+    },
+    {
       "id": 26,
       "datum": "2027-01-10",
       "tijd": "10:00",
@@ -267,6 +276,24 @@
       "tijd": "10:00",
       "titel": "Samenkomst",
       "spreker": "Armand Gimbrere",
+      "locatie": "n.t.b.",
+      "adres": "-"
+    },
+    {
+      "id": 38,
+      "datum": "2028-02-06",
+      "tijd": "10:00",
+      "titel": "Samenkomst",
+      "spreker": "Johan Schep",
+      "locatie": "n.t.b.",
+      "adres": "-"
+    },
+    {
+      "id": 39,
+      "datum": "2028-12-24",
+      "tijd": "17:30",
+      "titel": "Samenkomst",
+      "spreker": "Johan Schep",
       "locatie": "n.t.b.",
       "adres": "-"
     }
