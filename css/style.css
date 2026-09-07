@@ -53,7 +53,8 @@ body {
 
 #sidebar {
   width: var(--sidebar-breedte);
-  min-height: 100vh;
+  height: 100vh;
+  height: 100dvh;
   background-color: var(--kleur-wit);
   border-right: 1px solid var(--kleur-lijn);
   position: fixed;
@@ -155,8 +156,9 @@ body {
 
 /* Sidebar footer */
 .sidebar-footer {
-  padding: 2rem 1.5rem;
+  padding: 2rem 1.5rem calc(2rem + env(safe-area-inset-bottom));
   border-top: 1px solid var(--kleur-lijn);
+  flex-shrink: 0;
   font-size: 0.78rem;
   color: var(--kleur-tekst-zacht);
   font-family: var(--font-body);
