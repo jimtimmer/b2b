@@ -41,18 +41,18 @@
       "datum": "2026-09-20",
       "tijd": "10:00",
       "titel": "Samenkomst",
-      "spreker": "Daan Damsteeg",
-      "locatie": "n.t.b.",
-      "adres": "-"
+      "spreker": "Willem-Jan Pijnacker-Hordijk",
+      "locatie": "Gebouw Kindervreugd",
+      "adres": "Godfried van Bouillonstraat 70, Haarlem"
     },
     {
       "id": 12,
       "datum": "2026-09-27",
       "tijd": "10:00",
       "titel": "Samenkomst",
-      "spreker": "Gastspreker — volgt binnenkort",
-      "locatie": "n.t.b.",
-      "adres": "-"
+      "spreker": "Stichting Open Doors",
+      "locatie": "Gebouw Kindervreugd",
+      "adres": "Godfried van Bouillonstraat 70, Haarlem"
     },
     {
       "id": 13,
@@ -60,8 +60,8 @@
       "tijd": "10:00",
       "titel": "Samenkomst",
       "spreker": "Armand Gimbrere",
-      "locatie": "n.t.b.",
-      "adres": "-"
+      "locatie": "Gebouw Kindervreugd",
+      "adres": "Godfried van Bouillonstraat 70, Haarlem"
     },
     {
       "id": 14,
@@ -69,8 +69,8 @@
       "tijd": "10:00",
       "titel": "Samenkomst",
       "spreker": "Wouter Mourits",
-      "locatie": "n.t.b.",
-      "adres": "-"
+      "locatie": "Gebouw Kindervreugd",
+      "adres": "Godfried van Bouillonstraat 70, Haarlem"
     },
     {
       "id": 15,
@@ -217,11 +217,29 @@
       "adres": "-"
     },
     {
+      "id": 40,
+      "datum": "2027-01-31",
+      "tijd": "10:00",
+      "titel": "Samenkomst",
+      "spreker": "Johan de Boer",
+      "locatie": "n.t.b.",
+      "adres": "-"
+    },
+    {
       "id": 28,
       "datum": "2027-03-21",
       "tijd": "10:00",
       "titel": "Samenkomst",
       "spreker": "Robbert Speelman",
+      "locatie": "n.t.b.",
+      "adres": "-"
+    },
+    {
+      "id": 41,
+      "datum": "2027-04-11",
+      "tijd": "10:00",
+      "titel": "Samenkomst",
+      "spreker": "Johan de Boer",
       "locatie": "n.t.b.",
       "adres": "-"
     },
@@ -253,6 +271,15 @@
       "adres": "-"
     },
     {
+      "id": 42,
+      "datum": "2027-07-18",
+      "tijd": "10:00",
+      "titel": "Samenkomst",
+      "spreker": "Johan de Boer",
+      "locatie": "n.t.b.",
+      "adres": "-"
+    },
+    {
       "id": 30,
       "datum": "2027-09-12",
       "tijd": "10:00",
@@ -271,11 +298,29 @@
       "adres": "-"
     },
     {
+      "id": 43,
+      "datum": "2027-10-17",
+      "tijd": "10:00",
+      "titel": "Samenkomst",
+      "spreker": "Johan de Boer",
+      "locatie": "n.t.b.",
+      "adres": "-"
+    },
+    {
       "id": 31,
       "datum": "2027-11-21",
       "tijd": "10:00",
       "titel": "Samenkomst",
       "spreker": "Armand Gimbrere",
+      "locatie": "n.t.b.",
+      "adres": "-"
+    },
+    {
+      "id": 44,
+      "datum": "2027-12-05",
+      "tijd": "10:00",
+      "titel": "Samenkomst",
+      "spreker": "Johan de Boer",
       "locatie": "n.t.b.",
       "adres": "-"
     },
