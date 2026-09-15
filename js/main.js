@@ -51,7 +51,7 @@ const LOCATIE_INFO = {
     routeLink: 'https://www.google.com/maps/search/?api=1&query=' + encodeURIComponent('Gebouw Kindervreugd, Godfried van Bouillonstraat 70, Haarlem'),
     routeLabel: 'Bekijk route via Google Maps',
     uitnodiging: 'Heb je nog geen kerk voor aankomende zondag, dan ben jij van harte welkom bij EG-Ecclesia.',
-    parkeerNotitie: 'Gratis parkeren in de omgeving'
+    parkeerNotitie: 'Gratis parkeren in de Godfried van Bouillonstraat, Gouwweteringkade, Zomervaart en Richard Holkade'
   }
 };
 
