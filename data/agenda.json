@@ -226,6 +226,15 @@
       "adres": "-"
     },
     {
+      "id": 50,
+      "datum": "2027-02-07",
+      "tijd": "10:00",
+      "titel": "Samenkomst",
+      "spreker": "Henk Schouten",
+      "locatie": "n.t.b.",
+      "adres": "-"
+    },
+    {
       "id": 45,
       "datum": "2027-02-21",
       "tijd": "10:00",
@@ -352,6 +361,15 @@
       "adres": "-"
     },
     {
+      "id": 51,
+      "datum": "2027-11-14",
+      "tijd": "10:00",
+      "titel": "Samenkomst",
+      "spreker": "Henk Schouten",
+      "locatie": "n.t.b.",
+      "adres": "-"
+    },
+    {
       "id": 31,
       "datum": "2027-11-21",
       "tijd": "10:00",
@@ -366,6 +384,15 @@
       "tijd": "10:00",
       "titel": "Samenkomst",
       "spreker": "Johan de Boer",
+      "locatie": "n.t.b.",
+      "adres": "-"
+    },
+    {
+      "id": 52,
+      "datum": "2027-12-12",
+      "tijd": "10:00",
+      "titel": "Samenkomst",
+      "spreker": "Henk Schouten",
       "locatie": "n.t.b.",
       "adres": "-"
     },
