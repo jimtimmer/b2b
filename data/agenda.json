@@ -226,11 +226,29 @@
       "adres": "-"
     },
     {
+      "id": 45,
+      "datum": "2027-02-21",
+      "tijd": "10:00",
+      "titel": "Samenkomst",
+      "spreker": "Frank Ouweneel",
+      "locatie": "n.t.b.",
+      "adres": "-"
+    },
+    {
       "id": 28,
       "datum": "2027-03-21",
       "tijd": "10:00",
       "titel": "Samenkomst",
       "spreker": "Robbert Speelman",
+      "locatie": "n.t.b.",
+      "adres": "-"
+    },
+    {
+      "id": 46,
+      "datum": "2027-04-04",
+      "tijd": "10:00",
+      "titel": "Samenkomst",
+      "spreker": "Frank Ouweneel",
       "locatie": "n.t.b.",
       "adres": "-"
     },
@@ -280,11 +298,29 @@
       "adres": "-"
     },
     {
+      "id": 47,
+      "datum": "2027-08-15",
+      "tijd": "10:00",
+      "titel": "Samenkomst",
+      "spreker": "Frank Ouweneel",
+      "locatie": "n.t.b.",
+      "adres": "-"
+    },
+    {
       "id": 30,
       "datum": "2027-09-12",
       "tijd": "10:00",
       "titel": "Samenkomst",
       "spreker": "Armand Gimbrere",
+      "locatie": "n.t.b.",
+      "adres": "-"
+    },
+    {
+      "id": 48,
+      "datum": "2027-09-19",
+      "tijd": "10:00",
+      "titel": "Samenkomst",
+      "spreker": "Frank Ouweneel",
       "locatie": "n.t.b.",
       "adres": "-"
     },
@@ -303,6 +339,15 @@
       "tijd": "10:00",
       "titel": "Samenkomst",
       "spreker": "Johan de Boer",
+      "locatie": "n.t.b.",
+      "adres": "-"
+    },
+    {
+      "id": 49,
+      "datum": "2027-11-07",
+      "tijd": "10:00",
+      "titel": "Samenkomst",
+      "spreker": "Frank Ouweneel",
       "locatie": "n.t.b.",
       "adres": "-"
     },
