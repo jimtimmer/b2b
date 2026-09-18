@@ -244,6 +244,15 @@
       "adres": "-"
     },
     {
+      "id": 59,
+      "datum": "2027-03-07",
+      "tijd": "10:00",
+      "titel": "Samenkomst",
+      "spreker": "Ruben Kamps",
+      "locatie": "n.t.b.",
+      "adres": "-"
+    },
+    {
       "id": 28,
       "datum": "2027-03-21",
       "tijd": "10:00",
@@ -298,6 +307,15 @@
       "adres": "-"
     },
     {
+      "id": 53,
+      "datum": "2027-07-11",
+      "tijd": "10:00",
+      "titel": "Samenkomst",
+      "spreker": "Robbert Speelman",
+      "locatie": "n.t.b.",
+      "adres": "-"
+    },
+    {
       "id": 42,
       "datum": "2027-07-18",
       "tijd": "10:00",
@@ -312,6 +330,15 @@
       "tijd": "10:00",
       "titel": "Samenkomst",
       "spreker": "Frank Ouweneel",
+      "locatie": "n.t.b.",
+      "adres": "-"
+    },
+    {
+      "id": 54,
+      "datum": "2027-08-22",
+      "tijd": "10:00",
+      "titel": "Samenkomst",
+      "spreker": "Robbert Speelman",
       "locatie": "n.t.b.",
       "adres": "-"
     },
@@ -348,6 +375,15 @@
       "tijd": "10:00",
       "titel": "Samenkomst",
       "spreker": "Johan de Boer",
+      "locatie": "n.t.b.",
+      "adres": "-"
+    },
+    {
+      "id": 55,
+      "datum": "2027-10-31",
+      "tijd": "10:00",
+      "titel": "Samenkomst",
+      "spreker": "Robbert Speelman",
       "locatie": "n.t.b.",
       "adres": "-"
     },
@@ -397,11 +433,38 @@
       "adres": "-"
     },
     {
+      "id": 56,
+      "datum": "2028-01-16",
+      "tijd": "10:00",
+      "titel": "Samenkomst",
+      "spreker": "Robbert Speelman",
+      "locatie": "n.t.b.",
+      "adres": "-"
+    },
+    {
       "id": 38,
       "datum": "2028-02-06",
       "tijd": "10:00",
       "titel": "Samenkomst",
       "spreker": "Johan Schep",
+      "locatie": "n.t.b.",
+      "adres": "-"
+    },
+    {
+      "id": 57,
+      "datum": "2028-03-26",
+      "tijd": "10:00",
+      "titel": "Samenkomst",
+      "spreker": "Robbert Speelman",
+      "locatie": "n.t.b.",
+      "adres": "-"
+    },
+    {
+      "id": 58,
+      "datum": "2028-06-18",
+      "tijd": "10:00",
+      "titel": "Samenkomst",
+      "spreker": "Dirk Jan Jansen",
       "locatie": "n.t.b.",
       "adres": "-"
     },
