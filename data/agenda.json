@@ -365,6 +365,15 @@
       "datum": "2027-10-03",
       "tijd": "10:00",
       "titel": "Samenkomst",
+      "spreker": "Henk van Zon",
+      "locatie": "n.t.b.",
+      "adres": "-"
+    },
+    {
+      "id": 60,
+      "datum": "2027-10-10",
+      "tijd": "10:00",
+      "titel": "Samenkomst",
       "spreker": "Jelle Kop",
       "locatie": "n.t.b.",
       "adres": "-"
