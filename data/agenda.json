@@ -485,6 +485,60 @@
       "spreker": "Johan Schep",
       "locatie": "n.t.b.",
       "adres": "-"
+    },
+    {
+      "id": 61,
+      "datum": "2028-02-13",
+      "tijd": "10:00",
+      "titel": "Samenkomst",
+      "spreker": "Frank Ouweneel",
+      "locatie": "n.t.b.",
+      "adres": "-"
+    },
+    {
+      "id": 62,
+      "datum": "2028-04-09",
+      "tijd": "10:00",
+      "titel": "Samenkomst",
+      "spreker": "Frank Ouweneel",
+      "locatie": "n.t.b.",
+      "adres": "-"
+    },
+    {
+      "id": 63,
+      "datum": "2028-06-11",
+      "tijd": "10:00",
+      "titel": "Samenkomst",
+      "spreker": "Frank Ouweneel",
+      "locatie": "n.t.b.",
+      "adres": "-"
+    },
+    {
+      "id": 64,
+      "datum": "2028-08-14",
+      "tijd": "10:00",
+      "titel": "Samenkomst",
+      "spreker": "Frank Ouweneel",
+      "locatie": "n.t.b.",
+      "adres": "-"
+    },
+    {
+      "id": 65,
+      "datum": "2028-10-08",
+      "tijd": "10:00",
+      "titel": "Samenkomst",
+      "spreker": "Frank Ouweneel",
+      "locatie": "n.t.b.",
+      "adres": "-"
+    },
+    {
+      "id": 66,
+      "datum": "2028-12-10",
+      "tijd": "10:00",
+      "titel": "Samenkomst",
+      "spreker": "Frank Ouweneel",
+      "locatie": "n.t.b.",
+      "adres": "-"
     }
   ]
 }
