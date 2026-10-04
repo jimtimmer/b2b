@@ -434,6 +434,7 @@ async function laadNieuwsPagina() {
       const d = formatDatum(item.datum);
       return `
         <div class="nieuws-kaart fade-in">
+          ${item.afbeelding ? `<img src="${item.afbeelding}" alt="${escapeHTML(item.afbeeldingAlt || item.titel)}" class="nieuws-kaart-foto">` : ''}
           <div class="nieuws-meta">
             <span class="nieuws-datum-badge">${d.dag} ${d.maandLang} ${d.jaar}</span>
           </div>
