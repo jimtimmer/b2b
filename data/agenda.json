@@ -539,6 +539,24 @@
       "spreker": "Frank Ouweneel",
       "locatie": "n.t.b.",
       "adres": "-"
+    },
+    {
+      "id": 67,
+      "datum": "2028-04-23",
+      "tijd": "10:00",
+      "titel": "Samenkomst",
+      "spreker": "Johan Schep",
+      "locatie": "n.t.b.",
+      "adres": "-"
+    },
+    {
+      "id": 68,
+      "datum": "2028-10-15",
+      "tijd": "10:00",
+      "titel": "Samenkomst",
+      "spreker": "Johan Schep",
+      "locatie": "n.t.b.",
+      "adres": "-"
     }
   ]
 }
