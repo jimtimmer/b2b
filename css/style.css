@@ -670,6 +670,10 @@ body {
   font-size: 0.9rem;
   color: var(--kleur-tekst-zacht);
   line-height: 1.5;
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
 }
 
 .nieuws-datum {
@@ -828,6 +832,13 @@ body {
   margin: 0 auto 1.25rem auto;
   border-radius: var(--radius);
   box-shadow: var(--schaduw);
+  cursor: pointer;
+  transition: opacity 0.2s ease;
+}
+
+.nieuws-kaart-foto:hover,
+.nieuws-kaart-foto:focus-visible {
+  opacity: 0.88;
 }
 
 .nieuws-kaart--met-foto {
@@ -877,16 +888,6 @@ body {
   font-weight: 700;
   margin-bottom: 0.75rem;
   line-height: 1.3;
-}
-
-.nieuws-kaart .samenvatting {
-  color: var(--kleur-tekst-zacht);
-  font-size: 1rem;
-  line-height: 1.6;
-  font-style: italic;
-  border-left: 3px solid var(--kleur-accent);
-  padding-left: 1rem;
-  margin-bottom: 1rem;
 }
 
 .nieuws-kaart .volledige-tekst {
@@ -1299,6 +1300,56 @@ body {
 .menu-overlay.zichtbaar {
   display: block;
   opacity: 1;
+}
+
+/* Lightbox voor nieuws-afbeeldingen */
+.lightbox-overlay {
+  display: none;
+  position: fixed;
+  inset: 0;
+  background: rgba(20, 20, 25, 0.88);
+  z-index: 300;
+  align-items: center;
+  justify-content: center;
+  padding: 2rem;
+  opacity: 0;
+  transition: opacity 0.2s ease;
+}
+
+.lightbox-overlay.zichtbaar {
+  display: flex;
+  opacity: 1;
+}
+
+.lightbox-afbeelding {
+  max-width: 90vw;
+  max-height: 90vh;
+  object-fit: contain;
+  border-radius: var(--radius);
+  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.45);
+}
+
+.lightbox-sluiten {
+  position: absolute;
+  top: 1.5rem;
+  right: 1.5rem;
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  border: none;
+  background: rgba(255, 255, 255, 0.12);
+  color: #fff;
+  font-size: 1.8rem;
+  line-height: 1;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: background 0.2s ease;
+}
+
+.lightbox-sluiten:hover {
+  background: rgba(255, 255, 255, 0.25);
 }
 
 /* =============================================

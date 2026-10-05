@@ -328,7 +328,7 @@ function laadNieuwsLijst(nieuws) {
     return `
       <div class="nieuws-item">
         <h4>${escapeHTML(item.titel)}</h4>
-        <p>${escapeHTML(item.samenvatting)}</p>
+        <p>${escapeHTML(item.tekst)}</p>
         <div class="nieuws-datum">${d.dag} ${d.maandLang} ${d.jaar}</div>
       </div>
     `;
@@ -438,12 +438,11 @@ async function laadNieuwsPagina() {
           <span class="nieuws-datum-badge">${d.dag} ${d.maandLang} ${d.jaar}</span>
         </div>
         <h2>${escapeHTML(item.titel)}</h2>
-        <p class="samenvatting">${escapeHTML(item.samenvatting)}</p>
         <p class="volledige-tekst">${escapeHTML(item.tekst)}</p>
       `;
       return `
         <div class="nieuws-kaart fade-in ${heeftFoto ? 'nieuws-kaart--met-foto' : ''}">
-          ${heeftFoto ? `<img src="${item.afbeelding}" alt="${escapeHTML(item.afbeeldingAlt || item.titel)}" class="nieuws-kaart-foto">` : ''}
+          ${heeftFoto ? `<img src="${item.afbeelding}" alt="${escapeHTML(item.afbeeldingAlt || item.titel)}" class="nieuws-kaart-foto" tabindex="0" role="button" aria-label="Afbeelding vergroten">` : ''}
           ${heeftFoto ? `<div class="nieuws-kaart-inhoud">${inhoud}</div>` : inhoud}
         </div>
       `;
@@ -453,6 +452,58 @@ async function laadNieuwsPagina() {
     container.innerHTML = '<p class="laad-tekst">Fout bij laden nieuws.</p>';
     console.error(err);
   }
+}
+
+// --- Nieuws foto lightbox ---
+
+function initNieuwsLightbox() {
+  const overlay = document.createElement('div');
+  overlay.className = 'lightbox-overlay';
+  overlay.id = 'lightbox-overlay';
+  overlay.innerHTML = `
+    <button class="lightbox-sluiten" aria-label="Sluiten">&times;</button>
+    <img class="lightbox-afbeelding" alt="">
+  `;
+  document.body.appendChild(overlay);
+
+  const afbeelding = overlay.querySelector('.lightbox-afbeelding');
+
+  function lightboxOpen(src, alt) {
+    afbeelding.src = src;
+    afbeelding.alt = alt || '';
+    overlay.classList.add('zichtbaar');
+    document.body.style.overflow = 'hidden';
+  }
+
+  function lightboxSluit() {
+    overlay.classList.remove('zichtbaar');
+    document.body.style.overflow = '';
+  }
+
+  document.addEventListener('click', (e) => {
+    const foto = e.target.closest('.nieuws-kaart-foto');
+    if (foto) {
+      lightboxOpen(foto.src, foto.alt);
+      return;
+    }
+    if (e.target === overlay || e.target.closest('.lightbox-sluiten')) {
+      lightboxSluit();
+    }
+  });
+
+  document.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape') {
+      lightboxSluit();
+      return;
+    }
+    if (e.key === 'Enter' || e.key === ' ') {
+      const foto = e.target.closest && e.target.closest('.nieuws-kaart-foto');
+      if (foto) {
+        e.preventDefault();
+        lightboxOpen(foto.src, foto.alt);
+      }
+    }
+  });
 }
 
 // --- Contact formulier ---
@@ -481,4 +532,5 @@ document.addEventListener('DOMContentLoaded', () => {
   laadAgendaPagina();
   laadNieuwsPagina();
   laadContactFormulier();
+  initNieuwsLightbox();
 });
