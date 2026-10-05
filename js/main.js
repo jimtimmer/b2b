@@ -432,15 +432,19 @@ async function laadNieuwsPagina() {
 
     container.innerHTML = gesorteerd.map(item => {
       const d = formatDatum(item.datum);
+      const heeftFoto = Boolean(item.afbeelding);
+      const inhoud = `
+        <div class="nieuws-meta">
+          <span class="nieuws-datum-badge">${d.dag} ${d.maandLang} ${d.jaar}</span>
+        </div>
+        <h2>${escapeHTML(item.titel)}</h2>
+        <p class="samenvatting">${escapeHTML(item.samenvatting)}</p>
+        <p class="volledige-tekst">${escapeHTML(item.tekst)}</p>
+      `;
       return `
-        <div class="nieuws-kaart fade-in">
-          ${item.afbeelding ? `<img src="${item.afbeelding}" alt="${escapeHTML(item.afbeeldingAlt || item.titel)}" class="nieuws-kaart-foto">` : ''}
-          <div class="nieuws-meta">
-            <span class="nieuws-datum-badge">${d.dag} ${d.maandLang} ${d.jaar}</span>
-          </div>
-          <h2>${escapeHTML(item.titel)}</h2>
-          <p class="samenvatting">${escapeHTML(item.samenvatting)}</p>
-          <p class="volledige-tekst">${escapeHTML(item.tekst)}</p>
+        <div class="nieuws-kaart fade-in ${heeftFoto ? 'nieuws-kaart--met-foto' : ''}">
+          ${heeftFoto ? `<img src="${item.afbeelding}" alt="${escapeHTML(item.afbeeldingAlt || item.titel)}" class="nieuws-kaart-foto">` : ''}
+          ${heeftFoto ? `<div class="nieuws-kaart-inhoud">${inhoud}</div>` : inhoud}
         </div>
       `;
     }).join('');

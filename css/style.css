@@ -830,6 +830,29 @@ body {
   box-shadow: var(--schaduw);
 }
 
+.nieuws-kaart--met-foto {
+  display: grid;
+  grid-template-columns: minmax(0, 380px) 1fr;
+  gap: 2rem;
+  align-items: start;
+}
+
+.nieuws-kaart--met-foto .nieuws-kaart-foto {
+  max-width: 100%;
+  margin: 0;
+}
+
+@media (max-width: 760px) {
+  .nieuws-kaart--met-foto {
+    display: block;
+  }
+
+  .nieuws-kaart--met-foto .nieuws-kaart-foto {
+    max-width: 320px;
+    margin: 0 auto 1.25rem auto;
+  }
+}
+
 .nieuws-kaart .nieuws-meta {
   display: flex;
   align-items: center;
