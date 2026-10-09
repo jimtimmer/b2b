@@ -78,7 +78,7 @@
       "tijd": "10:00",
       "titel": "Samenkomst",
       "spreker": "Robbert Speelman",
-     "locatie": "Gebouw Kindervreugd",
+      "locatie": "Gebouw Kindervreugd",
       "adres": "Godfried van Bouillonstraat 70, Haarlem"
     },
     {
@@ -555,6 +555,24 @@
       "tijd": "10:00",
       "titel": "Samenkomst",
       "spreker": "Johan Schep",
+      "locatie": "n.t.b.",
+      "adres": "-"
+    },
+    {
+      "id": 69,
+      "datum": "2028-04-30",
+      "tijd": "10:00",
+      "titel": "Samenkomst",
+      "spreker": "Simon van Groningen",
+      "locatie": "n.t.b.",
+      "adres": "-"
+    },
+    {
+      "id": 70,
+      "datum": "2028-11-19",
+      "tijd": "10:00",
+      "titel": "Samenkomst",
+      "spreker": "Simon van Groningen",
       "locatie": "n.t.b.",
       "adres": "-"
     }
