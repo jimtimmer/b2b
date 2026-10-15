@@ -575,6 +575,60 @@
       "spreker": "Simon van Groningen",
       "locatie": "n.t.b.",
       "adres": "-"
+    },
+    {
+      "id": 71,
+      "datum": "2027-02-14",
+      "tijd": "10:00",
+      "titel": "Samenkomst",
+      "spreker": "Dirk van Genderen",
+      "locatie": "n.t.b.",
+      "adres": "-"
+    },
+    {
+      "id": 72,
+      "datum": "2027-02-28",
+      "tijd": "10:00",
+      "titel": "Samenkomst",
+      "spreker": "Willem Biesheuvel",
+      "locatie": "n.t.b.",
+      "adres": "-"
+    },
+    {
+      "id": 73,
+      "datum": "2027-05-02",
+      "tijd": "10:00",
+      "titel": "Samenkomst",
+      "spreker": "Wout Mourits",
+      "locatie": "n.t.b.",
+      "adres": "-"
+    },
+    {
+      "id": 74,
+      "datum": "2027-07-04",
+      "tijd": "10:00",
+      "titel": "Samenkomst",
+      "spreker": "Wout Mourits",
+      "locatie": "n.t.b.",
+      "adres": "-"
+    },
+    {
+      "id": 75,
+      "datum": "2027-12-24",
+      "tijd": "20:00",
+      "titel": "Samenkomst",
+      "spreker": "Kees van Velsen",
+      "locatie": "n.t.b.",
+      "adres": "-"
+    },
+    {
+      "id": 76,
+      "datum": "2028-04-14",
+      "tijd": "19:30",
+      "titel": "Samenkomst",
+      "spreker": "Kees van Velsen",
+      "locatie": "n.t.b.",
+      "adres": "-"
     }
   ]
 }
