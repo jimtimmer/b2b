@@ -20,187 +20,106 @@ function formatDatum(datumString) {
 
 function escapeHTML(str) {
   const div = document.createElement('div');
-  div.textContent = str;
+  div.textContent = str == null ? '' : String(str);
   return div.innerHTML;
 }
 
-function formatLocatie(item) {
-  const locatie = item.locatie && item.locatie !== '-' ? item.locatie : '';
-  const adres = item.adres && item.adres !== '-' ? item.adres : '';
-  return [locatie, adres].filter(Boolean).join(', ') || '-';
+function vandaagMiddernacht() {
+  const v = new Date();
+  v.setHours(0, 0, 0, 0);
+  return v;
 }
 
-function formatLocatieHTML(item) {
-  const tekst = formatLocatie(item);
-  const heeftLocatie = item.locatie && item.locatie !== '-' && item.locatie !== 'n.t.b.';
-  if (!heeftLocatie) return escapeHTML(tekst);
-  const url = `https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(tekst)}`;
-  return `<a href="${url}" target="_blank" rel="noopener">${escapeHTML(tekst)}</a>`;
+function isGevuld(waarde) {
+  return Boolean(waarde) && waarde !== '-' && waarde !== 'n.t.b.';
 }
 
-// Extra info per locatie: foto + uitnodiging + route naar de parkeerplaats.
-// Wordt automatisch getoond op de homepage zodra de eerstvolgende dienst op deze locatie is.
+// Extra info per locatie. routeLink overschrijft de standaard Google Maps-route,
+// routeLabel de tekst op de knop.
 const LOCATIE_INFO = {
   'Stompe toren Spaarnwoude': {
-    foto: '/img/stompe-toren-spaarnwoude.jpg',
     routeLink: '/img/parkeerplaats-kaart.svg',
-    uitnodiging: 'Heb je nog geen kerk voor aankomende zondag, dan ben jij van harte welkom bij EG-Ecclesia. Kom je op de fiets, dan zijn we extra blij — dat scheelt een parkeerplekje voor een ander.',
-    parkeerNotitie: 'U kunt ook langs de weg aan één kant parkeren'
-  },
-  'Gebouw Kindervreugd': {
-    routeLink: 'https://www.google.com/maps/search/?api=1&query=' + encodeURIComponent('Gebouw Kindervreugd, Godfried van Bouillonstraat 70, Haarlem'),
-    routeLabel: 'Bekijk route via Google Maps',
-    uitnodiging: 'Heb je nog geen kerk voor aankomende zondag, dan ben jij van harte welkom bij EG-Ecclesia.',
-    parkeerNotitie: 'Gratis parkeren in de Godfried van Bouillonstraat, Gouwweteringkade, Zomervaart en Richard Holkade'
+    routeLabel: 'Bekijk waar u kunt parkeren'
   }
 };
 
-// --- Sidebar injectie & navigatie ---
+function routeUrl(item) {
+  const info = LOCATIE_INFO[item.locatie];
+  if (info && info.routeLink) return info.routeLink;
+  const bestemming = [item.locatie, isGevuld(item.adres) ? item.adres : ''].filter(Boolean).join(', ');
+  return `https://www.google.com/maps/dir/?api=1&destination=${encodeURIComponent(bestemming)}`;
+}
 
-function laadSidebar() {
-  const huidigPad = window.location.pathname.replace(/\.html$/, '').replace(/\/$/, '') || '/';
+function routeLabel(item) {
+  const info = LOCATIE_INFO[item.locatie];
+  return (info && info.routeLabel) || 'Plan je route';
+}
 
-  const navItems = [
-    { href: '/',              icoon: '<i class="ph ph-house"></i>',     label: 'Home' },
-    { href: '/agenda',        icoon: '<i class="ph ph-calendar"></i>',  label: 'Agenda' },
-    { href: '/wie-zijn-wij',  icoon: '<i class="ph ph-users"></i>',     label: 'Wie zijn wij' },
-    { href: '/nieuws',        icoon: '<i class="ph ph-newspaper"></i>', label: 'Nieuws' },
-    { href: '/geven',         icoon: '<i class="ph ph-hand-coins"></i>', label: 'Geven' },
-    { href: '/contact',       icoon: '<i class="ph ph-envelope"></i>',  label: 'Contact' },
-  ];
+// --- Topmenu & footer ---
 
-  const navHTML = navItems.map(item => {
-    const actief = huidigPad === item.href ? 'actief' : '';
+const NAV_ITEMS = [
+  { href: '/',             label: 'Home' },
+  { href: '/agenda',       label: 'Agenda' },
+  { href: '/wie-zijn-wij', label: 'Wie zijn wij' },
+  { href: '/nieuws',       label: 'Nieuws' },
+  { href: '/geven',        label: 'Geven' },
+  { href: '/contact',      label: 'Contact' },
+];
+
+function huidigPad() {
+  return window.location.pathname.replace(/index\.html$/, '').replace(/\.html$/, '').replace(/\/$/, '') || '/';
+}
+
+function laadTopmenu() {
+  const hero = document.querySelector('.hero');
+  if (!hero) return;
+
+  const pad = huidigPad();
+  const links = NAV_ITEMS.map(item => {
     const link = item.href === '/' ? '/' : `${item.href}/`;
-    return `
-      <li>
-        <a href="${link}" class="${actief}">
-          <span class="nav-icoon">${item.icoon}</span>
-          ${item.label}
-        </a>
-      </li>
-    `;
+    const actief = pad === item.href ? ' class="actief" aria-current="page"' : '';
+    return `<a href="${link}"${actief}>${item.label}</a>`;
   }).join('');
 
-  const sidebarHTML = `
-    <div class="sidebar-logo-rij">
-      <a href="/" class="sidebar-logo">
-        <div class="logo-rij">
-          <img src="/img/eg_logo.png" alt="Evangelische Gemeente Ecclesia" class="logo-afbeelding">
-          <div class="logo-naam">
-            <span>Evangelische</span>
-            <span>Gemeente</span>
-            <span>Ecclesia</span>
-          </div>
-        </div>
-      </a>
-      <button class="sidebar-sluit" id="sidebar-sluit" aria-label="Menu sluiten">✕</button>
-    </div>
-    <nav class="sidebar-nav">
-      <ul>${navHTML}</ul>
-    </nav>
-    <div class="sidebar-footer">
-      <a href="/anbi/">ANBI</a>
-      <span class="sidebar-footer-scheiding">·</span>
-      <a href="/disclaimer/">Disclaimer</a>
-    </div>
+  const nav = document.createElement('div');
+  nav.className = 'site-nav';
+  nav.innerHTML = `
+    <a href="/" class="brand"><img src="/img/eg_logo.png" alt="Evangelische Gemeente Ecclesia"></a>
+    <nav class="hoofdmenu" id="hoofdmenu" aria-label="Hoofdmenu">${links}</nav>
+    <button class="menu-knop" id="menu-knop" aria-label="Menu openen" aria-expanded="false" aria-controls="hoofdmenu">
+      <span></span><span></span><span></span>
+    </button>
   `;
+  hero.prepend(nav);
 
-  const sidebar = document.getElementById('sidebar');
-  if (sidebar) sidebar.innerHTML = sidebarHTML;
-
-  // Paginatitel instellen
-  const paginaTitels = {
-    '/':             'Home',
-    '/agenda':       'Agenda',
-    '/wie-zijn-wij': 'Wie zijn wij',
-    '/nieuws':       'Nieuws',
-    '/geven':        'Geven',
-    '/contact':      'Contact',
-    '/anbi':         'ANBI',
-    '/disclaimer':   'Disclaimer',
-  };
-
-  const titelEl = document.getElementById('pagina-titel');
-  if (titelEl) titelEl.textContent = paginaTitels[huidigPad] || 'Ecclesia';
-
-  // Datum in header
-  const datumEl = document.getElementById('header-datum');
-  if (datumEl) {
-    const nu = new Date();
-    const weekdagen = ['zondag','maandag','dinsdag','woensdag','donderdag','vrijdag','zaterdag'];
-    datumEl.textContent = `${weekdagen[nu.getDay()]} ${nu.getDate()} ${MAANDEN_LANG[nu.getMonth()]} ${nu.getFullYear()}`;
-  }
-
-  // Hamburger menu logica
-  voegHamburgerToe();
-}
-
-function voegPaginaFooterToe() {
-  const inhoud = document.getElementById('inhoud');
-  if (!inhoud) return;
-
-  const footer = document.createElement('div');
-  footer.className = 'pagina-footer';
-  footer.innerHTML = `&copy; ${new Date().getFullYear()} Evangelische Gemeente Ecclesia - Kennemerland`;
-  inhoud.appendChild(footer);
-}
-
-function voegHamburgerToe() {
-  // Maak hamburger knop aan
-  const knop = document.createElement('button');
-  knop.className = 'hamburger-knop';
-  knop.id = 'hamburger-knop';
-  knop.setAttribute('aria-label', 'Menu openen');
-  knop.innerHTML = '<span></span><span></span><span></span>';
-  document.body.appendChild(knop);
-
-  // Maak overlay aan
-  const overlay = document.createElement('div');
-  overlay.className = 'menu-overlay';
-  overlay.id = 'menu-overlay';
-  document.body.appendChild(overlay);
-
-  const sidebar = document.getElementById('sidebar');
-
-  function menuOpen() {
-    sidebar.classList.add('open');
-    knop.classList.add('open');
-    overlay.classList.add('zichtbaar');
-    document.body.style.overflow = 'hidden';
-  }
+  const knop = nav.querySelector('#menu-knop');
 
   function menuSluit() {
-    sidebar.classList.remove('open');
-    knop.classList.remove('open');
-    overlay.classList.remove('zichtbaar');
-    document.body.style.overflow = '';
+    document.body.classList.remove('menu-open');
+    knop.setAttribute('aria-expanded', 'false');
+    knop.setAttribute('aria-label', 'Menu openen');
   }
 
-  // Hamburger knop toggle
   knop.addEventListener('click', () => {
-    sidebar.classList.contains('open') ? menuSluit() : menuOpen();
+    const open = document.body.classList.toggle('menu-open');
+    knop.setAttribute('aria-expanded', String(open));
+    knop.setAttribute('aria-label', open ? 'Menu sluiten' : 'Menu openen');
   });
 
-  // Overlay klik sluit menu
-  overlay.addEventListener('click', menuSluit);
+  nav.querySelectorAll('.hoofdmenu a').forEach(a => a.addEventListener('click', menuSluit));
+  document.addEventListener('keydown', e => { if (e.key === 'Escape') menuSluit(); });
+  window.addEventListener('resize', () => { if (window.innerWidth > 860) menuSluit(); });
+}
 
-  // Sluit-knop in sidebar
-  document.addEventListener('click', (e) => {
-    if (e.target.id === 'sidebar-sluit') menuSluit();
-  });
-
-  // Navigatielinks sluiten menu op mobiel
-  document.querySelectorAll('.sidebar-nav a').forEach(link => {
-    link.addEventListener('click', () => {
-      if (window.innerWidth <= 768) menuSluit();
-    });
-  });
-
-  // ESC toets sluit menu
-  document.addEventListener('keydown', (e) => {
-    if (e.key === 'Escape') menuSluit();
-  });
+function laadFooter() {
+  const footer = document.createElement('footer');
+  footer.className = 'site-footer';
+  footer.innerHTML = `
+    <span>&copy; ${new Date().getFullYear()} Evangelische Gemeente Ecclesia - Kennemerland</span>
+    <span class="footer-links"><span class="scheiding">&middot;</span><a href="/anbi/">ANBI</a><span class="scheiding">&middot;</span><a href="/privacy/">Privacy</a><span class="scheiding">&middot;</span><a href="/disclaimer/">Disclaimer</a></span>
+  `;
+  const script = document.querySelector('body > script');
+  document.body.insertBefore(footer, script);
 }
 
 // --- Data ophalen ---
@@ -211,105 +130,88 @@ async function haalData(pad) {
   return response.json();
 }
 
-// --- Homepage Dashboard ---
+function komendeDiensten(agenda) {
+  const vandaag = vandaagMiddernacht();
+  return [...agenda.diensten]
+    .filter(item => new Date(item.datum + 'T00:00:00') >= vandaag)
+    .sort((a, b) => new Date(a.datum) - new Date(b.datum));
+}
 
-async function laadDashboard() {
+// --- Homepage ---
+
+async function laadHomepage() {
+  if (!document.getElementById('samenkomst')) return;
   try {
     const [agenda, nieuws] = await Promise.all([
       haalData('/data/agenda.json'),
       haalData('/data/nieuws.json')
     ]);
-
-    laadEerstvolgendeDienst(agenda);
-    laadAgendaLijst(agenda);
+    const komend = komendeDiensten(agenda);
+    laadSamenkomst(komend[0]);
+    laadAgendaLijst(komend.slice(1, 6));
     laadNieuwsLijst(nieuws);
-
   } catch (err) {
-    console.error('Fout bij laden dashboard:', err);
+    console.error('Fout bij laden homepage:', err);
   }
 }
 
-function laadEerstvolgendeDienst(agenda) {
-  const container = document.getElementById('eerstvolgende-dienst');
+function laadSamenkomst(dienst) {
+  const container = document.getElementById('samenkomst');
   if (!container) return;
 
-  const vandaag2 = new Date();
-  vandaag2.setHours(0,0,0,0);
-  const komend2 = agenda.diensten.find(item => new Date(item.datum + 'T00:00:00') >= vandaag2);
-
-  if (!komend2) {
-    container.innerHTML = '<p class="laad-tekst">Geen komende diensten gevonden.</p>';
+  if (!dienst) {
+    container.innerHTML = '<p class="laad-tekst">Er staan op dit moment geen samenkomsten gepland.</p>';
     return;
   }
 
-  const d = formatDatum(komend2.datum);
-  const locatieInfo = LOCATIE_INFO[komend2.locatie];
-
-  const locatieRouteRijHTML = (locatieInfo && (locatieInfo.routeLink || locatieInfo.parkeerNotitie)) ? `
-        <div class="locatie-route-rij">
-          ${locatieInfo.routeLink ? `
-          <a href="${locatieInfo.routeLink}" target="_blank" rel="noopener" class="locatie-route-knop">
-            <i class="ph ph-map-pin"></i> ${locatieInfo.routeLabel || 'Bekijk waar u kunt parkeren'}
-          </a>` : ''}
-          ${locatieInfo.parkeerNotitie ? `<span class="locatie-route-extra">${locatieInfo.routeLink ? '+ ' : ''}${escapeHTML(locatieInfo.parkeerNotitie)}</span>` : ''}
-        </div>` : '';
-
-  const locatieBlokHTML = locatieInfo ? `
-    <div class="locatie-uitgelicht">
-      ${locatieInfo.foto ? `<img src="${locatieInfo.foto}" alt="${escapeHTML(komend2.locatie)}" class="locatie-foto">` : ''}
-      <div class="locatie-uitgelicht-body">
-        <p class="locatie-uitnodiging">${escapeHTML(locatieInfo.uitnodiging)}</p>
-        ${locatieRouteRijHTML}
-      </div>
-    </div>
-  ` : '';
+  const d = formatDatum(dienst.datum);
+  const heeftLocatie = isGevuld(dienst.locatie);
+  const adresHTML = heeftLocatie && isGevuld(dienst.adres)
+    ? `<a class="adres" href="${routeUrl(dienst)}" target="_blank" rel="noopener">${escapeHTML(dienst.adres)}</a>`
+    : '';
 
   container.innerHTML = `
-    <div class="dienst-datum-blok">
-      <div class="dienst-dag">${d.dag}</div>
-      <div class="dienst-maand">${d.maand}</div>
-    </div>
-    <div class="dienst-info">
-      ${komend2.titel !== 'Samenkomst' ? `<h3>${escapeHTML(komend2.titel)}</h3>` : ''}
-      <div class="dienst-meta">
-        <div class="dienst-meta-item"><i class="ph ph-microphone"></i> <span>Spreker: <strong>${escapeHTML(komend2.spreker)}</strong></span></div>
-        <div class="dienst-meta-item"><i class="ph ph-clock"></i> <span><strong>${komend2.tijd} uur</strong></span></div>
-        <div class="dienst-meta-item"><i class="ph ph-map-pin"></i> <span>${formatLocatieHTML(komend2)}</span></div>
+    <div class="samenkomst-body">
+      <div class="datum-blok">
+        <span class="dag">${d.dag}</span>
+        <span class="mnd">${d.maand}</span>
       </div>
-      ${locatieBlokHTML}
+      <div class="samenkomst-info">
+        <div class="sk-kolom">
+          <span class="sk-key">Spreker</span>
+          <span class="sk-val">${escapeHTML(dienst.spreker)}</span>
+        </div>
+        <div class="sk-kolom">
+          <span class="sk-key">Tijd</span>
+          <span class="sk-val">${escapeHTML(dienst.tijd)} uur</span>
+        </div>
+        <div class="sk-kolom">
+          <span class="sk-key">Locatie</span>
+          <span class="sk-val">${heeftLocatie ? escapeHTML(dienst.locatie) : 'Nog niet bekend'}</span>
+          ${adresHTML}
+        </div>
+      </div>
+      ${heeftLocatie ? `<a class="route-knop" href="${routeUrl(dienst)}" target="_blank" rel="noopener">${escapeHTML(routeLabel(dienst))}</a>` : ''}
     </div>
   `;
 }
 
-function laadAgendaLijst(agenda) {
+function laadAgendaLijst(diensten) {
   const container = document.getElementById('agenda-lijst');
   if (!container) return;
 
-  const vandaag = new Date();
-  vandaag.setHours(0,0,0,0);
-
-  const komend = agenda.diensten
-    .filter(item => new Date(item.datum + 'T00:00:00') >= vandaag)
-    .slice(0, 5);
-
-  if (komend.length === 0) {
-    container.innerHTML = '<p class="laad-tekst">Geen komende diensten.</p>';
+  if (diensten.length === 0) {
+    container.innerHTML = '<p class="laad-tekst">Nog geen volgende diensten gepland.</p>';
     return;
   }
 
-  container.innerHTML = komend.map(item => {
+  container.innerHTML = diensten.map(item => {
     const d = formatDatum(item.datum);
     return `
-      <div class="agenda-item">
-        <div class="agenda-datum-mini">
-          <div class="dag">${d.dag}</div>
-          <div class="mnd">${d.maand}</div>
-        </div>
-        <div class="agenda-info">
-          <h4>${escapeHTML(item.titel)}</h4>
-          <div class="spreker-naam">${escapeHTML(item.spreker)}</div>
-        </div>
-        <div class="agenda-tijd">${item.tijd}</div>
+      <div class="agenda-rij">
+        <span class="ar-datum">${d.dag} ${d.maand}</span>
+        <span class="ar-naam">${escapeHTML(item.spreker)}</span>
+        <span class="ar-tijd">${escapeHTML(item.tijd)}</span>
       </div>
     `;
   }).join('');
@@ -326,11 +228,13 @@ function laadNieuwsLijst(nieuws) {
   container.innerHTML = recent.map(item => {
     const d = formatDatum(item.datum);
     return `
-      <div class="nieuws-item">
-        <h4>${escapeHTML(item.titel)}</h4>
-        <p>${escapeHTML(item.tekst)}</p>
-        <div class="nieuws-datum">${d.dag} ${d.maandLang} ${d.jaar}</div>
-      </div>
+      <a class="nieuws-rij" href="/nieuws/">
+        <div class="nieuws-item-tekst">
+          <h3>${escapeHTML(item.titel)}</h3>
+          <p>${escapeHTML(item.tekst)}</p>
+          <span class="nd">${d.dag} ${d.maandLang} ${d.jaar}</span>
+        </div>
+      </a>
     `;
   }).join('');
 }
@@ -341,17 +245,14 @@ async function laadAgendaPagina() {
   const container = document.getElementById('agenda-container');
   if (!container) return;
 
-  container.innerHTML = '<p class="laad-tekst">Agenda laden...</p>';
-
   try {
     const agenda = await haalData('/data/agenda.json');
-
-    const vandaag = new Date();
-    vandaag.setHours(0,0,0,0);
+    const vandaag = vandaagMiddernacht();
+    const eerstvolgende = komendeDiensten(agenda)[0];
 
     const gesorteerd = [...agenda.diensten].sort((a, b) => new Date(a.datum) - new Date(b.datum));
 
-    // Groepeer per maand (numerieke sleutel jaar*12+maand, voorkomt tekst-vergelijkingsfouten zoals "10" < "9")
+    // Groepeer per maand (numerieke sleutel jaar*12+maand)
     const perMaand = {};
     const volgordeSleutels = [];
     gesorteerd.forEach(item => {
@@ -370,47 +271,49 @@ async function laadAgendaPagina() {
       perMaand[sleutel].items.push(item);
     });
 
-    // Actieve (opengeklapte) maand: de eerste maand (chronologisch) waarvan de laatste dienst nog niet
-    // voorbij is. Zodra alle diensten in de huidige maand voorbij zijn, klapt die dicht en opent de volgende maand.
-    const sleutelsChronologisch = [...volgordeSleutels].sort((a, b) => a - b);
-    let actieveSleutel = sleutelsChronologisch.find(sleutel => perMaand[sleutel].laatsteDatum >= vandaag);
-    if (actieveSleutel === undefined) actieveSleutel = sleutelsChronologisch[sleutelsChronologisch.length - 1];
+    // Huidige maand staat open: de eerste maand waarvan de laatste dienst nog niet voorbij is.
+    const chronologisch = [...volgordeSleutels].sort((a, b) => a - b);
+    let actieveSleutel = chronologisch.find(s => perMaand[s].laatsteDatum >= vandaag);
+    if (actieveSleutel === undefined) actieveSleutel = chronologisch[chronologisch.length - 1];
 
-    // Weergavevolgorde: nieuwste maand bovenaan, oudste (afgelopen) maanden onderaan.
-    volgordeSleutels.sort((a, b) => b - a);
+    // Komende maanden op volgorde bovenaan, afgelopen maanden daaronder (nieuwste eerst).
+    const komendeMaanden = chronologisch.filter(s => s >= actieveSleutel);
+    const afgelopenMaanden = chronologisch.filter(s => s < actieveSleutel).reverse();
 
-    let html = '';
-    volgordeSleutels.forEach(sleutel => {
+    const html = [...komendeMaanden, ...afgelopenMaanden].map(sleutel => {
       const maand = perMaand[sleutel];
       const open = sleutel === actieveSleutel;
-      html += `<details class="agenda-maand-groep" ${open ? 'open' : ''}>`;
-      html += `<summary class="agenda-maand-titel">${maand.label}</summary>`;
-      const itemsAflopend = [...maand.items].sort((a, b) => new Date(b.datum) - new Date(a.datum));
-      itemsAflopend.forEach(item => {
+      const items = [...maand.items].sort((a, b) => new Date(a.datum) - new Date(b.datum)).map(item => {
         const d = formatDatum(item.datum);
         const verleden = new Date(item.datum + 'T00:00:00') < vandaag;
-        html += `
-          <div class="agenda-kaart" style="${verleden ? 'opacity:0.55' : ''}">
+        const isEerstvolgende = eerstvolgende && item === eerstvolgende;
+        const heeftLocatie = isGevuld(item.locatie);
+        const adres = heeftLocatie && isGevuld(item.adres)
+          ? `<a class="adres-klein" href="${routeUrl(item)}" target="_blank" rel="noopener">${escapeHTML(item.adres)}</a>`
+          : '';
+        return `
+          <div class="agenda-kaart${verleden ? ' verleden' : ''}${isEerstvolgende ? ' eerstvolgende' : ''}">
             <div class="datum-zijde">
               <div class="dag">${d.dag}</div>
               <div class="mnd">${d.maand}</div>
             </div>
             <div class="info-zijde">
-              <h3>${escapeHTML(item.titel)}</h3>
-              <div class="meta-rij">
-                <span><i class="ph ph-microphone"></i> Spreker: <strong>${escapeHTML(item.spreker)}</strong></span>
-                <span><i class="ph ph-clock"></i> <strong>${item.tijd} uur</strong></span>
-                <span><i class="ph ph-map-pin"></i> ${formatLocatieHTML(item)}</span>
-              </div>
+              <div class="sk-kolom"><span class="sk-key">Spreker</span><span class="sk-val">${escapeHTML(item.spreker)}</span></div>
+              <div class="sk-kolom"><span class="sk-key">Tijd</span><span class="sk-val">${escapeHTML(item.tijd)} uur</span></div>
+              <div class="sk-kolom"><span class="sk-key">Locatie</span><span class="sk-val">${heeftLocatie ? escapeHTML(item.locatie) : 'Nog niet bekend'}</span>${adres}</div>
             </div>
           </div>
         `;
-      });
-      html += `</details>`;
-    });
+      }).join('');
+      return `
+        <details class="agenda-maand-groep"${open ? ' open' : ''}>
+          <summary class="agenda-maand-titel">${maand.label}</summary>
+          ${items}
+        </details>
+      `;
+    }).join('');
 
     container.innerHTML = html;
-
   } catch (err) {
     container.innerHTML = '<p class="laad-tekst">Fout bij laden agenda.</p>';
     console.error(err);
@@ -423,31 +326,25 @@ async function laadNieuwsPagina() {
   const container = document.getElementById('nieuws-container');
   if (!container) return;
 
-  container.innerHTML = '<p class="laad-tekst">Nieuws laden...</p>';
-
   try {
     const nieuws = await haalData('/data/nieuws.json');
-
     const gesorteerd = [...nieuws.berichten].sort((a, b) => new Date(b.datum) - new Date(a.datum));
 
     container.innerHTML = gesorteerd.map(item => {
       const d = formatDatum(item.datum);
       const heeftFoto = Boolean(item.afbeelding);
       const inhoud = `
-        <div class="nieuws-meta">
-          <span class="nieuws-datum-badge">${d.dag} ${d.maandLang} ${d.jaar}</span>
-        </div>
+        <div class="nieuws-meta">${d.dag} ${d.maandLang} ${d.jaar}</div>
         <h2>${escapeHTML(item.titel)}</h2>
         <p class="volledige-tekst">${escapeHTML(item.tekst)}</p>
       `;
       return `
-        <div class="nieuws-kaart fade-in ${heeftFoto ? 'nieuws-kaart--met-foto' : ''}">
+        <article class="nieuws-kaart${heeftFoto ? ' nieuws-kaart--met-foto' : ''}">
           ${heeftFoto ? `<img src="${item.afbeelding}" alt="${escapeHTML(item.afbeeldingAlt || item.titel)}" class="nieuws-kaart-foto" tabindex="0" role="button" aria-label="Afbeelding vergroten">` : ''}
           ${heeftFoto ? `<div class="nieuws-kaart-inhoud">${inhoud}</div>` : inhoud}
-        </div>
+        </article>
       `;
     }).join('');
-
   } catch (err) {
     container.innerHTML = '<p class="laad-tekst">Fout bij laden nieuws.</p>';
     console.error(err);
@@ -457,9 +354,10 @@ async function laadNieuwsPagina() {
 // --- Nieuws foto lightbox ---
 
 function initNieuwsLightbox() {
+  if (!document.getElementById('nieuws-container')) return;
+
   const overlay = document.createElement('div');
   overlay.className = 'lightbox-overlay';
-  overlay.id = 'lightbox-overlay';
   overlay.innerHTML = `
     <button class="lightbox-sluiten" aria-label="Sluiten">&times;</button>
     <img class="lightbox-afbeelding" alt="">
@@ -480,45 +378,17 @@ function initNieuwsLightbox() {
     document.body.style.overflow = '';
   }
 
-  document.addEventListener('click', (e) => {
+  document.addEventListener('click', e => {
     const foto = e.target.closest('.nieuws-kaart-foto');
-    if (foto) {
-      lightboxOpen(foto.src, foto.alt);
-      return;
-    }
-    if (e.target === overlay || e.target.closest('.lightbox-sluiten')) {
-      lightboxSluit();
-    }
+    if (foto) { lightboxOpen(foto.src, foto.alt); return; }
+    if (e.target === overlay || e.target.closest('.lightbox-sluiten')) lightboxSluit();
   });
 
-  document.addEventListener('keydown', (e) => {
-    if (e.key === 'Escape') {
-      lightboxSluit();
-      return;
-    }
+  document.addEventListener('keydown', e => {
+    if (e.key === 'Escape') { lightboxSluit(); return; }
     if (e.key === 'Enter' || e.key === ' ') {
       const foto = e.target.closest && e.target.closest('.nieuws-kaart-foto');
-      if (foto) {
-        e.preventDefault();
-        lightboxOpen(foto.src, foto.alt);
-      }
-    }
-  });
-}
-
-// --- Contact formulier ---
-
-function laadContactFormulier() {
-  const form = document.getElementById('contact-form');
-  if (!form) return;
-
-  form.addEventListener('submit', function(e) {
-    e.preventDefault();
-    const melding = document.getElementById('form-melding');
-    if (melding) {
-      melding.style.display = 'block';
-      form.reset();
-      setTimeout(() => { melding.style.display = 'none'; }, 5000);
+      if (foto) { e.preventDefault(); lightboxOpen(foto.src, foto.alt); }
     }
   });
 }
@@ -526,11 +396,10 @@ function laadContactFormulier() {
 // --- Initialisatie ---
 
 document.addEventListener('DOMContentLoaded', () => {
-  laadSidebar();
-  voegPaginaFooterToe();
-  laadDashboard();
+  laadTopmenu();
+  laadFooter();
+  laadHomepage();
   laadAgendaPagina();
   laadNieuwsPagina();
-  laadContactFormulier();
   initNieuwsLightbox();
 });
