@@ -228,7 +228,7 @@ function laadNieuwsLijst(nieuws) {
   container.innerHTML = recent.map(item => {
     const d = formatDatum(item.datum);
     return `
-      <a class="nieuws-rij" href="/nieuws/">
+      <a class="nieuws-rij" href="/nieuws/#bericht-${item.id}">
         <div class="nieuws-item-tekst">
           <h3>${escapeHTML(item.titel)}</h3>
           <p>${escapeHTML(item.tekst)}</p>
@@ -339,12 +339,26 @@ async function laadNieuwsPagina() {
         <p class="volledige-tekst">${escapeHTML(item.tekst)}</p>
       `;
       return `
-        <article class="nieuws-kaart${heeftFoto ? ' nieuws-kaart--met-foto' : ''}">
+        <article class="nieuws-kaart${heeftFoto ? ' nieuws-kaart--met-foto' : ''}" id="bericht-${item.id}">
           ${heeftFoto ? `<img src="${item.afbeelding}" alt="${escapeHTML(item.afbeeldingAlt || item.titel)}" class="nieuws-kaart-foto" tabindex="0" role="button" aria-label="Afbeelding vergroten">` : ''}
           ${heeftFoto ? `<div class="nieuws-kaart-inhoud">${inhoud}</div>` : inhoud}
         </article>
       `;
     }).join('');
+
+    // Komt de bezoeker via een bericht op de homepage, scroll dan naar dat bericht.
+    if (window.location.hash) {
+      const doel = document.getElementById(decodeURIComponent(window.location.hash.slice(1)));
+      if (doel) {
+        const scroll = () => doel.scrollIntoView({ block: 'start' });
+        requestAnimationFrame(scroll);
+        // Foto's boven het bericht kunnen de positie nog verschuiven; scroll opnieuw zodra ze geladen zijn.
+        const fotos = [...container.querySelectorAll('img')].filter(img => !img.complete);
+        if (fotos.length) {
+          Promise.all(fotos.map(img => new Promise(r => { img.onload = img.onerror = r; }))).then(scroll);
+        }
+      }
+    }
   } catch (err) {
     container.innerHTML = '<p class="laad-tekst">Fout bij laden nieuws.</p>';
     console.error(err);

@@ -508,7 +508,7 @@ details[open] > .agenda-maand-titel { margin-bottom: 0.75rem; }
    NIEUWS PAGINA
    ============================================= */
 
-.nieuws-kaart { margin-bottom: 1.5rem; }
+.nieuws-kaart { margin-bottom: 1.5rem; scroll-margin-top: 1.5rem; }
 
 .nieuws-kaart .nieuws-meta {
   font-size: 0.9rem;
