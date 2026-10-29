@@ -629,6 +629,24 @@
       "spreker": "Kees van Velsen",
       "locatie": "Petrakerk Heemstede",
       "adres": "Limburglaan 3, 2101 SB Heemstede"
+    },
+    {
+      "id": 77,
+      "datum": "2028-03-12",
+      "tijd": "10:00",
+      "titel": "Samenkomst",
+      "spreker": "Henk van Zon",
+      "locatie": "Petrakerk Heemstede",
+      "adres": "Limburglaan 3, 2101 SB Heemstede"
+    },
+    {
+      "id": 78,
+      "datum": "2028-11-05",
+      "tijd": "10:00",
+      "titel": "Samenkomst",
+      "spreker": "Henk van Zon",
+      "locatie": "Petrakerk Heemstede",
+      "adres": "Limburglaan 3, 2101 SB Heemstede"
     }
   ]
 }
