@@ -409,7 +409,37 @@ function initNieuwsLightbox() {
 
 // --- Initialisatie ---
 
+// --- Bezoekersstatistieken (GoatCounter, zonder cookies) ---
+
+const GOATCOUNTER_URL = 'https://eg-ecclesia.goatcounter.com/count';
+
+function startBezoekersteller() {
+  // Alleen op de echte site tellen, niet bij lokaal testen.
+  if (location.hostname !== 'eg-ecclesia.nl') return;
+  const script = document.createElement('script');
+  script.async = true;
+  script.src = 'https://gc.zgo.at/count.js';
+  script.dataset.goatcounter = GOATCOUNTER_URL;
+  script.addEventListener('load', telNieuwsbericht);
+  document.head.appendChild(script);
+}
+
+// Links naar een nieuwsbericht eindigen op #bericht-<id>. GoatCounter negeert dat deel
+// van de url, dus tellen we het bericht apart zodat zichtbaar is welke berichten gelezen worden.
+async function telNieuwsbericht() {
+  const match = location.pathname.startsWith('/nieuws') && location.hash.match(/^#bericht-(\d+)$/);
+  if (!match || !window.goatcounter) return;
+  let titel = `Nieuwsbericht ${match[1]}`;
+  try {
+    const nieuws = await haalData('/data/nieuws.json');
+    const item = nieuws.berichten.find(b => String(b.id) === match[1]);
+    if (item) titel = item.titel;
+  } catch (e) { /* tellen met standaardtitel */ }
+  window.goatcounter.count({ path: `nieuwsbericht-${match[1]}`, title: titel, event: true });
+}
+
 document.addEventListener('DOMContentLoaded', () => {
+  startBezoekersteller();
   laadTopmenu();
   laadFooter();
   laadHomepage();
